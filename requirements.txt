@@ -2,3 +2,4 @@ Flask
 gunicorn
 discord.py
 pytz
+us
