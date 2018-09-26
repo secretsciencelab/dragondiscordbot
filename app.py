@@ -8,7 +8,7 @@ import json
 app = Flask(__name__)
 
 def fetchLogs():
-  url = 'https://papertrailapp.com/api/v1/events/search.json'
+  url = 'https://papertrailapp.com/api/v1/events/search.json?limit=200'
   token = os.environ.get("PAPERTRAIL_API_TOKEN")
 
   req = urllib.Request(url, 
@@ -20,7 +20,11 @@ def fetchLogs():
 
   messages = []
   for event in obj['events']:
-    messages.append(event['message'])
+    row = "%s %s %s" \
+      % (event['display_received_at'], 
+         event['program'], 
+         event['message'])
+    messages.append(row)
 
   return messages
 
@@ -28,13 +32,13 @@ def fetchLogs():
 def homepage():
     the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
     version = os.environ.get("HEROKU_RELEASE_VERSION")
-    logs = "\<br>".join(fetchLogs())
+    logs = "\n".join(fetchLogs())
 
     return """
     <h1>Dragon's Blessings!</h1>
     <p>I am alive at {time}.</p>
     <p>{version}</p>
-    <p>{logs}</p>
+    <p><pre>{logs}</pre></p>
     """.format(time=the_time, version=version, logs=logs)
 
 def startFlask():
