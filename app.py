@@ -2,19 +2,40 @@ from flask import Flask
 from datetime import datetime
 from bot import *
 import os, threading
+import urllib.request as urllib
+import json
 
 app = Flask(__name__)
+
+def fetchLogs():
+  url = 'https://papertrailapp.com/api/v1/events/search.json'
+  token = os.environ.get("PAPERTRAIL_API_TOKEN")
+
+  req = urllib.Request(url, 
+    headers={'X-Papertrail-Token': token})
+  response = urllib.urlopen(req)
+
+  jsonStr = str(response.read().decode('utf-8'))
+  obj = json.loads(jsonStr)
+
+  messages = []
+  for event in obj['events']:
+    messages.append(event['message'])
+
+  return messages
 
 @app.route('/')
 def homepage():
     the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
     version = os.environ.get("HEROKU_RELEASE_VERSION")
+    logs = "\<br>".join(fetchLogs())
 
     return """
     <h1>Dragon's Blessings!</h1>
     <p>I am alive at {time}.</p>
     <p>{version}</p>
-    """.format(time=the_time, version=version)
+    <p>{logs}</p>
+    """.format(time=the_time, version=version, logs=logs)
 
 def startFlask():
   port = int(os.environ.get("PORT", 8000))
