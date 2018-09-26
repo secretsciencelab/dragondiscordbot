@@ -2,6 +2,7 @@ import discord
 import os, random
 from discord import Game
 from discord.ext.commands import Bot
+bot.remove_command('help')
 
 TOKEN = os.environ["DISCORD_TOKEN"]
 
@@ -27,8 +28,7 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-# removes the default "help" for a fancier one~~
-bot.remove_command('help')
+# makes "help" a fancier command~~
 @bot.command()
 async def help():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
