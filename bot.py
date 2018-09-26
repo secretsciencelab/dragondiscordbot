@@ -56,10 +56,10 @@ async def kami():
 
 @bot.command()
 async def aboutds():
-  embed=discord.Embed(title="About Dragonscript Arena", description="Dragonscript arena is a game designed to help it's players learn JavaScript while controlling/programming an AI for their dragons to go into battle!", color="#004200")
+  embed=discord.Embed(title="About Dragonscript Arena", description="Dragonscript arena is a game designed to help it's players learn JavaScript while controlling/programming an AI for their dragons to go into battle!", color=0x1abc9c)
   embed.add_field(name="Developer", value="The wonderful game was developed by the one and only- Aaron! He's quite talented, and did really well on the game.", inline=false)
   embed.add_field(name="Play now", value="You can play the game free over at: https://dragonscriptarena.appspot.com", inline=false)
-  await bot.say(embed=embed)
+  await bot.say("", embed=embed)
 
 def startDiscord():
   bot.run(TOKEN)
