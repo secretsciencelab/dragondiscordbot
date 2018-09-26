@@ -63,7 +63,7 @@ async def eight_ball(context):
 @bot.command(hidden=True)
 @checks.is_owner()
 async def user_list():
-    """Displays a log of all users in every server the bot is connected to"""
+    #Displays a log of all users in every server the bot is connected to#
     print("!!!!usrlist!!!! Scanning Servers and nicknames as requested")
     await bot.say("A list of the users in the servers has been logged into the bot console.")
     print("\nLog datetime: " + current_datetime)
