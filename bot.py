@@ -66,10 +66,12 @@ async def chris():
 @bot.command()
 async def kami():
   await bot.say("He's not a god!")
+
 @bot.command()
-async def cade()
+async def cade():
   await bot.say("He's Helpful and Kind")
-@bot.command()
+
+    @bot.command()
 async def aboutds():
   embed=discord.Embed(title="About Dragonscript Arena", description="Dragonscript arena is a game designed to help it's players learn JavaScript while controlling/programming an AI for their dragons to go into battle!", color=0x1abc9c)
   embed.set_thumbnail(url="https://i.imgur.com/6QgGoAq.png")
