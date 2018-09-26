@@ -8,11 +8,13 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
+    version = os.environ.get("HEROKU_RELEASE_VERSION")
 
     return """
     <h1>Dragon's Blessings!</h1>
     <p>I am alive at {time}.</p>
-    """.format(time=the_time)
+    <p>{version}</p>
+    """.format(time=the_time, version=version)
 
 def startFlask():
   port = int(os.environ.get("PORT", 8000))
