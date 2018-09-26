@@ -27,6 +27,10 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
+@bot.command()
+async def rawr():
+    await bot.say("RAWR!!! :dragon_face:")
+
 @bot.command(name='8ball',
              description="Answers a yes/no question.",
              brief="Answers from the beyond.",
