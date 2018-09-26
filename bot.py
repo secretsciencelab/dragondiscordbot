@@ -35,7 +35,7 @@ async def h():
     embed.add_field(name="Available commands", value="For now we got:", inline=False)
     embed.add_field(name="rawr", value="A true dragon's roar!", inline=False)
     embed.add_field(name="8ball", value="Ask the destiny 'bout your fortune!", inline=False)
-    embed.add_field(name="chris", value="Know a lil' bit more 'bout Chirs, that great guy. :3", inline=False)
+    embed.add_field(name="chris", value="Know a lil' bit more 'bout Chris, that great guy. :3", inline=False)
     embed.add_field(name="kami", value="What is he anyways?", inline=False)
     embed.add_field(name="aboutds", value="To tell you 'bout DragonScript Arena!", inline=False)
     embed.add_field(name="cade", value="Know more of this sweet boye!", inline=False)
@@ -62,7 +62,7 @@ async def eight_ball(context):
     
 @bot.command()
 async def chris():
-  await bot.say("Walls.")
+  await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
 
 @bot.command()
 async def kami():
