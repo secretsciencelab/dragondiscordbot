@@ -1,7 +1,7 @@
 import discord
 import os, random
 from datetime import datetime
-from pytz import timezone
+import pytz, us
 from discord import Game
 from discord.ext.commands import Bot
 
@@ -70,9 +70,17 @@ async def chris():
 @bot.command(name="time",
              pass_context=True)
 async def dstime(ctx, place):
+  if place not in pytz.all_timezones:
+    # try US states
+    place = us.states.lookup(place)
+    if place:
+      place = place.capital_tz
+  
   if not place:
-    place = "California"
-  locTz = timezone(place)
+    await bot.say("Sorry, I don't know where that is")
+    return
+    
+  locTz = pytz.timezone(place)
   locTime = datetime.now(locTz)
   await bot.say(locTime.strftime('%Y-%m-%d_%H-%M-%S'))
 
