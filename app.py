@@ -12,7 +12,6 @@ def homepage():
     return """
     <h1>Dragon's Blessings!</h1>
     <p>I am alive at {time}.</p>
-    <p>{token}.</p>
     """.format(time=the_time)
 
 def startFlask():
