@@ -60,21 +60,6 @@ async def eight_ball(context):
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
-@bot.command(hidden=True)
-@checks.is_owner()
-async def user_list():
-    """Displays a log of all users in every server the bot is connected to"""
-    print("!!!!usrlist!!!! Scanning Servers and nicknames as requested")
-    await bot.say("A list of the users in the servers has been logged into the bot console.")
-    print("\nLog datetime: " + current_datetime)
-    print("----------------------")
-    for server in bot.servers:
-        for member in server.members:
-            print(
-                "server: {0} | user: {1.name} | user_id: {1.id} | role: {1.top_role} | role_id: {1.top_role.id}".format(
-                    server, member,
-                    member))
-
 @bot.command()
 async def chris():
   await bot.say("Walls.")
