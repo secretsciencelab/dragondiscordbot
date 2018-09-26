@@ -73,9 +73,8 @@ async def cade():
   await bot.say("He's Helpful and Kind")
 
 @bot.command()
-async def joined(member : discord.Member):
-    """Welcome to DragonScripting :D"""
-    await bot.say('{0.name} has entered {0.joined_at}'.format(member))
+async def test(ctx, arg):
+    await ctx.send(arg)
 
 @bot.command()
 async def aboutds():
