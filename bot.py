@@ -80,5 +80,11 @@ async def aboutds():
   embed.add_field(name="Play now", value="You can play the game free over at: https://dragonscriptarena.com", inline=False)
   await bot.say("", embed=embed)
 
+@bot.command()
+async def godhimself():
+    embed=discord.Embed(title="God himself")
+    embed.set_image(url="https://cdn.discordapp.com/attachments/259844248772411393/494527371454447677/god_himself.jpg")
+    await bot.say("", embed=embed)
+
 def startDiscord():
   bot.run(TOKEN)
