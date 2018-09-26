@@ -42,8 +42,8 @@ async def h():
                     **kami** - What is he anyways?\n
                     **chris** - Know a lil' more about Chris, that great guy :3\n
                     **godhimself** - If you wish you see your new god""", inline=False)
-    embed.add_field(name="""Informational CMDs",
-                   value="**aboutds** - Learn a little 'bout DragonScript Arena!\n
+    embed.add_field(name="Informational CMDs",
+                   value="""**aboutds** - Learn a little 'bout DragonScript Arena!\n
                    **time** - Wanna know what time it is somewhere in the word?""", inline=False)   
     await bot.say("", embed=embed)
 
