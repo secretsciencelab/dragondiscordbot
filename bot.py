@@ -75,7 +75,7 @@ async def cade():
 @bot.command()
 async def joined(member : discord.Member):
     """Welcome to DragonScripting :D"""
-    await bot.say('{0.name} ha entrado {0.joined_at}'.format(member))
+    await bot.say('{0.name} has entered {0.joined_at}'.format(member))
 
 @bot.command()
 async def aboutds():
