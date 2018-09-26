@@ -82,7 +82,7 @@ async def dstime(ctx, place):
     
   locTz = pytz.timezone(place)
   locTime = datetime.now(locTz)
-  await bot.say(locTime.strftime('%Y-%m-%d_%H-%M-%S'))
+  await bot.say(locTime.strftime('%a %d %b %Y %H:%M:%S'))
 
 @bot.command()
 async def kami():
