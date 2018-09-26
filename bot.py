@@ -34,14 +34,17 @@ async def on_ready():
 @bot.command(aliases=['help'])
 async def h():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
-    embed.add_field(name="Available commands (CMD Prefix: '!' or '$')", value="For now we got:", inline=False)
-    embed.add_field(name="rawr", value="A true dragon's roar!", inline=False)
-    embed.add_field(name="8ball", value="Ask the destiny 'bout your fortune!", inline=False)
-    embed.add_field(name="chris", value="Know a lil' bit more 'bout Chris, that great guy. :3", inline=False)
-    embed.add_field(name="kami", value="What is he anyways?", inline=False)
-    embed.add_field(name="aboutds", value="To tell you 'bout DragonScript Arena!", inline=False)
-    embed.add_field(name="cade", value="Know more of this sweet boye!", inline=False)
-    embed.add_field(name="godhimself", value="If you wish to see your new god.", inline=False)
+    embed.add_field(name="Available commands (CMD Prefix: '!' or '$')", value="For now we got:", inline=False) 
+    embed.add_field(name="Random CMDs", 
+                    value="**rawr** - A true dragons roar!\n
+                    **8ball** - Ask the destiny 'bout your furtune!\n
+                    **cade** - Know more of this sweet boye!\n
+                    **kami** - What is he anyways?\n
+                    **chris** - Know a lil' more about Chris, that great guy :3\n
+                    **godhimself** - If you wish you see your new god", inline=False)
+    embed.add_field(name="Informational CMDs",
+                   value="**aboutds** - Learn a little 'bout DragonScript Arena!\n
+                   **time** - Wanna know what time it is somewhere in the word?", inline=False)   
     await bot.say("", embed=embed)
 
 @bot.command()
