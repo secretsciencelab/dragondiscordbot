@@ -28,6 +28,16 @@ async def on_ready():
     print('------')
 
 @bot.command()
+async def help():
+    embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
+    embed.add_field(name="Available commands", value="For now we got:", inline=False)
+    embed.add_field(name="rawr", value="A true dragon's roar!", inline=False)
+    embed.add_field(name="8ball", value="Ask the destiny 'bout your fortune!", inline=False)
+    embed.add_field(name="chris", value="Know a lil' bit more 'bout Chirs, that great guy. :3", inline=False)
+    embed.add_field(name="kami", value="What is he anyways?", inline=False)
+    embed.add_field(name="aboutds", value="To tell you 'bout DragonScript Arena!", inline=False)
+
+@bot.command()
 async def rawr():
     await bot.say("RAWR!!! :dragon_face:")
 
