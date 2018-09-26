@@ -49,6 +49,10 @@ async def eight_ball(context):
 @bot.command()
 async def chris():
   await bot.say("Walls.")
-    
+
+@bot.command()
+async def kami():
+  await bot.say("He's not a god!")
+
 def startDiscord():
   bot.run(TOKEN)
