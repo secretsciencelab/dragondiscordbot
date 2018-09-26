@@ -66,10 +66,6 @@ async def eight_ball(context):
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
-@bot.command()
-async def chris():
-  await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
-
 @bot.command(name="time",
              pass_context=True)
 async def dstime(ctx, place):
@@ -90,14 +86,6 @@ async def dstime(ctx, place):
   await bot.say(locTime.strftime('%a %d %b %Y %H:%M:%S'))
 
 @bot.command()
-async def kami():
-  await bot.say("He's not a god!")
-
-@bot.command()
-async def cade():
-  await bot.say("He's Helpful and Kind")
-
-@bot.command()
 async def aboutds():
   embed=discord.Embed(title="About Dragonscript Arena", description="Dragonscript arena is a game designed to help it's players learn JavaScript while controlling/programming an AI for their dragons to go into battle!", color=0x1abc9c)
   embed.set_thumbnail(url="https://i.imgur.com/6QgGoAq.png")
@@ -111,11 +99,23 @@ async def godhimself():
     embed.set_image(url="https://cdn.discordapp.com/attachments/259844248772411393/494527371454447677/god_himself.jpg")
     await bot.say("", embed=embed)
 
+@bot.command()
+async def kami():
+  await bot.say("He's not a god!")
+
+@bot.command()
+async def cade():
+  await bot.say("He's Helpful and Kind")
+
+@bot.command()
+ async def logan():
+  await bot.say("Logan has entered the battle!")
+
+@bot.command()
+async def chris():
+  await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
+    
 def startDiscord():
   bot.run(TOKEN)
-
- @bot.command()
- async def logan():
-   await bot.say("Logan has entered the battle!")
     
     
