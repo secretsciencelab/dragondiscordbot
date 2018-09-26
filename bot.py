@@ -29,7 +29,7 @@ async def on_ready():
     print('------')
 
 # makes "help" a fancier command~~
-@bot.command()
+@bot.command(aliases=['help'])
 async def h():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
     embed.add_field(name="Available commands (CMD Prefix: '!' or '?')", value="For now we got:", inline=False)
