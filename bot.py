@@ -3,8 +3,6 @@ import os, random
 from discord import Game
 from discord.ext.commands import Bot
 
-client = discord.Client()
-
 TOKEN = os.environ["DISCORD_TOKEN"]
 
 BOT_PREFIX = ("?", "!")
@@ -73,19 +71,6 @@ async def kami():
 @bot.command()
 async def cade():
   await bot.say("He's Helpful and Kind")
-
-@client.event
-async def on_message(message):
-    # we do not want the bot to reply to itself
-    if message.author == client.user:
-        return
-
-    if message.content.startswith('!Goodnight'):
-        msg = 'Hello {0.author.mention}'.format(message)
-        await client.send_message(message.channel, msg)
-
-
-client.run('token')
 
 @bot.command()
 async def aboutds():
