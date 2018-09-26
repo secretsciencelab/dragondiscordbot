@@ -2,12 +2,12 @@ import discord
 import os, random
 from discord import Game
 from discord.ext.commands import Bot
-bot.remove_command('help')
 
 TOKEN = os.environ["DISCORD_TOKEN"]
 
 BOT_PREFIX = ("?", "!")
 bot = Bot(command_prefix=BOT_PREFIX)
+bot.remove_command('help')
 
 @bot.event
 async def on_message(message):
@@ -30,7 +30,7 @@ async def on_ready():
 
 # makes "help" a fancier command~~
 @bot.command()
-async def help():
+async def h():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
     embed.add_field(name="Available commands", value="For now we got:", inline=False)
     embed.add_field(name="rawr", value="A true dragon's roar!", inline=False)
