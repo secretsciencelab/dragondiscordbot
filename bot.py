@@ -1,7 +1,7 @@
 import discord
 import os
 from discord import Game
-from discord import Bot
+from discord.ext.commands import Bot
 
 TOKEN = os.environ["DISCORD_TOKEN"]
 
