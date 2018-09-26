@@ -134,4 +134,11 @@ async def obama():
     embed=discord.Embed(title="Obunga Obama", description="Let the fear spread")
     embed.set_image(url="https://i.kym-cdn.com/entries/icons/original/000/026/438/obamammaa.jpg")
     await bot.say("", embed=embed)
+    
+    @bot.command()
+async def gender():
+    await bot.say("My gender? Code... :dragon_face:")
+    
+    
+    
    
