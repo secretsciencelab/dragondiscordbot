@@ -67,8 +67,11 @@ async def eight_ball(context):
 async def chris():
   await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
 
-@bot.command(name="time")
+@bot.command(name="time",
+             pass_context=True)
 async def dstime(ctx, place):
+  if not place:
+    place = "California"
   locTz = timezone(place)
   locTime = datetime.now(locTz)
   await bot.say(locTime.strftime('%Y-%m-%d_%H-%M-%S'))
