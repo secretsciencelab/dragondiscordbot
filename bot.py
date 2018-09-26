@@ -1,5 +1,5 @@
 import discord
-import os
+import os, random
 from discord import Game
 from discord.ext.commands import Bot
 
