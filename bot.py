@@ -36,15 +36,15 @@ async def h():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
     embed.add_field(name="Available commands (CMD Prefix: '!' or '$')", value="For now we got:", inline=False) 
     embed.add_field(name="Random CMDs", 
-                    value="**rawr** - A true dragons roar!\n
+                    value="""**rawr** - A true dragons roar!\n
                     **8ball** - Ask the destiny 'bout your furtune!\n
                     **cade** - Know more of this sweet boye!\n
                     **kami** - What is he anyways?\n
                     **chris** - Know a lil' more about Chris, that great guy :3\n
-                    **godhimself** - If you wish you see your new god", inline=False)
-    embed.add_field(name="Informational CMDs",
+                    **godhimself** - If you wish you see your new god""", inline=False)
+    embed.add_field(name="""Informational CMDs",
                    value="**aboutds** - Learn a little 'bout DragonScript Arena!\n
-                   **time** - Wanna know what time it is somewhere in the word?", inline=False)   
+                   **time** - Wanna know what time it is somewhere in the word?""", inline=False)   
     await bot.say("", embed=embed)
 
 @bot.command()
