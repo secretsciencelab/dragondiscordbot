@@ -55,7 +55,10 @@ async def h():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
     embed.add_field(name="Available commands (CMD Prefix: '!' or '$')", value="For now we got:", inline=False) 
     embed.add_field(name="Random CMDs", 
-                    value="""**rawr** - A true dragons roar!
+                    value="""**rawr** - A true dragons roar!  
+                    **Gender** - Everything has a gender.
+                    **obama** - Please don't.
+                    **logan** - A questionable species indeed...
                     **8ball** - Ask the destiny 'bout your furtune!
                     **cade** - Know more of this sweet boye!
                     **kami** - What is he anyways?
