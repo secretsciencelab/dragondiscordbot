@@ -56,6 +56,7 @@ async def h():
     embed.add_field(name="Available commands (CMD Prefix: '!' or '$')", value="For now we got:", inline=False) 
     embed.add_field(name="Random CMDs", 
                     value="""**rawr** - A true dragons roar!  
+                    **Lucas** Rememberance of our lost Dragon Legend.
                     **Gender** - Everything has a gender.
                     **obama** - Please don't.
                     **logan** - A questionable species indeed...
@@ -117,7 +118,7 @@ async def kami():
 
 @bot.command()
 async def cade():
-  await bot.say("He's Helpful and Kind")
+  await bot.say("Remembering my lost Friend :sad_face:")
 
 @bot.command()
 async def aboutds():
