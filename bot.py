@@ -1,5 +1,7 @@
 import discord
 import os, random
+from datetime import datetime
+from pytz import timezone
 from discord import Game
 from discord.ext.commands import Bot
 
@@ -64,6 +66,12 @@ async def eight_ball(context):
 @bot.command()
 async def chris():
   await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
+
+@bot.command(name="time")
+async def dstime(ctx, place):
+  locTz = timezone(place)
+  locTime = datetime.now(locTz)
+  await bot.say(locTime.strftime('%Y-%m-%d_%H-%M-%S'))
 
 @bot.command()
 async def kami():
