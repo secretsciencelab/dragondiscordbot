@@ -5,31 +5,31 @@ from discord.ext.commands import Bot
 
 TOKEN = os.environ["DISCORD_TOKEN"]
 
-BOT_PREFIX = ("$", "!")
-client = Bot(command_prefix=BOT_PREFIX)
+BOT_PREFIX = ("?", "!")
+bot = Bot(command_prefix=BOT_PREFIX)
 
-@client.event
+@bot.event
 async def on_message(message):
     # we do not want the bot to reply to itself
-    if message.author == client.user:
+    if message.author == bot.user:
         return
 
     if message.content.startswith('!hello'):
-        msg = 'Hello {0.author.mention}'.format(message)
-        await client.send_message(message.channel, msg)
+        msg = 'Hello {0.author.mention}!'.format(message)
+        await bot.send_message(message.channel, msg)
 
-@client.event
+@bot.event
 async def on_ready():
     print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
+    print(bot.user.name)
+    print(bot.user.id)
     print('------')
 
-@client.command(name='8ball',
-                description="Answers a yes/no question.",
-                brief="Answers from the beyond.",
-                aliases=['eight_ball', 'eightball', '8-ball'],
-                pass_context=True)
+@bot.command(name='8ball',
+             description="Answers a yes/no question.",
+             brief="Answers from the beyond.",
+             aliases=['eight_ball', 'eightball', '8-ball'],
+             pass_context=True)
 async def eight_ball(context):
     possible_responses = [
         'That is a resounding no',
@@ -38,7 +38,7 @@ async def eight_ball(context):
         'It is quite possible',
         'Definitely',
     ]
-    await client.say(random.choice(possible_responses) + ", " + context.message.author.mention)
+    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
 
 def startDiscord():
-  client.run(TOKEN)
+  bot.run(TOKEN)
