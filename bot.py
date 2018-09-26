@@ -38,6 +38,7 @@ async def h():
     embed.add_field(name="chris", value="Know a lil' bit more 'bout Chirs, that great guy. :3", inline=False)
     embed.add_field(name="kami", value="What is he anyways?", inline=False)
     embed.add_field(name="aboutds", value="To tell you 'bout DragonScript Arena!", inline=False)
+    await bot.say("", embed=embed)
 
 @bot.command()
 async def rawr():
