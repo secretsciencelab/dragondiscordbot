@@ -108,7 +108,7 @@ async def cade():
   await bot.say("He's Helpful and Kind")
 
 @bot.command()
- async def logan():
+async def logan():
   await bot.say("Logan has entered the battle!")
 
 @bot.command()
