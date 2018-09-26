@@ -82,7 +82,7 @@ async def aboutds():
 
 @bot.command()
 async def godhimself():
-    embed=discord.Embed(title="God himself")
+    embed=discord.Embed(title="God himself", description="***BOW DOWN TO YOUR NEW GOD!***")
     embed.set_image(url="https://cdn.discordapp.com/attachments/259844248772411393/494527371454447677/god_himself.jpg")
     await bot.say("", embed=embed)
 
