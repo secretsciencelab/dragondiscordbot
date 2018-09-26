@@ -36,20 +36,12 @@ async def on_message(message):
     if message.content.startswith('!hello'):
         msg = 'Hello {0.author.mention}!'.format(message)
         await bot.send_message(message.channel, msg)
-
-    await bot.process_commands(message)
-
-@bot.event
-async def on_message(message):
-    # we do not want the bot to reply to itself
-    if message.author == bot.user:
-        return
-
-    if message.content.startswith('!Lucas'):
+    elif message.content.startswith('!Lucas'):
         msg = '***Sniffs intensely {0.author.mention}!***'.format(message)
         await bot.send_message(message.channel, msg)
 
     await bot.process_commands(message)
+
 @bot.event
 async def on_ready():
     print('Logged in as')
