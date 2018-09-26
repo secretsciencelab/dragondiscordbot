@@ -48,7 +48,7 @@ async def eight_ball(context):
     
 @bot.command()
 async def chris():
-  await.bot.say("Walls.")
+  await bot.say("Walls.")
     
 def startDiscord():
   bot.run(TOKEN)
