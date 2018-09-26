@@ -1,7 +1,7 @@
 from flask import Flask
 from datetime import datetime
 from bot import *
-import threading
+import os, threading
 
 app = Flask(__name__)
 
@@ -15,7 +15,8 @@ def homepage():
     """.format(time=the_time)
 
 def startFlask():
-  app.run(debug=True, use_reloader=False)
+  port = int(os.environ.get("PORT", 8000))
+  app.run(debug=True, use_reloader=False, port=port)
 
 if __name__ == '__main__':
     flaskThread = threading.Thread(target=startFlask)
