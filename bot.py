@@ -37,7 +37,7 @@ async def on_message(message):
         msg = 'Hello {0.author.mention}!'.format(message)
         await bot.send_message(message.channel, msg)
     elif message.content.startswith('!Lucas'):
-        msg = '***Sniffs intensely {0.author.mention}!***'.format(message)
+        msg = '***Sniffs intensely! <@494240722074075138>***'.format(message)
         await bot.send_message(message.channel, msg)
 
     await bot.process_commands(message)
