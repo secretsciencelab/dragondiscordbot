@@ -74,7 +74,7 @@ async def cade():
 
 @bot.command()
 async def test(ctx, arg):
-    await ctx.send(arg)
+  await ctx.send(arg)
 
 @bot.command()
 async def aboutds():
