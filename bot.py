@@ -73,6 +73,18 @@ async def cade():
   await bot.say("He's Helpful and Kind")
 
 @bot.command()
+async def foo(ctx, arg):
+  await ctx.send(arg)
+
+@bot.command()
+async def test(ctx):
+    pass
+
+@bot.command(name='list')
+async def _list(ctx, arg):
+    pass
+
+@bot.command()
 async def test(ctx, arg):
   await ctx.send(arg)
 
