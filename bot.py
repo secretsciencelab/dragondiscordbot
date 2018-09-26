@@ -5,7 +5,7 @@ from discord.ext.commands import Bot
 
 TOKEN = os.environ["DISCORD_TOKEN"]
 
-BOT_PREFIX = ("?", "!")
+BOT_PREFIX = ("$", "!")
 bot = Bot(command_prefix=BOT_PREFIX)
 bot.remove_command('help')
 
@@ -32,7 +32,7 @@ async def on_ready():
 @bot.command(aliases=['help'])
 async def h():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
-    embed.add_field(name="Available commands (CMD Prefix: '!' or '?')", value="For now we got:", inline=False)
+    embed.add_field(name="Available commands (CMD Prefix: '!' or '$')", value="For now we got:", inline=False)
     embed.add_field(name="rawr", value="A true dragon's roar!", inline=False)
     embed.add_field(name="8ball", value="Ask the destiny 'bout your fortune!", inline=False)
     embed.add_field(name="chris", value="Know a lil' bit more 'bout Chris, that great guy. :3", inline=False)
