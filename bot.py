@@ -113,3 +113,9 @@ async def godhimself():
 
 def startDiscord():
   bot.run(TOKEN)
+
+ @bot.command()
+ async def logan
+   await bot.say("Logan has entered the battle!")
+    
+    
