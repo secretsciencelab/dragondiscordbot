@@ -1,13 +1,13 @@
 from flask import Flask
 from datetime import datetime
 from bot import *
+import threading
 
 app = Flask(__name__)
 
 @app.route('/')
 def homepage():
     the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
-    token = os.environ["DISCORD_TOKEN"]
 
     return """
     <h1>Dragon's Blessings!</h1>
@@ -15,5 +15,11 @@ def homepage():
     <p>{token}.</p>
     """.format(time=the_time)
 
+def startFlask():
+  app.run(debug=True, use_reloader=False)
+
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    flaskThread = threading.Thread(target=startFlask)
+    flaskThread.start()
+
+    startDiscord()
