@@ -27,6 +27,8 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
+# removes the default "help" for a fancier one~~
+bot.remove_command('help')
 @bot.command()
 async def help():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
