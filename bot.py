@@ -22,18 +22,6 @@ async def on_message(message):
         await bot.send_message(message.channel, msg)
 
     await bot.process_commands(message)
-    
-@bot.event
-async def on_message(message):
-    # we do not want the bot to reply to itself
-    if message.author == bot.user:
-        return
-
-    if message.content.startswith('!Lucas'):
-        msg = 'Sniffs {0.author.mention}!'.format(message)
-        await bot.send_message(message.channel, msg)
-
-    await bot.process_commands(message)
 
 @bot.event
 async def on_ready():
@@ -78,6 +66,10 @@ async def eight_ball(context):
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
+@bot.command()
+async def chris():
+  await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
+
 @bot.command(name="time",
              pass_context=True)
 async def dstime(ctx, place):
@@ -89,12 +81,21 @@ async def dstime(ctx, place):
   
   if not place:
     await bot.say("Sorry, I don't know where that is")
-    await bot.say("Please try one of the following timezones: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones")
+    await bot.say("Please try one of the following timezones:")
+    await bot.say("\n".join(pytz.all_timezones))
     return
     
   locTz = pytz.timezone(place)
   locTime = datetime.now(locTz)
   await bot.say(locTime.strftime('%a %d %b %Y %H:%M:%S'))
+
+@bot.command()
+async def kami():
+  await bot.say("He's not a god!")
+
+@bot.command()
+async def cade():
+  await bot.say("He's Helpful and Kind")
 
 @bot.command()
 async def aboutds():
@@ -110,23 +111,16 @@ async def godhimself():
     embed.set_image(url="https://cdn.discordapp.com/attachments/259844248772411393/494527371454447677/god_himself.jpg")
     await bot.say("", embed=embed)
 
-@bot.command()
-async def kami():
-  await bot.say("He's not a god!")
-
-@bot.command()
-async def cade():
-  await bot.say("He's Helpful and Kind")
+def startDiscord():
+  bot.run(TOKEN)
 
 @bot.command()
 async def logan():
   await bot.say("Logan has entered the battle!")
-
+    
 @bot.command()
-async def chris():
-  await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
-    
-def startDiscord():
-  bot.run(TOKEN)
-    
-    
+async def obama():
+    embed=discord.Embed(title="Obunga Obama", description="Let the fear spread")
+    embed.set_image(url="https://i.kym-cdn.com/entries/icons/original/000/026/438/obamammaa.jpg")
+    await bot.say("", embed=embed)
+   
