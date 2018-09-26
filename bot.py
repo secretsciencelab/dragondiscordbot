@@ -45,6 +45,10 @@ async def eight_ball(context):
         'Definitely',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
-
+    
+@bot.command()
+async def chris():
+  await.bot.say("Walls.")
+    
 def startDiscord():
   bot.run(TOKEN)
