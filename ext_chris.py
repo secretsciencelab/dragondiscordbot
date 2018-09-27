@@ -117,6 +117,7 @@ class Chris():
       embed.set_thumbnail(url=context.message.author.avatar_url)
       embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nDaily reward of **$500** received.")
       await self.bot.say(context.message.author.mention, embed=embed)
+      return
     elif dblastdailyuse['lastdailyuse'] == currentday:
       eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today. (Last day of use: **" + dblastdailyuse['lastdailyuse'].__str__() + "**)", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
