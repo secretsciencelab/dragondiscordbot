@@ -6,7 +6,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 # Use a service account
-cred = credentials.Certificate('keys/dragonbot-discord-a309469535d5.json')
+cred = credentials.Certificate('keys/dragonbot-discord-6b52efb7624a.json')
 firebase_admin.initialize_app(cred)
 
 _db = firestore.client()
