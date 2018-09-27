@@ -6,8 +6,8 @@ class Aaron():
     self.bot = bot
 
   @commands.command()
-  async def ping(self):
-    await self.bot.say('pong')
+  async def hola(self):
+    await self.bot.say('HOLA!')
 
 def setup(bot):
   bot.add_cog(Aaron(bot))
