@@ -129,8 +129,8 @@ class Chris():
       eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You cannot bet any lower than **$50**", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return    
-    if am > 200:
-      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You cannot bet any higher than **$200**", color=0xFF0000)
+    if am > 500:
+      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You cannot bet any higher than **$500**", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return        
 
