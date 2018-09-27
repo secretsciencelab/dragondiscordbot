@@ -37,11 +37,13 @@ class Chris():
   async def bal(self, context):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     doc = botdb.get(key, "currency")
+    embed=discord.Embed(title="DragonScript Bank", "")
     if doc:
-      await self.bot.say(context.message.author.mention + " Has **$%s**" % doc['bal'])
+      embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nYou have **$%s**" % doc['bal'])
     else:
-      await self.bot.say("Account not found. Adding it. (type !bal again)")
+      embed.add_field(name="Error", description="Account not found. Adding it. (type !bal again)")
       botdb.set(key, {'bal': 0}, "currency")
+    await self.bot.say(context.message.author.mention, embed=embed)
 
   @commands.command(pass_context=True)
   async def testaddbal(self, context):
@@ -49,13 +51,17 @@ class Chris():
     money = botdb.get(key, "currency")
     money['bal'] += 150
     botdb.set(key, money, "currency")
-    await self.bot.say("Adding **$150** to your account.")
+    embed=discord.Embed(title="DragonScript Bank", "")
+    embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
+    await self.bot.say(context.message.author.mention, embed=embed)
 
   @commands.command(pass_context=True)
   async def resetbal(self, context):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     botdb.set(key, {'bal': 0}, "currency")
-    await self.bot.say("Account reset.")
+    embed=discord.Embed(title="DragonScript Bank", "")
+    embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
+    await self.bot.say(context.message.author.mention, embed=embed)
 
 def setup(bot):
   bot.add_cog(Chris(bot))
