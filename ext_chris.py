@@ -90,20 +90,20 @@ class Chris():
 # day in the DB isnt the same as the day of use- if it is then they cannot use it- if not, they get their daily reward
   @commands.command(pass_context=True)
   async def daily(self, context):
-    key = context.message.author.name + "_" + context.message.author.discriminator + "_dailyuse"
-    curkey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
-    dblastdailyuse = botdb.get(key, "daily")
+    dailykey = context.message.author.name + "_" + context.message.author.discriminator + "_dailyuse"
+    moneykey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
+    dblastdailyuse = botdb.get(dailykey, "daily")
     currentday=datetime.datetime.today().weekday()
 
-    if dblastdailyuse == currentday and dblastdailyuse is not None:
+    if dblastdailyuse['lastdailyuse'] == currentday:
       eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today. (Last use: **" + dblastdailyuse + "**)", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
-    elif dblastdailyuse is None or dblastdailyuse != currentday:
-      botdb.set(key, {'lastdailyuse': currentday}, "daily")
-      money = botdb.get(curkey, "currency")
+    elif dblastdailyuse['lastdailyuse'] is None or dblastdailyuse['lastdailyuse'] != currentday:
+      botdb.set(dailykey, {'lastdailyuse': currentday}, "daily")
+      money = botdb.get(moneykey, "currency")
       money['bal'] += 500
-      botdb.set(curkey, money, "currency")
+      botdb.set(moneykey, money, "currency")
       embed=discord.Embed(title="DragonScript Bank [DAILY]", description="User Balance Info", color=0xecff00)
       embed.set_thumbnail(url=context.message.author.avatar_url)
       embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nDaily reward of **$500** received.")
