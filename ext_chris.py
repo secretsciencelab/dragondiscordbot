@@ -48,7 +48,7 @@ class Chris():
                       **snap** - Go into character~""")
     embed.add_field(name="Currency/Gambling CMDs", value="""
                       **bal** - Check your balance
-                      **resetbal** - Reset your balance
+                      **daily** - Get a daily reward
                       **slots** - If you wish to play slots""")
     await self.bot.say("", embed=embed)
 
@@ -96,7 +96,7 @@ class Chris():
     curday=datetime.datetime.day
 
     if dblastdailyuse == curday and dblastdailyuse is not None:
-      eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today.", color=0xFF0000)
+      eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today. (Last use: **" + dblastdailyuse + "**)", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
     elif dblastdailyuse is None or dblastdailyuse != curday:
