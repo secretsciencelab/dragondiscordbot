@@ -106,6 +106,9 @@ class Chris():
     money = botdb.get(key, "currency")
 
     if doc['bal'] >= 50:
+      money['bal'] -= 50
+      botdb.set(key, money, "currency")
+
       if slot1 == possible_slots[0] and slot2 == possible_slots[0] and slot3 == possible_slots[0]:
         # won 1 slot
         money['bal'] += spadesvalue
@@ -133,13 +136,10 @@ class Chris():
         result="JACKPOT!! You won **$" + dragonsvalue + "**!"
       else:
         result="BUST! You won nothing! You lost **$50**!"
-
-      money['bal'] -= 50
     else:
       eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You need at least **$50** or more to use slots.")
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
-
     slotsemb=discord.Embed(title="DragonScript Slots", description="You bet **$50** and got..", color=0x1abc9c)
     slotsemb.add_field(name="Result", value=slot1 + " | " + slot2 + " | " + slot3)
     slotsemb.add_field(name="Rewards", value=":spades: - **$" + spadesvalue.__str__() + "**\n:clubs: - **$" + clubsvalue.__str__() + "**\n:hearts: - **$" + heartsvalue.__str__() + "**\n:diamonds: - **$" + diamondsvalue.__str__() + "**\n:dragon: - **JACKPOT $" + dragonsvalue.__str__() + "**")
