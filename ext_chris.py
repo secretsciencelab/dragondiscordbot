@@ -171,25 +171,25 @@ class Chris():
 
       if slot1 == possible_slots[0] and slot2 == possible_slots[0] and slot3 == possible_slots[0]:
         # won 1 slot
-        rescol=0xed3d17
+        rescol=0x32e00f
         money['bal'] += spadesvalue
         botdb.set(key, money, "currency")
         result="Winner! You won **$" + spadesvalue.__str__() + "**!"
       elif slot1 == possible_slots[1] and slot2 == possible_slots[1] and slot3 == possible_slots[1]:
         # won 2 slot
-        rescol=0xaa3b23
+        rescol=0x32e00f
         money['bal'] += clubsvalue
         botdb.set(key, money, "currency")
         result="Winner! You won **$" + clubsvalue.__str__() + "**!"
       elif slot1 == possible_slots[2] and slot2 == possible_slots[2] and slot3 == possible_slots[2]:
         # won 3 slot
-        rescol=0xde1515
+        rescol=0x32e00f
         money['bal'] += heartsvalue
         botdb.set(key, money, "currency")
         result="Winner! You won **$" + heartsvalue.__str__() + "**!"
       elif slot1 == possible_slots[3] and slot2 == possible_slots[3] and slot3 == possible_slots[3]:
         # won 4 slot
-        rescol=0x15dede
+        rescol=0x32e00f
         money['bal'] += diamondsvalue
         botdb.set(key, money, "currency")
         result="Winner! You won **$" + diamondsvalue.__str__() + "**!"
