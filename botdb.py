@@ -1,7 +1,4 @@
 import firebase_admin
-
-FIREBASE_TOKEN = os.environ["FIREBASE_TOKEN"]
-
 from firebase_admin import credentials
 from firebase_admin import firestore
 
