@@ -151,27 +151,27 @@ class Chris():
         # won 1 slot
         money['bal'] += spadesvalue
         botdb.set(key, money, "currency")
-        result="Winner! You won **$" + spadesvalue + "**!"
+        result="Winner! You won **$" + spadesvalue.__str__() + "**!"
       elif slot1 == possible_slots[1] and slot2 == possible_slots[1] and slot3 == possible_slots[1]:
         # won 2 slot
         money['bal'] += clubsvalue
         botdb.set(key, money, "currency")
-        result="Winner! You won **$" + clubsvalue + "**!"
+        result="Winner! You won **$" + clubsvalue.__str__() + "**!"
       elif slot1 == possible_slots[2] and slot2 == possible_slots[2] and slot3 == possible_slots[2]:
         # won 3 slot
         money['bal'] += heartsvalue
         botdb.set(key, money, "currency")
-        result="Winner! You won **$" + heartsvalue + "**!"
+        result="Winner! You won **$" + heartsvalue.__str__() + "**!"
       elif slot1 == possible_slots[3] and slot2 == possible_slots[3] and slot3 == possible_slots[3]:
         # won 4 slot
         money['bal'] += diamondsvalue
         botdb.set(key, money, "currency")
-        result="Winner! You won **$" + diamondsvalue + "**!"
+        result="Winner! You won **$" + diamondsvalue.__str__() + "**!"
       elif slot1 == possible_slots[4] and slot2 == possible_slots[4] and slot3 == possible_slots[4]:
         # won 5 slot -- jackpot
         money['bal'] += dragonsvalue
         botdb.set(key, money, "currency")
-        result="JACKPOT!! You won **$" + dragonsvalue + "**!"
+        result="JACKPOT!! You won **$" + dragonsvalue.__str__() + "**!"
       else:
         result="BUST! You won nothing! You lost **$50**!"
     else:
