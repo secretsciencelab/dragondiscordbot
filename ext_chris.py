@@ -1,4 +1,5 @@
 import discord
+import botdb
 import os, random
 from discord.ext import commands
 
@@ -28,6 +29,26 @@ class Chris():
       'ALISTAIR! Get in the fucking Dungeon and prepare for the most pain you have ever felt~',
     ]
     await self.bot.say('hmm.. who shall I be today? >:D *snaps fingers* oh.. now im ' + random.choice(possible_responses))
+
+#################
+# Test Currency #
+#################
+  @commands.command(pass_context=True)
+  async def bal(self, context):
+    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
+    doc = botdb.get(key, "currency")
+    if doc:
+      await self.bot.say(context.message.author.mention + " Has **$%s**" % doc['balance'])
+    else:
+      await self.bot.say("User not found. Adding them.")
+      botdb.set(key, {'balance': 0}, "currency")
+
+  @commands.command(pass_context=True)
+  async def testaddbal(self, context):
+    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
+    money = botdb.get(key, "currency")
+    money['balance'] += 150
+    botdb.set(key, {'balance': money}, "currency")
 
 def setup(bot):
   bot.add_cog(Chris(bot))
