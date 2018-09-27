@@ -90,18 +90,6 @@ async def eight_ball(context):
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
 @bot.command()
-async def lick(User user):
-    possible_responses = [
-        'You taste good..',
-        'Ew, you taste like a sweaty nerd..',
-        'Oh god.. what the.. did you shower in some dudes sweat??',
-        '*gags* oh god..',
-        'Definitely swam in a septic tank..',
-    ]
-    await bot.say("*licks* " + user.mention)
-    await bot.say(" .." + random.choice(possible_responses))
-    
-@bot.command()
 async def chris():
   await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
 
