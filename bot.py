@@ -92,7 +92,6 @@ async def aboutds():
   await bot.say("", embed=embed)
 
 # UPDATE THIS WHENEVER WE ADD A NEW MEMBER TO THE TEAM - AKA SOMEONE ELSE GETS INVITED TO THE REPO TO HELP OUT!
-
 @bot.command()
 async def botteam():
     embed=discord.Embed(title="DragonBot Team", description="The wonderful team of people working on this bot together", color=0x1abc9c)
