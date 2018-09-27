@@ -7,7 +7,7 @@ class Chris():
 
 @commands.command()
 async def summonmaster(self):
-    await self.bot.say('mmmm~ you summoned the dungeon master~ heheheh... ' + "<@214472130627239946>")
+    await self.bot.say('mmmm~ you summoned the dungeon master~ heheheh... <@214472130627239946>')
 
 @commands.command()
 async def ping(self):
