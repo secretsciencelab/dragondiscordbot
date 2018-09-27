@@ -115,7 +115,7 @@ async def goodnight(context):
 
 @bot.command(pass_context=True)
 async def lucas(context):
-  await bot.say("***SNIFFING INTENSIFIES*** You smell guud " + context.message.author.mention + " ^-^")
+  await bot.say("***SNIFFING INTENSIFIES***   You smell guud " + context.message.author.mention + " ^-^")
 
 @bot.command()
 async def chris():
