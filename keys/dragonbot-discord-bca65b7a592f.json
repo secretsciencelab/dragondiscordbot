@@ -1,7 +1,7 @@
 {
   "type": "service_account",
   "project_id": "dragonbot-discord",
-  "private_key_id": "6b52efb7624a148f5bbd424c6b18c005dd6ab727",
+  "private_key_id": "bca65b7a592f9eec201c15045e30cb464bd0d4f9",
   "private_key": "",
   "client_email": "python-web-firebase@dragonbot-discord.iam.gserviceaccount.com",
   "client_id": "112372129288890601202",

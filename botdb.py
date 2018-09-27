@@ -4,21 +4,14 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 # Update cert file with secrets
-certFile = 'keys/dragonbot-discord-6b52efb7624a.json'
+certFile = 'keys/dragonbot-discord-bca65b7a592f.json'
 with open(certFile) as f:
   data = json.load(f)
 pkey = os.environ.get("FIREBASE_PRIVATE_KEY")
 pkey = pkey.replace('\\n', "\n")
 data['private_key'] = pkey
-print("ANDBG modified")
-print(data)
 with open(certFile, 'w') as f:
   json.dump(data, f)
-
-with open(certFile) as f:
-  data = json.load(f)
-  print("ANDBG file")
-  print(data)
 
 # Use a service account
 cred = credentials.Certificate(certFile)
