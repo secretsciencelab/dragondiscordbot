@@ -118,7 +118,7 @@ async def kami():
 
 @bot.command()
 async def cade():
-  await bot.say("Remembering my lost Friend :cry:")
+  await bot.say("Giving up on it all... :cry: :cry: :cry: :cry: :cry: :cry: :cry:")
 
 @bot.command()
 async def aboutds():
