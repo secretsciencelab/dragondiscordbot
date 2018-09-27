@@ -8,3 +8,6 @@ The bot updates/rebuilds after a new change in the repo- building takes up to at
 
 # Discord for those who arent in:
 Hop on into the DragonScript Coding Club discord and say hi! https://discord.gg/5nuEXxK
+
+# Logs
+The logs can be accessed here: http://secretsciencelab.com/dragonbot.log
