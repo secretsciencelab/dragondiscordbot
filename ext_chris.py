@@ -48,7 +48,7 @@ class Chris():
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     money = botdb.get(key, "currency")
     money['balance'] += 150
-    botdb.set(key, {'balance': money}, "currency")
+    botdb.set(key, money, "currency")
 
 def setup(bot):
   bot.add_cog(Chris(bot))
