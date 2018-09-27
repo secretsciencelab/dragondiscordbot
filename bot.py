@@ -33,7 +33,9 @@ def startDiscord():
 # VV CMDs Below VV #
 ####################
 
-# Please try to keep the code organized- Informational commands under the 'Informational CMDs' comment- and random things under the 'Random CMDs' commend ~ Chris
+# Please try to keep the code organized- 
+# Informational commands under the 'Informational CMDs' comment- 
+# and random things under the 'Random CMDs' comment ~ Chris
 
 ######################
 # Informational CMDs #
