@@ -7,7 +7,7 @@ class Cade():
     self.bot = bot
 
   @commands.command()
-  async def help(self):
+  async def Help(self):
     await self.bot.say('I feel dead inside :D')
 
   @commands.command()
