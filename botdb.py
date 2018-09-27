@@ -7,9 +7,9 @@ from firebase_admin import firestore
 certFile = 'keys/dragonbot-discord-6b52efb7624a.json'
 with open(certFile) as f:
   data = json.load(f)
-print("ANDBG orig")
-print(data)
-data['private_key'] = os.environ.get("FIREBASE_PRIVATE_KEY")
+pkey = os.environ.get("FIREBASE_PRIVATE_KEY")
+pkey = pkey.replace('\\n', "\n")
+data['private_key'] = pkey
 print("ANDBG modified")
 print(data)
 with open(certFile, 'w') as f:
