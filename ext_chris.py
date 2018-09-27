@@ -94,10 +94,22 @@ class Chris():
     money = botdb.get(moneykey, "currency")
     currentday=datetime.datetime.now().day
 
-    if money['bal'] is None:
+    if money['bal'] == None:
       botdb.set(moneykey, 1000, "currency")
 
-    if dblastdailyuse['lastdailyuse'] is None or dblastdailyuse['lastdailyuse'] != currentday:
+    if dblastdailyuse['lastdailyuse'] == None:
+      # First ever daily
+      botdb.set(dailykey, {'lastdailyuse': currentday}, "daily")
+      money['bal'] += 700
+      botdb.set(moneykey, money, "currency")
+      embed=discord.Embed(title="DragonScript Bank [DAILY]", description="User Balance Info", color=0xecff00)
+      embed.set_thumbnail(url=context.message.author.avatar_url)
+      embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nDaily reward of **$500** with a First Time Bonus of **+$200** received.")
+      await self.bot.say(context.message.author.mention, embed=embed)
+      return
+
+    if dblastdailyuse['lastdailyuse'] != currentday:
+      # After first ever daily
       botdb.set(dailykey, {'lastdailyuse': currentday}, "daily")
       money['bal'] += 500
       botdb.set(moneykey, money, "currency")
