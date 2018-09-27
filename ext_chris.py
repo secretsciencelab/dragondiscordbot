@@ -209,7 +209,7 @@ class Chris():
     slotsemb=discord.Embed(title="DragonScript Slots", description="You bet **$" + am.__str__() + "** and..", color=rescol)
     slotsemb.add_field(name="Result", value=slot1 + " | " + slot2 + " | " + slot3)
     slotsemb.add_field(name="Rewards", value=":spades: - **$" + spadesvalue.__str__() + "**\n:clubs: - **$" + clubsvalue.__str__() + "**\n:hearts: - **$" + heartsvalue.__str__() + "**\n:diamonds: - **$" + diamondsvalue.__str__() + "**\n:dragon: - **JACKPOT $" + dragonsvalue.__str__() + "**")
-    slotsemb.add_field(name="And..", value=result)
+    slotsemb.add_field(name="And..", value=result, inline=False)
     await self.bot.say(context.message.author.mention, embed=slotsemb)
 
 def setup(bot):
