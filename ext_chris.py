@@ -1,4 +1,5 @@
 import discord
+import os, random
 from discord.ext import commands
 
 class Chris():
