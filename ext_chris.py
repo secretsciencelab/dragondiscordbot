@@ -49,7 +49,7 @@ class Chris():
       botdb.set(key, {'bal': 0}, "currency")
 
     embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-    embed.add_field(name=name, description=desc)
+    embed.add_field(name=name, value=desc)
     await self.bot.say(context.message.author.mention, embed=embed)
 
   @commands.command(pass_context=True)
@@ -59,7 +59,7 @@ class Chris():
     money['bal'] += 150
     botdb.set(key, money, "currency")
     embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-    embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
+    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
     await self.bot.say(context.message.author.mention, embed=embed)
 
   @commands.command(pass_context=True)
@@ -67,7 +67,7 @@ class Chris():
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     botdb.set(key, {'bal': 0}, "currency")
     embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-    embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
+    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
     await self.bot.say(context.message.author.mention, embed=embed)
 
 def setup(bot):
