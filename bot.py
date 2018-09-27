@@ -94,15 +94,15 @@ async def aboutds():
 ###############
 @bot.command()
 async def hello(context):
-  await bot.say("Hello, " + context.message.author.mention.format(message) + "!")
+  await bot.say("Hello, " + context.message.author.mention + "!")
 
 @bot.command()
 async def goodnight(context):
-  await bot.say("Goodnight, " + context.message.author.mention.format(message) + "! Happy DragonScripting!")
+  await bot.say("Goodnight, " + context.message.author.mention + "! Happy DragonScripting!")
 
 @bot.command()
 async def lucas(context):
-  await bot.say("***SNIFFING INTENSIFIES*** You smell guud " + context.message.author.mention.format(message) + " ^-^")
+  await bot.say("***SNIFFING INTENSIFIES*** You smell guud " + context.message.author.mention + " ^-^")
 
 @bot.command()
 async def chris():
