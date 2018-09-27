@@ -90,6 +90,15 @@ async def aboutds():
   embed.add_field(name="Play now", value="You can play the game free over at: https://dragonscriptarena.com", inline=False)
   await bot.say("", embed=embed)
 
+@bot.command()
+async def botteam():
+    embed=discord.Embed(title="DragonBot Team", description="The wonderful team of people working on this bot together", color=0x1abc9c)
+    embed.add_field(name="Team", value="""**Aaron** - The leader.. don't mess with him! He'll sick his DragonAI on you!
+                   **Chris** - A C# Programmer trying to do the do on python to help with this bot..
+                   **Cade** - A wonderful dude also trying his best to help with the bot
+                   **Logan** - Yet another wonderful human being helping out
+                   **Kami** - A pretty smart and cool dude- also trying their very best""", inline=False)
+    await bot.say("", embed=embed)
 
 ###############
 # Random CMDs #
