@@ -93,14 +93,14 @@ class Chris():
     key = context.message.author.name + "_" + context.message.author.discriminator + "_dailyuse"
     curkey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     dblastdailyuse = botdb.get(key, "daily")
-    curday=datetime.datetime.day
+    currentday=datetime.datetime.day
 
-    if dblastdailyuse == curday and dblastdailyuse is not None:
+    if dblastdailyuse == currentday and dblastdailyuse is not None:
       eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today. (Last use: **" + dblastdailyuse + "**)", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
-    elif dblastdailyuse is None or dblastdailyuse != curday:
-      botdb.set(key, {'curday': curday}, "daily")
+    elif dblastdailyuse is None or dblastdailyuse != currentday:
+      botdb.set(key, {'curday': currentday}, "daily")
       money = botdb.get(curkey, "currency")
       money['bal'] += 500
       botdb.set(curkey, money, "currency")
