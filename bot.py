@@ -92,15 +92,15 @@ async def aboutds():
 ###############
 # Random CMDs #
 ###############
-@bot.command()
+@bot.command(pass_context=True)
 async def hello(context):
   await bot.say("Hello, " + context.message.author.mention + "!")
 
-@bot.command()
+@bot.command(pass_context=True)
 async def goodnight(context):
   await bot.say("Goodnight, " + context.message.author.mention + "! Happy DragonScripting!")
 
-@bot.command()
+@bot.command(pass_context=True)
 async def lucas(context):
   await bot.say("***SNIFFING INTENSIFIES*** You smell guud " + context.message.author.mention + " ^-^")
 
