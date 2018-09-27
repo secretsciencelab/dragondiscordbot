@@ -191,8 +191,12 @@ async def unload(extension_name : str):
     bot.unload_extension(prefix + extension_name)
     await bot.say("Personality module **{}** unloaded.".format(extension_name))
 
-@bot.command()
-async def setgame(gamename : str):
-    await bot.change_presence(game=discord.Game(name=gamename))
-    embed=discord.Embed(title="Playing message updated", description="Playing message updated to '" + gamename + "'", color=0x1abc9c)
-    await bot.say("", embed=embed)
+@bot.command(pass_context=True)
+async def setgame(context, gamename : str):
+    if "494721265383374879" in [role.id for role in context.message.author.roles]:
+       await bot.change_presence(game=discord.Game(name=gamename))
+       embed=discord.Embed(title="Playing message updated", description="Playing message updated to '" + gamename + "'", color=0x1abc9c)
+       await bot.say("", embed=embed)
+    else:
+       embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
+       await bot.say("", embed=embed)
