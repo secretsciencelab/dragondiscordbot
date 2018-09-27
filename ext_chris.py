@@ -73,8 +73,27 @@ class Chris():
     embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
     await self.bot.say(context.message.author.mention, embed=embed)
 
+#################
+# Informational #
+#################
+  @commands.command()
+  async def chrishelp(self):
+    embed=discord.Embed(title="Chris Module Help (CMD Prefix: '!' or '$')", description="Available commands in this Personality Module", color=0x3e0913)
+    embed.add_field(name="Random/Test CMDs", value="""
+                      **ping** - Test Command
+                      **summonmaster** - If you wish to summon Chris
+                      **crazy** - Think you can throw anything at Chris?
+                      **snap** - Go into character~""")
+    embed.add_field(name="Currency/Gambling CMDs", value="""
+                      **bal** - Check your balance
+                      **resetbal** - Reset your balance
+                      **slots** - If you wish to play slots""")
+    await self.bot.say("", embed=embed)
+# 0x1abc9c
 # Slots emotes; :spades: :clubs: :hearts: :diamonds: :dragon: 
-
+############
+# Gambling #
+############
   @commands.command(pass_context=True)
   async def slots(self, context):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
