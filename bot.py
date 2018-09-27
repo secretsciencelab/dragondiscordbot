@@ -60,7 +60,8 @@ async def h():
     embed.add_field(name="Informational CMDs",
                    value="""**help** - this..
                    **aboutds** - Learn a little 'bout DragonScript Arena!
-                   **time** - Wanna know what time it is somewhere in the word?""", inline=False)   
+                   **time** - Wanna know what time it is somewhere in the word?
+                   **botteam** - Learn some about the bots main team""", inline=False)   
     await bot.say("", embed=embed)
 
 @bot.command(name="time",
@@ -89,6 +90,8 @@ async def aboutds():
   embed.add_field(name="Developer", value="The wonderful game was developed by the one and only- Aaron! He's quite talented, and did really well on the game.", inline=False)
   embed.add_field(name="Play now", value="You can play the game free over at: https://dragonscriptarena.com", inline=False)
   await bot.say("", embed=embed)
+
+# UPDATE THIS WHENEVER WE ADD A NEW MEMBER TO THE TEAM - AKA SOMEONE ELSE GETS INVITED TO THE REPO TO HELP OUT!
 
 @bot.command()
 async def botteam():
