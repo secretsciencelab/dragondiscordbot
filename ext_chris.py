@@ -100,7 +100,7 @@ class Chris():
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
     elif dblastdailyuse is None or dblastdailyuse != currentday:
-      botdb.set(key, {'curday': currentday}, "daily")
+      botdb.set(key, {'lastdailyuse': currentday}, "daily")
       money = botdb.get(curkey, "currency")
       money['bal'] += 500
       botdb.set(curkey, money, "currency")
