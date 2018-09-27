@@ -40,7 +40,7 @@ class Chris():
     if doc:
       await self.bot.say(context.message.author.mention + " Has **$%s**" % doc['bal'])
     else:
-      await self.bot.say("User not found. Adding them. (type !bal again)")
+      await self.bot.say("Account not found. Adding it. (type !bal again)")
       botdb.set(key, {'bal': 0}, "currency")
 
   @commands.command(pass_context=True)
