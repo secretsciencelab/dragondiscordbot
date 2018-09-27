@@ -93,7 +93,11 @@ class Chris():
     dailykey = context.message.author.name + "_" + context.message.author.discriminator + "_dailyuse"
     moneykey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     dblastdailyuse = botdb.get(dailykey, "daily")
+    money = botdb.get(moneykey, "currency")
     currentday=datetime.datetime.now().day
+
+    if money['bal'] is None:
+      botdb.set(moneykey, 1000, "currency")
 
     if dblastdailyuse['lastdailyuse'] == currentday:
       eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today. (Last day of use: **" + dblastdailyuse['lastdailyuse'].__str__() + "**)", color=0xFF0000)
@@ -101,7 +105,6 @@ class Chris():
       return
     elif dblastdailyuse['lastdailyuse'] is None or dblastdailyuse['lastdailyuse'] != currentday:
       botdb.set(dailykey, {'lastdailyuse': currentday}, "daily")
-      money = botdb.get(moneykey, "currency")
       money['bal'] += 500
       botdb.set(moneykey, money, "currency")
       embed=discord.Embed(title="DragonScript Bank [DAILY]", description="User Balance Info", color=0xecff00)
