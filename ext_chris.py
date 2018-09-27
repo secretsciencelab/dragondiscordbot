@@ -6,7 +6,7 @@ class Chris():
     self.bot = bot
 
 @commands.command()
-async def summon(self):
+async def summonmaster(self):
    await self.bot.say('mmmm~ you summoned the dungeon master~ heheheh... ' + <@214472130627239946>)
 
 @commands.command()
