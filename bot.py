@@ -36,6 +36,15 @@ async def on_message(message):
     if message.content.startswith('!hello'):
         msg = 'Hello {0.author.mention}!'.format(message)
         await bot.send_message(message.channel, msg)
+<<<<<<< HEAD
+=======
+    elif message.content.startswith('!Lucas'):
+        msg = '***Sniffs intensely! <@322808830218207232>***'.format(message)
+        await bot.send_message(message.channel, msg)
+    elif message.content.startswith('!Goodnight'):
+        msg = 'Good night {0.author.mention}'.format(message)
+        await bot.send_message(message.channel, msg)
+>>>>>>> 5885ae4762a9df84f560a2876af9d0a68ae68efc
 
     await bot.process_commands(message)
 

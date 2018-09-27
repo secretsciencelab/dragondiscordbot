@@ -93,3 +93,4 @@ ENV/
 
 # vim swap
 *.swp
+.vscode/settings.json
