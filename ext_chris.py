@@ -1,4 +1,5 @@
 import discord
+import datetime
 import botdb
 import os, random
 from discord import Game
@@ -85,19 +86,34 @@ class Chris():
 #    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
 #    await self.bot.say(context.message.author.mention, embed=embed)
 
+# turn this into a daily command- get the current day on using the command, enter it into the db under the users name- then compare days, make sure the
+# day in the DB isnt the same as the day of use- if it is then they cannot use it- if not, they get their daily reward
   @commands.command(pass_context=True)
-  async def resetbal(self, context):
-    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
-    botdb.set(key, {'bal': 1000}, "currency")
-    embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-    embed.set_thumbnail(url=context.message.author.avatar_url)
-    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
-    await self.bot.say(context.message.author.mention, embed=embed)
+  async def daily(self, context):
+    key = context.message.author.name + "_" + context.message.author.discriminator + "_dailyuse"
+    curkey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
+    dblastdailyuse = botdb.get(key, "daily")
+    curday=datetime.datetime.day
+
+    if dblastdailyuse == curday and dblastdailyuse is not None:
+      eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today.", color=0xFF0000)
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return
+    elif dblastdailyuse is None or dblastdailyuse != curday:
+      botdb.set(key, {'curday': curday}, "daily")
+      money = botdb.get(curkey, "currency")
+      money['bal'] += 500
+      botdb.set(curkey, money, "currency")
+      embed=discord.Embed(title="DragonScript Bank [DAILY]", description="User Balance Info", color=0xecff00)
+      embed.set_thumbnail(url=context.message.author.avatar_url)
+      embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nDaily reward of **$500** received.")
+      await self.bot.say(context.message.author.mention, embed=embed)
 
 # Slots emotes; :spades: :clubs: :hearts: :diamonds: :dragon: 
 ############
 # Gambling #
 ############
+# Work on chances- make it a little easier to win
   @commands.command(pass_context=True)
   async def slots(self, context, am : int = 0):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
@@ -116,11 +132,11 @@ class Chris():
       await self.bot.say(context.message.author.mention, embed=eremb)
       return        
 
-    spadesvalue=am*3
-    clubsvalue=am*4
-    heartsvalue=am*5
-    diamondsvalue=am*6
-    dragonsvalue=am*8 # Jackpot
+    spadesvalue=am*4
+    clubsvalue=am*5
+    heartsvalue=am*6
+    diamondsvalue=am*7
+    dragonsvalue=am*9 # Jackpot
 
     slot1=""
     slot2=""
@@ -144,11 +160,17 @@ class Chris():
       ':clubs:',
       ':hearts:',
       ':diamonds:',
+      ':clubs:',
+      ':hearts:',
+      ':diamonds:',
       ':dragon:',
       ':spades:',
       ':diamonds:',
       ':dragon:',
       ':spades:',
+      ':diamonds:',
+      ':clubs:',
+      ':hearts:',
       ':diamonds:',
       ':clubs:',
       ':hearts:',
