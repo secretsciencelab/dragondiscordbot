@@ -104,15 +104,15 @@ class Chris():
     doc = botdb.get(key, "currency")
 
     if am == 0:
-      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="Please place a bet. (ex: !slots 100)")
+      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="Please place a bet. (ex: !slots 100)", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return 
     if am < 50:
-      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You cannot bet any lower than **$50**")
+      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You cannot bet any lower than **$50**", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return    
     if am > 200:
-      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You cannot bet any higher than **$200**")
+      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You cannot bet any higher than **$200**", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return        
 
@@ -127,6 +127,8 @@ class Chris():
     slot3=""
 
     result=""
+
+    rescol=0x1abc9c
 
     possible_slots = [
       ':spades:',
@@ -157,42 +159,49 @@ class Chris():
 
     money = botdb.get(key, "currency")
 
+
     if doc['bal'] >= am:
       money['bal'] -= am
       botdb.set(key, money, "currency")
 
       if slot1 == possible_slots[0] and slot2 == possible_slots[0] and slot3 == possible_slots[0]:
         # won 1 slot
+        rescol=0xed3d17
         money['bal'] += spadesvalue
         botdb.set(key, money, "currency")
         result="Winner! You won **$" + spadesvalue.__str__() + "**!"
       elif slot1 == possible_slots[1] and slot2 == possible_slots[1] and slot3 == possible_slots[1]:
         # won 2 slot
+        rescol=0xaa3b23
         money['bal'] += clubsvalue
         botdb.set(key, money, "currency")
         result="Winner! You won **$" + clubsvalue.__str__() + "**!"
       elif slot1 == possible_slots[2] and slot2 == possible_slots[2] and slot3 == possible_slots[2]:
         # won 3 slot
+        rescol=0xde1515
         money['bal'] += heartsvalue
         botdb.set(key, money, "currency")
         result="Winner! You won **$" + heartsvalue.__str__() + "**!"
       elif slot1 == possible_slots[3] and slot2 == possible_slots[3] and slot3 == possible_slots[3]:
         # won 4 slot
+        rescol=0x15dede
         money['bal'] += diamondsvalue
         botdb.set(key, money, "currency")
         result="Winner! You won **$" + diamondsvalue.__str__() + "**!"
       elif slot1 == possible_slots[4] and slot2 == possible_slots[4] and slot3 == possible_slots[4]:
         # won 5 slot -- jackpot
+        rescol=0xecff00
         money['bal'] += dragonsvalue
         botdb.set(key, money, "currency")
         result="JACKPOT!! You won **$" + dragonsvalue.__str__() + "**!"
       else:
+        rescol=0xFF0000
         result="BUST! You won nothing! You lost **$" + am.__str__() + "**!"
     else:
-      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You need at least **$50** or more to use slots.")
+      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You need at least **$50** or more to use slots.", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
-    slotsemb=discord.Embed(title="DragonScript Slots", description="You bet **$" + am.__str__() + "** and..", color=0x1abc9c)
+    slotsemb=discord.Embed(title="DragonScript Slots", description="You bet **$" + am.__str__() + "** and..", color=rescol)
     slotsemb.add_field(name="Result", value=slot1 + " | " + slot2 + " | " + slot3)
     slotsemb.add_field(name="Rewards", value=":spades: - **$" + spadesvalue.__str__() + "**\n:clubs: - **$" + clubsvalue.__str__() + "**\n:hearts: - **$" + heartsvalue.__str__() + "**\n:diamonds: - **$" + diamondsvalue.__str__() + "**\n:dragon: - **JACKPOT $" + dragonsvalue.__str__() + "**")
     slotsemb.add_field(name="And..", value=result)
