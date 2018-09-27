@@ -175,8 +175,9 @@ async def gender():
 @bot.command()
 async def load(extension_name : str):
     """Loads an extension."""
+    prefix = "ext_"
     try:
-        bot.load_extension(extension_name)
+        bot.load_extension(prefix + extension_name)
     except (AttributeError, ImportError) as e:
         await bot.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
         return
@@ -185,5 +186,6 @@ async def load(extension_name : str):
 @bot.command()
 async def unload(extension_name : str):
     """Unloads an extension."""
-    bot.unload_extension(extension_name)
+    prefix = "ext_"
+    bot.unload_extension(prefix + extension_name)
     await bot.say("{} unloaded.".format(extension_name))
