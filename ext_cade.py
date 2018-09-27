@@ -7,8 +7,8 @@ class Cade():
     self.bot = bot
 
   @commands.command()
-  async def hola(self):
-    await self.bot.say('Eh!')
+  async def help(self):
+    await self.bot.say('I feel dead inside :D')
 
   @commands.command()
   async def dbset(self, key, value):
