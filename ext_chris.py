@@ -86,8 +86,6 @@ class Chris():
 #    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
 #    await self.bot.say(context.message.author.mention, embed=embed)
 
-# turn this into a daily command- get the current day on using the command, enter it into the db under the users name- then compare days, make sure the
-# day in the DB isnt the same as the day of use- if it is then they cannot use it- if not, they get their daily reward
   @commands.command(pass_context=True)
   async def daily(self, context):
     dailykey = context.message.author.name + "_" + context.message.author.discriminator + "_dailyuse"
@@ -99,11 +97,7 @@ class Chris():
     if money['bal'] is None:
       botdb.set(moneykey, 1000, "currency")
 
-    if dblastdailyuse['lastdailyuse'] == currentday:
-      eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today. (Last day of use: **" + dblastdailyuse['lastdailyuse'].__str__() + "**)", color=0xFF0000)
-      await self.bot.say(context.message.author.mention, embed=eremb)
-      return
-    elif dblastdailyuse['lastdailyuse'] is None or dblastdailyuse['lastdailyuse'] != currentday:
+    if dblastdailyuse['lastdailyuse'] is None or dblastdailyuse['lastdailyuse'] != currentday:
       botdb.set(dailykey, {'lastdailyuse': currentday}, "daily")
       money['bal'] += 500
       botdb.set(moneykey, money, "currency")
@@ -111,6 +105,11 @@ class Chris():
       embed.set_thumbnail(url=context.message.author.avatar_url)
       embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nDaily reward of **$500** received.")
       await self.bot.say(context.message.author.mention, embed=embed)
+    elif dblastdailyuse['lastdailyuse'] == currentday:
+      eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today. (Last day of use: **" + dblastdailyuse['lastdailyuse'].__str__() + "**)", color=0xFF0000)
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return
+
 
 # Slots emotes; :spades: :clubs: :hearts: :diamonds: :dragon: 
 ############
