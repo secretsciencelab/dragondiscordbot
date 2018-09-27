@@ -47,7 +47,8 @@ class Chris():
       name="Error"
       desc="Account not found. Adding it. (type !bal again)"
       botdb.set(key, {'bal': 0}, "currency")
-    embed=discord.Embed(title="DragonScript Bank", "User Balance Info", color=0x1abc9c)
+
+    embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
     embed.add_field(name=name, description=desc)
     await self.bot.say(context.message.author.mention, embed=embed)
 
@@ -57,7 +58,7 @@ class Chris():
     money = botdb.get(key, "currency")
     money['bal'] += 150
     botdb.set(key, money, "currency")
-    embed=discord.Embed(title="DragonScript Bank", "User Balance Info", color=0x1abc9c)
+    embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
     embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
     await self.bot.say(context.message.author.mention, embed=embed)
 
@@ -65,7 +66,7 @@ class Chris():
   async def resetbal(self, context):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     botdb.set(key, {'bal': 0}, "currency")
-    embed=discord.Embed(title="DragonScript Bank", "User Balance Info", color=0x1abc9c)
+    embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
     embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
     await self.bot.say(context.message.author.mention, embed=embed)
 
