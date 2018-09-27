@@ -46,32 +46,105 @@ class Chris():
     else:
       name="Error"
       desc="Account not found. Adding it. (type !bal again)"
-      botdb.set(key, {'bal': 0}, "currency")
+      botdb.set(key, {'bal': 200}, "currency")
 
     embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
     embed.set_thumbnail(url=context.message.author.avatar_url)
     embed.add_field(name=name, value=desc)
     await self.bot.say(context.message.author.mention, embed=embed)
 
-  @commands.command(pass_context=True)
-  async def testaddbal(self, context):
-    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
-    money = botdb.get(key, "currency")
-    money['bal'] += 150
-    botdb.set(key, money, "currency")
-    embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-    embed.set_thumbnail(url=context.message.author.avatar_url)
-    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
-    await self.bot.say(context.message.author.mention, embed=embed)
+#  @commands.command(pass_context=True)
+#  async def testaddbal(self, context):
+#    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
+#    money = botdb.get(key, "currency")
+#    money['bal'] += 150
+#    botdb.set(key, money, "currency")
+#    embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+#    embed.set_thumbnail(url=context.message.author.avatar_url)
+#    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
+#    await self.bot.say(context.message.author.mention, embed=embed)
 
   @commands.command(pass_context=True)
   async def resetbal(self, context):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
-    botdb.set(key, {'bal': 0}, "currency")
+    botdb.set(key, {'bal': 200}, "currency")
     embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
     embed.set_thumbnail(url=context.message.author.avatar_url)
     embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
     await self.bot.say(context.message.author.mention, embed=embed)
+
+# Slots emotes; :spades: :clubs: :hearts: :diamonds: :dragon: 
+
+  @commands.command(pass_context=True)
+  async def slots(self, context):
+    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
+    doc = botdb.get(key, "currency")
+    spadesvalue=100
+    clubsvalue=300
+    heartsvalue=500
+    diamondsvalue=700
+    dragonsvalue=1000 # Jackpot
+
+    slot1=""
+    slot2=""
+    slot3=""
+
+    result=""
+
+    possible_slots = [
+      ':spades:',
+      ':clubs:',
+      ':hearts:',
+      ':diamonds:',
+      ':dragon:',
+    ]
+
+    slot1=random.choice(possible_slots)
+    slot2=random.choice(possible_slots)
+    slot3=random.choice(possible_slots)
+
+    money = botdb.get(key, "currency")
+
+    if doc['bal'] >= 50:
+      if slot1 == possible_slots[0] and slot2 == possible_slots[0] and slot3 == possible_slots[0]:
+        # won 1 slot
+        money['bal'] += spadesvalue
+        botdb.set(key, money, "currency")
+        result="Winner! You won **$" + spadesvalue + "**!"
+      elif slot1 == possible_slots[1] and slot2 == possible_slots[1] and slot3 == possible_slots[1]:
+        # won 2 slot
+        money['bal'] += clubsvalue
+        botdb.set(key, money, "currency")
+        result="Winner! You won **$" + clubsvalue + "**!"
+      elif slot1 == possible_slots[2] and slot2 == possible_slots[2] and slot3 == possible_slots[2]:
+        # won 3 slot
+        money['bal'] += heartsvalue
+        botdb.set(key, money, "currency")
+        result="Winner! You won **$" + heartsvalue + "**!"
+      elif slot1 == possible_slots[3] and slot2 == possible_slots[3] and slot3 == possible_slots[3]:
+        # won 4 slot
+        money['bal'] += diamondsvalue
+        botdb.set(key, money, "currency")
+        result="Winner! You won **$" + diamondsvalue + "**!"
+      elif slot1 == possible_slots[4] and slot2 == possible_slots[4] and slot3 == possible_slots[4]:
+        # won 5 slot -- jackpot
+        money['bal'] += dragonsvalue
+        botdb.set(key, money, "currency")
+        result="JACKPOT!! You won **$" + dragonsvalue + "**!"
+      else:
+        result="BUST! You won nothing! You lost **$50**!"
+
+      money['bal'] -= 50
+    else:
+      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You need at least **$50** or more to use slots.")
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return
+
+    slotsemb=discord.Embed(title="DragonScript Slots", description="You bet **$50** and got..", color=0x1abc9c)
+    slotsemb.add_field(name="Result", value=slot1 + " | " + slot2 + " | " + slot3)
+    slotsemb.add_field(name="Rewards", value=possible_slots[0] + " - **$" + spadesvalue + "**\n" + possible_slots[1] + " - **$" + clubsvalue + "**\n" + possible_slots[2] + " - **$" + heartsvalue + "**\n" + possible_slots[3] + " - **$" + diamondsvalue + "**\n" + possible_slots[4] + " - **JACKPOT $" + dragonsvalue + "**\n")
+    slotsemb.add_field(name="And..", value=result)
+    await self.bot.say(context.message.author.mention, embed=slotsemb)
 
 def setup(bot):
   bot.add_cog(Chris(bot))
