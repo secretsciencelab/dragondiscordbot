@@ -2,13 +2,13 @@ import botdb
 import discord
 from discord.ext import commands
 
-class Aaron():
+class Cade():
   def __init__(self, bot):
     self.bot = bot
 
   @commands.command()
   async def hola(self):
-    await self.bot.say('eh!')
+    await self.bot.say('Eh!')
 
   @commands.command()
   async def dbset(self, key, value):
@@ -23,4 +23,4 @@ class Aaron():
       await self.bot.say("Not found")
 
 def setup(bot):
-  bot.add_cog(Aaron(bot))
+  bot.add_cog(Cade(bot))
