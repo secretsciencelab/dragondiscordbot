@@ -151,7 +151,7 @@ async def obama():
 async def gender():
     await bot.say("My gender? Code... :dragon_face:")
     
-    @bot.event
+    @bot.event()
 async def on_message(message):
     if message.content.startswith('$greet'):
         channel = message.channel
