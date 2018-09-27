@@ -25,6 +25,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+    await bot.change_presence(game=discord.Game(name="Use !help"))
 
 def startDiscord():
   bot.run(TOKEN)
@@ -189,3 +190,9 @@ async def unload(extension_name : str):
     prefix = "ext_"
     bot.unload_extension(prefix + extension_name)
     await bot.say("Personality module **{}** unloaded.".format(extension_name))
+
+@bot.command()
+async def setgame(gamename : str):
+    await bot.change_presence(game=discord.Game(name=gamename))
+    embed=discord.Embed(title="Playing message updated", description="Playing message updated to '" + gamename + "'", color=0x1abc9c)
+    await bot.say("", embed=embed)

@@ -22,12 +22,12 @@ class Chris():
   async def snap(self):
     possible_responses = [
       'JIMMY! IMMA GET THE MOB BOSS ON YOUR ASS!',
-      'MELVIN! IMMA HACK YOUR ROUTER, BISH!',
+      'MELVIN! IMMA HACK YOUR ROUTER, BISH! UGUGUGUGUGUGUGUGUG',
       'JERRY! IMMA STUFF YO ASS WITH BEEEANNNSSS, YEAH',
       'JUDY! NOW GIVE ME MY FUKIN NEWPORTS BITCH!',
       'ALISTAIR! Get in the fucking Dungeon and prepare for the most pain you have ever felt~',
     ]
-    await self.bot.say('hmm.. who shall I be today? *snaps fingers* oh.. now im ' + random.choice(possible_responses))
+    await self.bot.say('hmm.. who shall I be today? >:D *snaps fingers* oh.. now im ' + random.choice(possible_responses))
 
 def setup(bot):
   bot.add_cog(Chris(bot))
