@@ -90,7 +90,7 @@ async def eight_ball(context):
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
 @bot.command()
-async def lick(user):
+async def lick(User user):
     possible_responses = [
         'You taste good..',
         'Ew, you taste like a sweaty nerd..',
