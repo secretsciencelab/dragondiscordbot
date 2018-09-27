@@ -98,7 +98,7 @@ async def lick(user):
         '*gags* oh god..',
         'Definitely swam in a septic tank..',
     ]
-    await bot.say(random.choice(possible_responses) + ", " + user.mention)
+    await bot.say("*licks* " + user.mention + " .." + random.choice(possible_responses))
     
 @bot.command()
 async def chris():
