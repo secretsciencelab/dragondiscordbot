@@ -33,19 +33,6 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    if message.content.startswith('!hello'):
-        msg = 'Hello {0.author.mention}!'.format(message)
-        await bot.send_message(message.channel, msg)
-<<<<<<< HEAD
-=======
-    elif message.content.startswith('!Lucas'):
-        msg = '***Sniffs intensely! <@322808830218207232>***'.format(message)
-        await bot.send_message(message.channel, msg)
-    elif message.content.startswith('!Goodnight'):
-        msg = 'Good night {0.author.mention}'.format(message)
-        await bot.send_message(message.channel, msg)
->>>>>>> 5885ae4762a9df84f560a2876af9d0a68ae68efc
-
     await bot.process_commands(message)
 
 @bot.event
@@ -54,6 +41,13 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+
+def startDiscord():
+  bot.run(TOKEN)
+
+####################
+# VV CMDs Below VV #
+####################
 
 # Please try to keep the code organized- Informational commands under the 'Informational CMDs' comment- and random things under the 'Random CMDs' commend ~ Chris
 
@@ -111,6 +105,18 @@ async def aboutds():
 # Random CMDs #
 ###############
 @bot.command()
+async def hello(context):
+  await bot.say("Hello, " + context.message.author.mention + "!")
+
+@bot.command()
+async def goodnight(context):
+  await bot.say("Goodnight, " + context.message.author.mention + "! Happy DragonScripting!")
+
+@bot.command()
+async def lucas(context)
+  await bot.say("***SNIFFING INTENSIFIES*** You smell guud " + context.message.author.mention + " ^-^")
+
+@bot.command()
 async def chris():
   await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
 
@@ -160,6 +166,3 @@ async def obama():
 @bot.command()
 async def gender():
     await bot.say("My gender? Code... :dragon_face:")
-
-def startDiscord():
-  bot.run(TOKEN)
