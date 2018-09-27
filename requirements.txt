@@ -1,5 +1,6 @@
 Flask
-gunicorn
 discord.py
+firebase-admin
 pytz
+requests
 us
