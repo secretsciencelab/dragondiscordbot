@@ -94,10 +94,10 @@ class Chris():
     money = botdb.get(moneykey, "currency")
     currentday=datetime.datetime.now().day
 
-    if money['bal'] == None:
+    if money == None:
       botdb.set(moneykey, 1000, "currency")
 
-    if dblastdailyuse['lastdailyuse'] == None:
+    if dblastdailyuse == None:
       # First ever daily
       botdb.set(dailykey, {'lastdailyuse': currentday}, "daily")
       money['bal'] += 700
