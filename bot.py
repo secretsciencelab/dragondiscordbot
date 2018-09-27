@@ -36,9 +36,6 @@ async def on_message(message):
     if message.content.startswith('!hello'):
         msg = 'Hello {0.author.mention}!'.format(message)
         await bot.send_message(message.channel, msg)
-    elif message.content.startswith('!Lucas'):
-        msg = '***Sniffs intensely! <@322808830218207232>***'.format(message)
-        await bot.send_message(message.channel, msg)
 
     await bot.process_commands(message)
 
@@ -49,7 +46,11 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-# makes "help" a fancier command~~
+# Please try to keep the code organized- Informational commands under the 'Informational CMDs' comment- and random things under the 'Random CMDs' commend ~ Chris
+
+######################
+# Informational CMDs #
+######################
 @bot.command(aliases=['help'])
 async def h():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
@@ -69,29 +70,6 @@ async def h():
                    value="""**aboutds** - Learn a little 'bout DragonScript Arena!
                    **time** - Wanna know what time it is somewhere in the word?""", inline=False)   
     await bot.say("", embed=embed)
-
-@bot.command()
-async def rawr():
-    await bot.say("RAWR!!! :dragon_face:")
-
-@bot.command(name='8ball',
-             description="Answers a yes/no question.",
-             brief="Answers from the beyond.",
-             aliases=['eight_ball', 'eightball', '8-ball'],
-             pass_context=True)
-async def eight_ball(context):
-    possible_responses = [
-        'That is a resounding no',
-        'It is not looking likely',
-        'Too hard to tell',
-        'It is quite possible',
-        'Definitely',
-    ]
-    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
-    
-@bot.command()
-async def chris():
-  await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
 
 @bot.command(name="time",
              pass_context=True)
@@ -113,14 +91,6 @@ async def dstime(ctx, place):
   await bot.say(locTime.strftime('%a %d %b %Y %H:%M:%S'))
 
 @bot.command()
-async def kami():
-  await bot.say("He's not a god!")
-
-@bot.command()
-async def cade():
-  await bot.say("Giving up on it all... :cry: :cry: :cry: :cry: :cry: :cry: :cry:")
-
-@bot.command()
 async def aboutds():
   embed=discord.Embed(title="About Dragonscript Arena", description="Dragonscript arena is a game designed to help it's players learn JavaScript while controlling/programming an AI for their dragons to go into battle!", color=0x1abc9c)
   embed.set_thumbnail(url="https://i.imgur.com/6QgGoAq.png")
@@ -128,18 +98,49 @@ async def aboutds():
   embed.add_field(name="Play now", value="You can play the game free over at: https://dragonscriptarena.com", inline=False)
   await bot.say("", embed=embed)
 
+###############
+# Random CMDs #
+###############
+@bot.command()
+async def chris():
+  await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
+
+@bot.command()
+async def kami():
+  await bot.say("He's not a god!")
+
+@bot.command()
+async def cade():
+  await bot.say("A really cool and nice dude :)")
+
+@bot.command()
+async def logan():
+  await bot.say("Logan has entered the battle!")
+
+@bot.command()
+async def rawr():
+    await bot.say("RAWR!!! :dragon_face:")
+
+@bot.command(name='8ball',
+             description="Answers a yes/no question.",
+             brief="Answers from the beyond.",
+             aliases=['eight_ball', 'eightball', '8-ball'],
+             pass_context=True)
+async def eight_ball(context):
+    possible_responses = [
+        'That is a resounding no',
+        'It is not looking likely',
+        'Too hard to tell',
+        'It is quite possible',
+        'Definitely',
+    ]
+    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
+
 @bot.command()
 async def godhimself():
     embed=discord.Embed(title="God himself", description="***BOW DOWN TO YOUR NEW GOD!***")
     embed.set_image(url="https://cdn.discordapp.com/attachments/259844248772411393/494527371454447677/god_himself.jpg")
     await bot.say("", embed=embed)
-
-def startDiscord():
-  bot.run(TOKEN)
-
-@bot.command()
-async def logan():
-  await bot.say("Logan has entered the battle!")
     
 @bot.command()
 async def obama():
@@ -150,3 +151,6 @@ async def obama():
 @bot.command()
 async def gender():
     await bot.say("My gender? Code... :dragon_face:")
+
+def startDiscord():
+  bot.run(TOKEN)
