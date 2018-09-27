@@ -38,16 +38,16 @@ class Chris():
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     doc = botdb.get(key, "currency")
     if doc:
-      await self.bot.say(context.message.author.mention + " Has **$%s**" % doc['balance'])
+      await self.bot.say(context.message.author.mention + " Has **$%s**" % doc['bal'])
     else:
       await self.bot.say("User not found. Adding them.")
-      botdb.set(key, {'balance': 0}, "currency")
+      botdb.set(key, {'bal': 0}, "currency")
 
   @commands.command(pass_context=True)
   async def testaddbal(self, context):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     money = botdb.get(key, "currency")
-    money['balance'] += 150
+    money['bal'] += 150
     botdb.set(key, money, "currency")
 
 def setup(bot):
