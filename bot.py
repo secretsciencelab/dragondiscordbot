@@ -192,7 +192,7 @@ async def unload(extension_name : str):
     await bot.say("Personality module **{}** unloaded.".format(extension_name))
 
 @bot.command(pass_context=True)
-async def setgame(gamename : str, context):
+async def setgame(context, gamename : str):
     if "494721265383374879" in [role.id for role in context.author.roles]:
        await bot.change_presence(game=discord.Game(name=gamename))
        embed=discord.Embed(title="Playing message updated", description="Playing message updated to '" + gamename + "'", color=0x1abc9c)
