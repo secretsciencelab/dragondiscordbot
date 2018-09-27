@@ -181,11 +181,11 @@ async def load(extension_name : str):
     except (AttributeError, ImportError) as e:
         await bot.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
         return
-    await bot.say("{} loaded.".format(extension_name))
+    await bot.say("Personality module *{}* loaded.".format(extension_name))
 
 @bot.command()
 async def unload(extension_name : str):
     """Unloads an extension."""
     prefix = "ext_"
     bot.unload_extension(prefix + extension_name)
-    await bot.say("{} unloaded.".format(extension_name))
+    await bot.say("Personality module *{}* unloaded.".format(extension_name))
