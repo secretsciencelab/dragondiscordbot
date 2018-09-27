@@ -99,7 +99,7 @@ class Chris():
 # Gambling #
 ############
   @commands.command(pass_context=True)
-  async def slots(self, context, am : int):
+  async def slots(self, context, am : int = 0):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     doc = botdb.get(key, "currency")
 
