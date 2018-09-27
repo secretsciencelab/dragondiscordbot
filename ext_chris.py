@@ -8,6 +8,9 @@ class Chris():
   def __init__(self, bot):
     self.bot = bot
 
+##################
+# Random/Testing #
+##################
   @commands.command()
   async def summonmaster(self):
      await self.bot.say('mmmm~ you summoned the dungeon master~ heheheh... <@214472130627239946>')
@@ -32,8 +35,26 @@ class Chris():
     await self.bot.say('hmm.. who shall I be today? >:D *snaps fingers* oh.. now im ' + random.choice(possible_responses))
 
 #################
-# Test Currency #
+# Informational #
 #################
+  @commands.command()
+  async def chrishelp(self):
+    embed=discord.Embed(title="Chris Module Help (CMD Prefix: '!' or '$')", description="Available commands in this Personality Module", color=0x3e0913)
+    embed.add_field(name="Random/Test CMDs", value="""
+                      **ping** - Test Command
+                      **summonmaster** - If you wish to summon Chris
+                      **crazy** - Think you can throw anything at Chris?
+                      **snap** - Go into character~""")
+    embed.add_field(name="Currency/Gambling CMDs", value="""
+                      **bal** - Check your balance
+                      **resetbal** - Reset your balance
+                      **slots** - If you wish to play slots""")
+    await self.bot.say("", embed=embed)
+
+
+############
+# Currency #
+############
   @commands.command(pass_context=True)
   async def bal(self, context):
     name=""
@@ -73,23 +94,6 @@ class Chris():
     embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
     await self.bot.say(context.message.author.mention, embed=embed)
 
-#################
-# Informational #
-#################
-  @commands.command()
-  async def chrishelp(self):
-    embed=discord.Embed(title="Chris Module Help (CMD Prefix: '!' or '$')", description="Available commands in this Personality Module", color=0x3e0913)
-    embed.add_field(name="Random/Test CMDs", value="""
-                      **ping** - Test Command
-                      **summonmaster** - If you wish to summon Chris
-                      **crazy** - Think you can throw anything at Chris?
-                      **snap** - Go into character~""")
-    embed.add_field(name="Currency/Gambling CMDs", value="""
-                      **bal** - Check your balance
-                      **resetbal** - Reset your balance
-                      **slots** - If you wish to play slots""")
-    await self.bot.say("", embed=embed)
-# 0x1abc9c
 # Slots emotes; :spades: :clubs: :hearts: :diamonds: :dragon: 
 ############
 # Gambling #
@@ -111,6 +115,16 @@ class Chris():
     result=""
 
     possible_slots = [
+      ':spades:',
+      ':clubs:',
+      ':hearts:',
+      ':diamonds:',
+      ':dragon:',
+      ':spades:',
+      ':clubs:',
+      ':hearts:',
+      ':diamonds:',
+      ':dragon:',
       ':spades:',
       ':clubs:',
       ':hearts:',
