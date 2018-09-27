@@ -5,7 +5,7 @@ import pytz, us
 from discord import Game
 from discord.ext.commands import Bot
 
-TOKEN = os.environ["DISCORD_TOKEN"]
+DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
 
 BOT_PREFIX = ("$", "!")
 bot = Bot(command_prefix=BOT_PREFIX)
@@ -28,7 +28,7 @@ async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use !help"))
 
 def startDiscord():
-  bot.run(TOKEN)
+  bot.run(DISCORD_TOKEN)
 
 ####################
 # VV CMDs Below VV #
