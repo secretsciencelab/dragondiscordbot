@@ -99,14 +99,28 @@ class Chris():
 # Gambling #
 ############
   @commands.command(pass_context=True)
-  async def slots(self, context):
+  async def slots(self, context, am : int):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     doc = botdb.get(key, "currency")
-    spadesvalue=100
-    clubsvalue=300
-    heartsvalue=500
-    diamondsvalue=700
-    dragonsvalue=1000 # Jackpot
+
+    if am == 0:
+      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="Please place a bet. (ex: !slots 100)")
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return 
+    if am < 50:
+      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You cannot bet any lower than **$50**")
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return    
+    if am > 200:
+      eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You cannot bet any higher than **$200**")
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return        
+
+    spadesvalue=am*3
+    clubsvalue=am*4
+    heartsvalue=am*5
+    diamondsvalue=am*6
+    dragonsvalue=am*8 # Jackpot
 
     slot1=""
     slot2=""
@@ -143,8 +157,8 @@ class Chris():
 
     money = botdb.get(key, "currency")
 
-    if doc['bal'] >= 50:
-      money['bal'] -= 50
+    if doc['bal'] >= am:
+      money['bal'] -= am
       botdb.set(key, money, "currency")
 
       if slot1 == possible_slots[0] and slot2 == possible_slots[0] and slot3 == possible_slots[0]:
@@ -173,12 +187,12 @@ class Chris():
         botdb.set(key, money, "currency")
         result="JACKPOT!! You won **$" + dragonsvalue.__str__() + "**!"
       else:
-        result="BUST! You won nothing! You lost **$50**!"
+        result="BUST! You won nothing! You lost **$" + am.__str__() + "**!"
     else:
       eremb=discord.Embed(title="DragonBot Slots [ERROR]", description="You need at least **$50** or more to use slots.")
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
-    slotsemb=discord.Embed(title="DragonScript Slots", description="You bet **$50** and got..", color=0x1abc9c)
+    slotsemb=discord.Embed(title="DragonScript Slots", description="You bet **$" + am.__str__() + "** and..", color=0x1abc9c)
     slotsemb.add_field(name="Result", value=slot1 + " | " + slot2 + " | " + slot3)
     slotsemb.add_field(name="Rewards", value=":spades: - **$" + spadesvalue.__str__() + "**\n:clubs: - **$" + clubsvalue.__str__() + "**\n:hearts: - **$" + heartsvalue.__str__() + "**\n:diamonds: - **$" + diamondsvalue.__str__() + "**\n:dragon: - **JACKPOT $" + dragonsvalue.__str__() + "**")
     slotsemb.add_field(name="And..", value=result)
