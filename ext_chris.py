@@ -49,13 +49,13 @@ class Chris():
     money = botdb.get(key, "currency")
     money['bal'] += 150
     botdb.set(key, money, "currency")
-    self.bot.say("Adding **$150** to your account.")
+    await self.bot.say("Adding **$150** to your account.")
 
   @commands.command(pass_context=True)
   async def resetbal(self, context):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     botdb.set(key, {'bal': 0}, "currency")
-    self.bot.say("Account reset.")
+    await self.bot.say("Account reset.")
 
 def setup(bot):
   bot.add_cog(Chris(bot))
