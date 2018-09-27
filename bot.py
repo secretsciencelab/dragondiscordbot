@@ -43,18 +43,21 @@ async def h():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
     embed.add_field(name="Available commands (CMD Prefix: '!' or '$')", value="For now we got:", inline=False) 
     embed.add_field(name="Random CMDs", 
-                    value="""**rawr** - A true dragons roar!  
-                    **Lucas** Rememberance of our lost Dragon Legend.
-                    **Gender** - Everything has a gender.
-                    **obama** - Please don't.
-                    **logan** - A questionable species indeed...
-                    **8ball** - Ask the destiny 'bout your furtune!
-                    **cade** - Know more of this sweet boye!
-                    **kami** - What is he anyways?
-                    **chris** - Know a lil' more about Chris, that great guy :3
-                    **godhimself** - If you wish you see your new god""", inline=False)
+                    value="""**hello** - Hello :D
+                    **goodnight** - Happy Dragonscripting! :D
+                    **lucas** - Sniffing ;)
+                    **chris** - More about the amazing Chrissyboi :3
+                    **kami** - What is he, really?
+                    **cade** - Info about the nice gent :)
+                    **logan** - The best soldier
+                    **rawr** - It's a dragon.. what do you expect?
+                    **8ball** - Ask the virtual spirits from beyond.. anything..
+                    **godhimself** - Bow to your new god!
+                    **obama** - No longer our pres..
+                    **gender** - The dragons sexual identity.""", inline=False)
     embed.add_field(name="Informational CMDs",
-                   value="""**aboutds** - Learn a little 'bout DragonScript Arena!
+                   value="""**help** - this..
+                   **aboutds** - Learn a little 'bout DragonScript Arena!
                    **time** - Wanna know what time it is somewhere in the word?""", inline=False)   
     await bot.say("", embed=embed)
 
