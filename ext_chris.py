@@ -13,5 +13,9 @@ class Chris():
   async def ping(self):
      await self.bot.say('PONG BITCH!')
 
+  @commands.command()
+  async def crazy(self):
+    await self.bot.say('oh no~ theres nothing you can throw at me.. *you cant win against my kind of crazy~*')
+
 def setup(bot):
   bot.add_cog(Chris(bot))
