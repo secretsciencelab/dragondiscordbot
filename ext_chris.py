@@ -67,7 +67,7 @@ class Chris():
     else:
       name="Error"
       desc="Account not found. Adding it. (type !bal again)"
-      botdb.set(key, {'bal': 200}, "currency")
+      botdb.set(key, {'bal': 1000}, "currency")
 
     embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
     embed.set_thumbnail(url=context.message.author.avatar_url)
@@ -88,7 +88,7 @@ class Chris():
   @commands.command(pass_context=True)
   async def resetbal(self, context):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
-    botdb.set(key, {'bal': 200}, "currency")
+    botdb.set(key, {'bal': 1000}, "currency")
     embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
     embed.set_thumbnail(url=context.message.author.avatar_url)
     embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
@@ -141,6 +141,11 @@ class Chris():
       ':hearts:',
       ':clubs:',
       ':hearts:',
+      ':clubs:',
+      ':hearts:',
+      ':diamonds:',
+      ':dragon:',
+      ':spades:',
       ':diamonds:',
       ':dragon:',
       ':spades:',
