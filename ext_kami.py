@@ -7,7 +7,7 @@ class Kami():
 
   @commands.command()
   async def owo():
-    await self.bot.say('What's this?')
+    await self.bot.say("What's this?")
 
 def setup(bot):
   bot.add_cog(Kami(bot))
