@@ -17,7 +17,10 @@ class Aaron():
   @commands.command()
   async def dbget(self, key):
     doc = botdb.get(key, "aaron")
-    await self.bot.say("%s" % doc['value'])
+    if doc:
+      await self.bot.say("%s" % doc['value'])
+    else:
+      await self.bot.say("Not found")
 
 def setup(bot):
   bot.add_cog(Aaron(bot))
