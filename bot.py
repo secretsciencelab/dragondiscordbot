@@ -76,8 +76,7 @@ async def dstime(ctx, place):
   
   if not place:
     await bot.say("Sorry, I don't know where that is")
-    await bot.say("Please try one of the following timezones:")
-    await bot.say("\n".join(pytz.all_timezones))
+    await bot.say("Please try one of the following timezones: https://en.m.wikipedia.org/wiki/List_of_tz_database_time_zones")
     return
     
   locTz = pytz.timezone(place)
