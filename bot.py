@@ -161,4 +161,9 @@ async def obama():
 @bot.command()
 async def gender():
     await bot.say("My gender? Code... :dragon_face:")
-   
+  
+@bot.command()
+async def suma(left : int, right : int):
+    """Papa"""
+    await bot.say(left + right)
+
