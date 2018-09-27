@@ -170,7 +170,7 @@ async def gender():
 
 
 ###############
-# Misc CMDs #
+#  Misc CMDs  #
 ###############
 @bot.command()
 async def load(extension_name : str):
