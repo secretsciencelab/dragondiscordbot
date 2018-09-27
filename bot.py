@@ -90,7 +90,7 @@ async def eight_ball(context):
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
 @bot.command()
-async def lick <@322808830218207232>:
+async def lick(user):
     possible_responses = [
         'You taste good..',
         'Ew, you taste like a sweaty nerd..',
@@ -98,7 +98,7 @@ async def lick <@322808830218207232>:
         '*gags* oh god..',
         'Definitely swam in a septic tank..',
     ]
-    await bot.say("*licks* " + <@322808830218207232>.format(message)
+    await bot.say("*licks* " + user.mention)
     await bot.say(" .." + random.choice(possible_responses))
     
 @bot.command()
