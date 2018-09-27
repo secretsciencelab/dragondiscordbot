@@ -113,7 +113,7 @@ async def goodnight(context):
   await bot.say("Goodnight, " + context.message.author.mention + "! Happy DragonScripting!")
 
 @bot.command()
-async def lucas(context)
+async def lucas(context):
   await bot.say("***SNIFFING INTENSIFIES*** You smell guud " + context.message.author.mention + " ^-^")
 
 @bot.command()
