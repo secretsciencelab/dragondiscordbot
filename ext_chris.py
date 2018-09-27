@@ -1,6 +1,7 @@
 import discord
 import botdb
 import os, random
+from discord import Game
 from discord.ext import commands
 
 class Chris():
@@ -35,14 +36,19 @@ class Chris():
 #################
   @commands.command(pass_context=True)
   async def bal(self, context):
+    name=""
+    desc=""
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     doc = botdb.get(key, "currency")
-    embed=discord.Embed(title="DragonScript Bank", "")
     if doc:
-      embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nYou have **$%s**" % doc['bal'])
+      name=context.message.author.name + "'s Currency card"
+      desc="Card No/ID: **" + context.message.author.id + "**\nYou have **$%s**" % doc['bal']
     else:
-      embed.add_field(name="Error", description="Account not found. Adding it. (type !bal again)")
+      name="Error"
+      desc="Account not found. Adding it. (type !bal again)"
       botdb.set(key, {'bal': 0}, "currency")
+    embed=discord.Embed(title="DragonScript Bank", "User Balance Info", color=0x1abc9c)
+    embed.add_field(name=name, description=desc)
     await self.bot.say(context.message.author.mention, embed=embed)
 
   @commands.command(pass_context=True)
@@ -51,7 +57,7 @@ class Chris():
     money = botdb.get(key, "currency")
     money['bal'] += 150
     botdb.set(key, money, "currency")
-    embed=discord.Embed(title="DragonScript Bank", "")
+    embed=discord.Embed(title="DragonScript Bank", "User Balance Info", color=0x1abc9c)
     embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
     await self.bot.say(context.message.author.mention, embed=embed)
 
@@ -59,7 +65,7 @@ class Chris():
   async def resetbal(self, context):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     botdb.set(key, {'bal': 0}, "currency")
-    embed=discord.Embed(title="DragonScript Bank", "")
+    embed=discord.Embed(title="DragonScript Bank", "User Balance Info", color=0x1abc9c)
     embed.add_field(name=context.message.author.name + "'s Currency card", description="Card No/ID: **" + context.message.author.id + "**\nAccount reset.")
     await self.bot.say(context.message.author.mention, embed=embed)
 
