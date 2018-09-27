@@ -96,7 +96,7 @@ class Chris():
     currentday=datetime.datetime.now().day
 
     if dblastdailyuse['lastdailyuse'] == currentday:
-      eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today. (Last use: **" + dblastdailyuse['lastdailyuse'].__str__() + "**)", color=0xFF0000)
+      eremb=discord.Embed(title="DragonScript Bank [ERROR]", description="You cannot use your Daily again today. (Last day of use: **" + dblastdailyuse['lastdailyuse'].__str__() + "**)", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
     elif dblastdailyuse['lastdailyuse'] is None or dblastdailyuse['lastdailyuse'] != currentday:
