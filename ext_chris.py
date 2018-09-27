@@ -4,7 +4,7 @@ from discord.ext import commands
 class Chris():
   def __init__(self, bot):
     self.bot = bot
-    await self.bot.say('mmmm~ you summoned the dungeon master~ heheheh...')
+    self.bot.say('mmmm~ you summoned the dungeon master~ heheheh...')
 
   @commands.command()
   async def ping(self):
