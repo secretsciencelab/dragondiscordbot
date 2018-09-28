@@ -156,10 +156,10 @@ class Chris():
       randstealam = randint(150, 250)
 
       if cmdrunnermoney == None:
-        botdb.set(cmdrunnermoneykey, 1000, "currency")
+        botdb.set(cmdrunnermoneykey, {'bal': 1000}, "currency")
 
       if targetmoney == None:
-        botdb.set(targetmoneykey, 1000, "currency")
+        botdb.set(targetmoneykey, {'bal': 1000}, "currency")
 
       if cmdrunnermoney['bal'] <= 100:
         randstealam = randstealam/2
