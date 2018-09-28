@@ -57,7 +57,8 @@ class Chris():
                       **ping** - Test Command
                       **summonmaster** - If you wish to summon Chris
                       **crazy** - Think you can throw anything at Chris?
-                      **snap** - Go into character~""")
+                      **snap** - Go into character~
+                      **lick** - Lick anyone you want!""")
     embed.add_field(name="Currency/Gambling CMDs", value="""
                       **bal** - Check your balance
                       **daily** - Get a daily reward
