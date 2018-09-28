@@ -88,6 +88,11 @@ class Chris():
 #    await self.bot.say(context.message.author.mention, embed=embed)
 
   @commands.command(pass_context=True)
+  async def resetbal(self, context):
+    moneykey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
+    botdb.set(moneykey, {'bal': 1000}, "currency")
+
+  @commands.command(pass_context=True)
   async def daily(self, context):
     dailykey = context.message.author.name + "_" + context.message.author.discriminator + "_dailyuse"
     moneykey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
@@ -140,7 +145,7 @@ class Chris():
         return   
 
       if lastuserstolenfrom == None:
-        botdb.set(laststolenfromkey, {'laststolenfrom': context.message.author.name}, "stealing")
+        botdb.set(laststolenfromkey, context.message.author.name, "stealing")
         lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
 
       if target.name == lastuserstolenfrom['laststolenfrom'] and lastuserstolenfrom != None:
@@ -175,9 +180,9 @@ class Chris():
         if randchance == 2:
           targetmoney['bal'] -= amountstealing
           cmdrunnermoney['bal'] += amountstealing
-          botdb.set(cmdrunnermoneykey, {'bal': cmdrunnermoney}, "currency")
-          botdb.set(targetmoneykey, {'bal': targetmoney}, "currency")
-          botdb.set(laststolenfromkey, {'laststolenfrom': target.name}, "stealing")
+          botdb.set(cmdrunnermoneykey, cmdrunnermoney, "currency")
+          botdb.set(targetmoneykey, targetmoney, "currency")
+          botdb.set(laststolenfromkey, target.name, "stealing")
           eremb=discord.Embed(title="Stealing [SUCCESS!]", description="Successfully stolen **$" + amountstealing.__str__() + "** from " + target.name + "!", color=0xecff00)
           await self.bot.say(target.mention, embed=eremb)
         else:
@@ -185,8 +190,8 @@ class Chris():
           if cmdrunnermoney['bal'] >= 50:
             cmdrunnermoney['bal'] -= 50
             targetmoney['bal'] += 50
-            botdb.set(cmdrunnermoneykey, {'bal': cmdrunnermoney}, "currency")
-            botdb.set(targetmoneykey, {'bal': targetmoney}, "currency")
+            botdb.set(cmdrunnermoneykey, cmdrunnermoney, "currency")
+            botdb.set(targetmoneykey, targetmoney, "currency")
             lost="You lost **$50** when running away!"
           eremb=discord.Embed(title="Stealing [FAILED!]", description="Failed to steal from " + target.name + "! " + lost, color=0xFF0000)
           await self.bot.say(context.message.author.mention, embed=eremb)
