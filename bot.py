@@ -210,7 +210,7 @@ async def setjoinmessage(context, msg : str = ""):
             return
         else:
             botdb.set("dragonscriptserver_joinmessage", {'serverjoinmsg': msg}, "server")
-            erremb=discord.Embed(title="New Member Join Message", description="Join Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0xFF0000)
+            erremb=discord.Embed(title="New Member Join Message", description="Join Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0xecff00)
             await bot.say(context.message.author.mention, embed=erremb) 
     else:
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
@@ -225,7 +225,7 @@ async def setleavemessage(context, msg : str = ""):
             return
         else:
             botdb.set("dragonscriptserver_leavemessage", {'serverleavemsg': msg}, "server")
-            erremb=discord.Embed(title="Member Leave Message", description="Leave Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0xFF0000)
+            erremb=discord.Embed(title="Member Leave Message", description="Leave Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0xecff00)
             await bot.say(context.message.author.mention, embed=erremb) 
     else:
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
