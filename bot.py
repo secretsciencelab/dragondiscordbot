@@ -210,7 +210,7 @@ async def setjoinmessage(context, msg : str = ""):
             return
         else:
             botdb.set("dragonscriptserver_joinmessage", {'serverjoinmsg': msg}, "server")
-            erremb=discord.Embed(title="New Member Join Message", description="Join Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0xecff00)
+            erremb=discord.Embed(title="New Member Join Message", description="Join Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0x32e00f)
             await bot.say(context.message.author.mention, embed=erremb) 
     else:
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
@@ -225,7 +225,7 @@ async def setleavemessage(context, msg : str = ""):
             return
         else:
             botdb.set("dragonscriptserver_leavemessage", {'serverleavemsg': msg}, "server")
-            erremb=discord.Embed(title="Member Leave Message", description="Leave Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0xecff00)
+            erremb=discord.Embed(title="Member Leave Message", description="Leave Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0x32e00f)
             await bot.say(context.message.author.mention, embed=erremb) 
     else:
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
@@ -252,7 +252,7 @@ async def on_member_join(member):
     if "[SERVER]" in msg:
         msg.replace("[SERVER]", "**DragonScript Coding Club**")
 
-    joinemb=discord.Embed(title="Welcome!", description=msg, color=0xecff00)
+    joinemb=discord.Embed(title="Welcome!", description=msg, color=0x32e00f)
     await bot.send_message(discord.Object(id='476647778148286476'), member.mention, embed=joinemb)
     #await bot.channels.get("476647778148286476").send(member.mention, embed=joinemb)
     # Put new user into the currency DB to avoid errors with the currency system- with a user not being in the DB
