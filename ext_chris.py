@@ -150,10 +150,9 @@ class Chris():
 
       cmdrunnermoneykey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
       targetmoneykey = target.name + "_" + context.message.author.discriminator + "_money"
+
       cmdrunnermoney = botdb.get(cmdrunnermoneykey, "currency")
       targetmoney = botdb.get(targetmoneykey, "currency")
-
-      randstealam = 150
 
       if cmdrunnermoney == None:
         botdb.set(cmdrunnermoneykey, {'bal': 1000}, "currency")
@@ -161,16 +160,18 @@ class Chris():
       if targetmoney == None:
         botdb.set(targetmoneykey, {'bal': 1000}, "currency")
 
-      if cmdrunnermoney['bal'] <= 100:
-        randstealam = randstealam/2
+      amountstealing = 150
 
-      if targetmoney['bal'] >= randstealam:
+      if cmdrunnermoney['bal'] <= 100:
+        amountstealing = 75
+
+      if targetmoney['bal'] >= amountstealing:
         randchance = randint(0, 3)
         if randchance == 2:
-          targetmoney['bal'] -= randstealam
+          targetmoney['bal'] -= amountstealing
           botdb.set(targetmoneykey, {'bal': targetmoney}, "currency")
           botdb.set(laststolenfromkey, {'laststolenfrom': target.name}, "stealing")
-          eremb=discord.Embed(title="Stealing [SUCCESS!]", description="Successfully stolen **$" + randstealam.__str__() + "** from " + target.name + "!", color=0xecff00)
+          eremb=discord.Embed(title="Stealing [SUCCESS!]", description="Successfully stolen **$" + amountstealing.__str__() + "** from " + target.name + "!", color=0xecff00)
           await self.bot.say(target.mention, embed=eremb)
         else:
           lost=""
