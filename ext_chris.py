@@ -139,10 +139,15 @@ class Chris():
         await self.bot.say(context.message.author.mention, embed=eremb)
         return   
 
-      if target.name == lastuserstolenfrom['laststolenfrom']:
+      if lastuserstolenfrom == None:
+        botdb.set(laststolenfromkey, {'laststolenfrom': context.message.author.name}, "stealing")
+        lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
+
+      if target.name == lastuserstolenfrom['laststolenfrom'] and lastuserstolenfrom != None:
         eremb=discord.Embed(title="Stealing [ERROR]", description="This user has already been stolen from last. try someone else.", color=0xFF0000)
         await self.bot.say(context.message.author.mention, embed=eremb)
         return
+
       cmdrunnermoneykey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
       targetmoneykey = target.name + "_" + context.message.author.discriminator + "_money"
       cmdrunnermoney = botdb.get(cmdrunnermoneykey, "currency")
