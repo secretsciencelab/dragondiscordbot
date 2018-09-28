@@ -7,20 +7,20 @@ Everyone that's a part of the DragonScript Coding Club can modify this bot- and 
 1. Try adding a new command. Edit bot.py. Look for the "rawr" command to use as a reference:
 
   ```python
-@bot.command()
-async def rawr():
-    await bot.say("RAWR!!! :dragon_face:")
-```
-
+   @bot.command()
+   async def rawr():
+       await bot.say("RAWR!!! :dragon_face:")
+   ```
+   
    This automatically creates a new command *!rawr*  
-
+   
    E.g. if you add something like:
-
+   
    ```python
-@bot.command()
-async def hello_world():
+   @bot.command()
+   async def hello_world():
     await bot.say("hello_world")
-```
+   ```
 
    ... that will automatically create a new command *!hello_world*. Of course I'm sure you can be more creative than that.
    
