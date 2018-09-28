@@ -16,9 +16,6 @@ servername="" # This gets updated on run
 
 @bot.event
 async def on_message(message):
-    if serername == "":
-        servername = message.guild.name
-
     # we do not want the bot to reply to itself
     if message.author == bot.user:
         return
@@ -208,6 +205,8 @@ async def setgame(context, gamename : str):
 
 @bot.command(pass_context=True)
 async def setjoinmessage(context, msg : str = ""):
+    servername = context.message.guild.name
+
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
         if msg == "":
             erremb=discord.Embed(title="Error", description="Message cannot be blank.", color=0xFF0000)
@@ -223,6 +222,8 @@ async def setjoinmessage(context, msg : str = ""):
 
 @bot.command(pass_context=True)
 async def setleavemessage(context, msg : str = ""):
+    servername = context.message.guild.name
+
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
         if msg == "":
             erremb=discord.Embed(title="Error", description="Message cannot be blank.", color=0xFF0000)
