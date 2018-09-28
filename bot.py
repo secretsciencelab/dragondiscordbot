@@ -247,10 +247,10 @@ async def on_member_join(member):
 
     msg = joinmessage['serverjoinmsg'].__str__()
     if "[USER]" in msg:
-        msg.replace("[USER]", membername)
+        msg = msg.replace("[USER]", membername)
 
     if "[SERVER]" in msg:
-        msg.replace("[SERVER]", "**DragonScript Coding Club**")
+        msg = msg.replace("[SERVER]", "**DragonScript Coding Club**")
 
     joinemb=discord.Embed(title="Welcome!", description=msg, color=0x32e00f)
     await bot.send_message(discord.Object(id='476647778148286476'), member.mention, embed=joinemb)
@@ -269,10 +269,10 @@ async def on_member_remove(member):
 
     msg = leavemessage['serverleavemsg'].__str__()
     if "[USER]" in msg:
-        msg.replace("[USER]", membername)
+        msg = msg.replace("[USER]", membername)
 
     if "[SERVER]" in msg:
-        msg.replace("[SERVER]", "**DragonScript Coding Club**")
+        msg = msg.replace("[SERVER]", "**DragonScript Coding Club**")
 
     leaveemb=discord.Embed(title="Goodbye!", description=msg, color=0xFF0000)
     await bot.send_message(discord.Object(id='476647778148286476'), member.mention, embed=leaveemb)
