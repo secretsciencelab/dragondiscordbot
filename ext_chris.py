@@ -66,6 +66,11 @@ class Chris():
     if target == None:
       target = context.message.author
 
+    if target == self.bot.user:
+      eremb=discord.Embed(title="Stealing [ERROR]", description="Bots cannot have money.", color=0xFF0000)
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return    
+
     key = target.name + "_" + target.discriminator + "_money"
     doc = botdb.get(key, "currency")
 
@@ -143,6 +148,12 @@ class Chris():
   async def steal(self, context, target : discord.User = None):
     laststolenfromkey = "laststolenfrom_key"
     lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
+
+    if target == self.bot.user:
+      eremb=discord.Embed(title="Stealing [ERROR]", description="Can't steal from bots.", color=0xFF0000)
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return      
+
     if target == None:
       eremb=discord.Embed(title="Stealing [ERROR]", description="Please specify a user! (ex: !steal @Steel_Dev#3344)", color=0xFF0000)
       await self.bot.say(context.message.author.mention, embed=eremb)
