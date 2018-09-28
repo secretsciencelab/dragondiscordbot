@@ -257,7 +257,10 @@ async def on_member_join(member):
     await bot.send_message(discord.Object(id='476647778148286476'), member.mention, embed=joinemb)
     #await bot.channels.get("476647778148286476").send(member.mention, embed=joinemb)
     # Put new user into the currency DB to avoid errors with the currency system- with a user not being in the DB
-    botdb.set(newmemberkey, {'bal': 1000}, "currency")
+    newusermoney = botdb.get(newmemberkey, "currency")
+    
+    if newusermoney = None:
+        botdb.set(newmemberkey, {'bal': 1000}, "currency")
 
 @bot.event
 async def on_member_remove(member):
