@@ -240,14 +240,14 @@ async def on_member_join(member):
     newmemberkey = member.name + "_" + member.discriminator + "_money"
     joinmessage = botdb.get("dragonscriptserver_joinmessage", "server")
     defaultjoinmsg="Welcome [USER] to [SERVER]! We hope you enjoy your time here :)"
-
+    membername="**" + member.name + "**"
     if joinmessage == None:
         botdb.set("dragonscriptserver_joinmessage", {'serverjoinmsg': defaultjoinmsg}, "server")
         joinmessage = botdb.get("dragonscriptserver_joinmessage", "server")
 
     msg = joinmessage['serverjoinmsg'].__str__()
     if "[USER]" in msg:
-        msg.replace("[USER]", "**"+member.name+"**")
+        msg.replace("[USER]", membername)
 
     if "[SERVER]" in msg:
         msg.replace("[SERVER]", "**DragonScript Coding Club**")
@@ -261,14 +261,14 @@ async def on_member_join(member):
 async def on_member_remove(member):
     leavemessage = botdb.get("dragonscriptserver_leavemessage", "server")
     defaultleavemsg="[USER] Just left [SERVER] :( Well, goodbye! We hope you at least had a good time here :)"
-
+    membername="**" + member.name + "**"
     if leavemessage == None:
         botdb.set("dragonscriptserver_leavemessage", {'serverleavemsg': defaultleavemsg}, "server")
         leavemessage = botdb.get("dragonscriptserver_leavemessage", "server")
 
     msg = leavemessage['serverleavemsg'].__str__()
     if "[USER]" in msg:
-        msg.replace("[USER]", "**"+member.name"**")
+        msg.replace("[USER]", membername)
 
     if "[SERVER]" in msg:
         msg.replace("[SERVER]", "**DragonScript Coding Club**")
