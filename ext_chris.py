@@ -50,7 +50,8 @@ class Chris():
     embed.add_field(name="Currency/Gambling CMDs", value="""
                       **bal** - Check your balance
                       **daily** - Get a daily reward
-                      **slots** - If you wish to play slots""")
+                      **slots** - If you wish to play slots
+                      **steal** - Wanna be a cunt? go ahead""")
     await self.bot.say("", embed=embed)
 
 
@@ -67,7 +68,12 @@ class Chris():
 
     key = target.name + "_" + target.discriminator + "_money"
     doc = botdb.get(key, "currency")
+
     if doc:
+      if doc['bal'] < 0:
+        botdb.set(key, {'bal': 0}, "currency")
+        doc = botdb.get(key, "currency")
+
       name=target.name + "'s Currency card"
       desc="Card No/ID: **" + target.id + "**\n" + target.name + " has: **$%s**" % doc['bal']
     else:
@@ -133,7 +139,6 @@ class Chris():
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
 
-
   @commands.command(pass_context=True)
   async def steal(self, context, target : discord.User = None):
     laststolenfromkey = "laststolenfrom_key"
@@ -165,9 +170,11 @@ class Chris():
 
       if cmdrunnermoney == None:
         botdb.set(cmdrunnermoneykey, {'bal': 1000}, "currency")
+        cmdrunnermoney = botdb.get(cmdrunnermoneykey, "currency")
 
       if targetmoney == None:
         botdb.set(targetmoneykey, {'bal': 1000}, "currency")
+        targetmoney = botdb.get(targetmoneykey, "currency")
 
       amountstealing = 150
 
