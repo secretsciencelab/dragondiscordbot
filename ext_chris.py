@@ -153,7 +153,7 @@ class Chris():
       cmdrunnermoney = botdb.get(cmdrunnermoneykey, "currency")
       targetmoney = botdb.get(targetmoneykey, "currency")
 
-      randstealam = randint(150, 250)
+      randstealam = 150
 
       if cmdrunnermoney == None:
         botdb.set(cmdrunnermoneykey, {'bal': 1000}, "currency")
@@ -182,6 +182,11 @@ class Chris():
             lost="You lost **$50** when running away!"
           eremb=discord.Embed(title="Stealing [FAILED!]", description="Failed to steal from " + target.name + "! " + lost, color=0xFF0000)
           await self.bot.say(context.message.author.mention, embed=eremb)
+      else:
+          eremb=discord.Embed(title="Stealing [ERROR!]", description=target.name + " Doesn't have enough. Pick on someone who isn't broke off their ass.", color=0xFF0000)
+          await self.bot.say(context.message.author.mention, embed=eremb)
+          return
+
 
 # Slots emotes; :spades: :clubs: :hearts: :diamonds: :dragon: 
 ############
