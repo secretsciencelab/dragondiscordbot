@@ -36,6 +36,17 @@ class Chris():
     ]
     await self.bot.say('hmm.. who shall I be today? >:D *snaps fingers* oh.. now im ' + random.choice(possible_responses))
 
+  @commands.command()
+  async def lick(self, target : discord.User):
+      possible_responses = [
+          'Oh god.. you taste like crusty anal..',
+          'OH JESUS WHY, SHOWER! SHOWER!',
+          '*pukes* o-oh jeez.. oh god.. why',
+          'MMMMMMMMMMMMM ANAL! you gross fuck..',
+          'Definitely swam in a septic tank..',
+      ]
+      await self.bot.say("*licks " + target.mention + "* .." + random.choice(possible_responses))
+
 #################
 # Informational #
 #################
