@@ -23,6 +23,8 @@ async def hello_world():
 ```
 
    ... that will automatically create a new command *!hello_world*. Of course I'm sure you can be more creative than that.
+   
+   After you save your changes into github, the bot automatically updates itself with the new code within 1-2 minutes.
 
 2. Make your own Personality Module. Personality Modules contain code that you can load and unload from the bot using *!load* and *!unload*. 
 
