@@ -40,3 +40,6 @@ Hop on into the DragonScript Coding Club discord and say hi! https://discord.gg/
 
 # Logs
 The logs can be accessed here: http://secretsciencelab.com/dragonbotlog.html
+
+# Technologies you get to play with in this bot
+Python, Discord API, Google Firestore, Flask, Heroku, Git
