@@ -12,8 +12,6 @@ BOT_PREFIX = ("$", "!")
 bot = Bot(command_prefix=BOT_PREFIX)
 bot.remove_command('help')
 
-servername="" # This gets updated on run
-
 @bot.event
 async def on_message(message):
     # we do not want the bot to reply to itself
@@ -205,8 +203,6 @@ async def setgame(context, gamename : str):
 
 @bot.command(pass_context=True)
 async def setjoinmessage(context, msg : str = ""):
-    servername = context.message.guild.name
-
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
         if msg == "":
             erremb=discord.Embed(title="Error", description="Message cannot be blank.", color=0xFF0000)
@@ -222,8 +218,6 @@ async def setjoinmessage(context, msg : str = ""):
 
 @bot.command(pass_context=True)
 async def setleavemessage(context, msg : str = ""):
-    servername = context.message.guild.name
-
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
         if msg == "":
             erremb=discord.Embed(title="Error", description="Message cannot be blank.", color=0xFF0000)
@@ -256,10 +250,10 @@ async def on_member_join(member):
         msg.replace("[USER]", member.name)
 
     if "[SERVER]" in msg:
-        msg.replace("[SERVER]", servername)
+        msg.replace("[SERVER]", "DragonScript Coding Club")
 
     joinemb=discord.Embed(title="Welcome!", description=msg, color=0xecff00)
-    await bot.say(member.mention, embed=joinemb)
+    await bot.channels.get("476647778148286476").send(member.mention, embed=joinemb)
     # Put new user into the currency DB to avoid errors with the currency system- with a user not being in the DB
     botdb.set(newmemberkey, {'bal': 1000}, "currency")
 
@@ -277,7 +271,7 @@ async def on_member_remove(member):
         msg.replace("[USER]", member.name)
 
     if "[SERVER]" in msg:
-        msg.replace("[SERVER]", servername)
+        msg.replace("[SERVER]", "DragonScript Coding Club")
 
     joinemb=discord.Embed(title="Goodbye!", description=msg, color=0xFF0000)
-    await bot.say(member.mention, embed=joinemb)   
+    await bot.channels.get("476647778148286476").send(member.mention, embed=joinemb)   
