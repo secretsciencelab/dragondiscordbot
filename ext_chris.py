@@ -165,10 +165,17 @@ class Chris():
       if cmdrunnermoney['bal'] <= 100:
         amountstealing = 75
 
+      if targetmoney['bal'] < amountstealing:
+          eremb=discord.Embed(title="Stealing [ERROR!]", description=target.name + " Doesn't have enough. Pick on someone who isn't broke off their ass.", color=0xFF0000)
+          await self.bot.say(context.message.author.mention, embed=eremb)
+          return
+
       if targetmoney['bal'] >= amountstealing:
         randchance = randint(0, 3)
         if randchance == 2:
           targetmoney['bal'] -= amountstealing
+          cmdrunnermoney['bal'] += amountstealing
+          botdb.set(cmdrunnermoneykey, {'bal': cmdrunnermoney}, "currency")
           botdb.set(targetmoneykey, {'bal': targetmoney}, "currency")
           botdb.set(laststolenfromkey, {'laststolenfrom': target.name}, "stealing")
           eremb=discord.Embed(title="Stealing [SUCCESS!]", description="Successfully stolen **$" + amountstealing.__str__() + "** from " + target.name + "!", color=0xecff00)
@@ -183,10 +190,6 @@ class Chris():
             lost="You lost **$50** when running away!"
           eremb=discord.Embed(title="Stealing [FAILED!]", description="Failed to steal from " + target.name + "! " + lost, color=0xFF0000)
           await self.bot.say(context.message.author.mention, embed=eremb)
-      else:
-          eremb=discord.Embed(title="Stealing [ERROR!]", description=target.name + " Doesn't have enough. Pick on someone who isn't broke off their ass.", color=0xFF0000)
-          await self.bot.say(context.message.author.mention, embed=eremb)
-          return
 
 
 # Slots emotes; :spades: :clubs: :hearts: :diamonds: :dragon: 
