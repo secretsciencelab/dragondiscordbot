@@ -69,7 +69,7 @@ class Chris():
     doc = botdb.get(key, "currency")
     if doc:
       name=target.name + "'s Currency card"
-      desc="Card No/ID: **" + target.id + "**\nYou have **$%s**" % doc['bal']
+      desc="Card No/ID: **" + target.id + "**\n" + target.name + " has: **$%s**" % doc['bal']
     else:
       name="Error"
       desc="Account not found. Adding it. (type !bal again)"
