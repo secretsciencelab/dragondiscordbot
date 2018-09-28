@@ -186,7 +186,7 @@ class Chris():
           return
 
       if targetmoney['bal'] >= amountstealing:
-        randchance = randint(0, 2)
+        randchance = randint(0, 1)
         if randchance == 1:
           targetmoney['bal'] -= amountstealing
           cmdrunnermoney['bal'] += amountstealing
