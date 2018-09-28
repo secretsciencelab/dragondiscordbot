@@ -78,7 +78,7 @@ class Chris():
     embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
     embed.set_thumbnail(url=target.avatar_url)
     embed.add_field(name=name, value=desc)
-    await self.bot.say(target.mention, embed=embed)
+    await self.bot.say(context.message.author.mention, embed=embed)
 
 #  @commands.command(pass_context=True)
 #  async def testaddbal(self, context):
