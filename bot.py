@@ -253,7 +253,7 @@ async def on_member_join(member):
         msg = msg.replace("[SERVER]", "**DragonScript Coding Club**")
 
     joinemb=discord.Embed(title="Welcome!", description=msg, color=0x32e00f)
-    leavemb.set_thumbnail(url=member.avatar_url)
+    joinemb.set_thumbnail(url=member.avatar_url)
     await bot.send_message(discord.Object(id='476647778148286476'), member.mention, embed=joinemb)
     #await bot.channels.get("476647778148286476").send(member.mention, embed=joinemb)
     # Put new user into the currency DB to avoid errors with the currency system- with a user not being in the DB
@@ -276,6 +276,6 @@ async def on_member_remove(member):
         msg = msg.replace("[SERVER]", "**DragonScript Coding Club**")
 
     leaveemb=discord.Embed(title="Goodbye!", description=msg, color=0xFF0000)
-    leavemb.set_thumbnail(url=member.avatar_url)
+    leaveemb.set_thumbnail(url=member.avatar_url)
     await bot.send_message(discord.Object(id='476647778148286476'), member.mention, embed=leaveemb)
     #await bot.channels.get("476647778148286476").send(member.mention, embed=joinemb)   
