@@ -239,7 +239,7 @@ async def setleavemessage(context, msg : str = ""):
 async def on_member_join(member):
     newmemberkey = member.name + "_" + member.discriminator + "_money"
     joinmessage = botdb.get("dragonscriptserver_joinmessage", "server")
-    defaultjoinmsg="Welcome **[USER]** to **[SERVER]**! We hope you enjoy your time here :)"
+    defaultjoinmsg="Welcome [USER] to [SERVER]! We hope you enjoy your time here :)"
 
     if joinmessage == None:
         botdb.set("dragonscriptserver_joinmessage", {'serverjoinmsg': defaultjoinmsg}, "server")
@@ -247,10 +247,10 @@ async def on_member_join(member):
 
     msg = joinmessage['serverjoinmsg'].__str__()
     if "[USER]" in msg:
-        msg.replace("[USER]", member.name)
+        msg.replace("[USER]", "**"+member.name+"**")
 
     if "[SERVER]" in msg:
-        msg.replace("[SERVER]", "DragonScript Coding Club")
+        msg.replace("[SERVER]", "**DragonScript Coding Club**")
 
     joinemb=discord.Embed(title="Welcome!", description=msg, color=0xecff00)
     await bot.channels.get("476647778148286476").send(member.mention, embed=joinemb)
@@ -260,7 +260,7 @@ async def on_member_join(member):
 @bot.event
 async def on_member_remove(member):
     leavemessage = botdb.get("dragonscriptserver_leavemessage", "server")
-    defaultleavemsg="**[USER]** Just left **[SERVER]** :( Well, goodbye! We hope you at least had a good time here :)"
+    defaultleavemsg="[USER] Just left [SERVER] :( Well, goodbye! We hope you at least had a good time here :)"
 
     if leavemessage == None:
         botdb.set("dragonscriptserver_leavemessage", {'serverleavemsg': defaultleavemsg}, "server")
@@ -268,10 +268,10 @@ async def on_member_remove(member):
 
     msg = leavemessage['serverleavemsg'].__str__()
     if "[USER]" in msg:
-        msg.replace("[USER]", member.name)
+        msg.replace("[USER]", "**"+member.name"**")
 
     if "[SERVER]" in msg:
-        msg.replace("[SERVER]", "DragonScript Coding Club")
+        msg.replace("[SERVER]", "**DragonScript Coding Club**")
 
     joinemb=discord.Embed(title="Goodbye!", description=msg, color=0xFF0000)
     await bot.channels.get("476647778148286476").send(member.mention, embed=joinemb)   
