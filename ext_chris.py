@@ -54,7 +54,6 @@ class Chris():
                       **steal** - Wanna be a cunt? go ahead""")
     await self.bot.say("", embed=embed)
 
-
 ############
 # Currency #
 ############
@@ -90,17 +89,6 @@ class Chris():
     embed.set_thumbnail(url=target.avatar_url)
     embed.add_field(name=name, value=desc)
     await self.bot.say(context.message.author.mention, embed=embed)
-
-#  @commands.command(pass_context=True)
-#  async def testaddbal(self, context):
-#    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
-#    money = botdb.get(key, "currency")
-#    money['bal'] += 150
-#    botdb.set(key, money, "currency")
-#    embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-#    embed.set_thumbnail(url=context.message.author.avatar_url)
-#    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
-#    await self.bot.say(context.message.author.mention, embed=embed)
 
   @commands.command(pass_context=True)
   async def resetbal(self, context):
@@ -218,6 +206,16 @@ class Chris():
           eremb=discord.Embed(title="Stealing [FAILED!]", description="Failed to steal from " + target.name + "! " + lost, color=0xFF0000)
           await self.bot.say(context.message.author.mention, embed=eremb)
 
+#  @commands.command(pass_context=True)
+#  async def testaddbal(self, context):
+#    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
+#    money = botdb.get(key, "currency")
+#    money['bal'] += 150
+#    botdb.set(key, money, "currency")
+#    embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+#    embed.set_thumbnail(url=context.message.author.avatar_url)
+#    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
+#    await self.bot.say(context.message.author.mention, embed=embed)
 
 # Slots emotes; :spades: :clubs: :hearts: :diamonds: :dragon: 
 ############
