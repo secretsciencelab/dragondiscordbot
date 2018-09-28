@@ -145,7 +145,7 @@ class Chris():
         return   
 
       if lastuserstolenfrom == None:
-        botdb.set(laststolenfromkey, context.message.author.name, "stealing")
+        botdb.set(laststolenfromkey, {'laststolenfrom': context.message.author.name}, "stealing")
         lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
 
       if target.name == lastuserstolenfrom['laststolenfrom'].__str__() and lastuserstolenfrom != None:
@@ -182,7 +182,7 @@ class Chris():
           cmdrunnermoney['bal'] += amountstealing
           botdb.set(cmdrunnermoneykey, cmdrunnermoney, "currency")
           botdb.set(targetmoneykey, targetmoney, "currency")
-          botdb.set(laststolenfromkey, target.name, "stealing")
+          botdb.set(laststolenfromkey, {'laststolenfrom': target.name}, "stealing")
           eremb=discord.Embed(title="Stealing [SUCCESS!]", description="Successfully stolen **$" + amountstealing.__str__() + "** from " + target.name + "!", color=0xecff00)
           await self.bot.say(target.mention, embed=eremb)
         else:
