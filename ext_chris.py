@@ -44,8 +44,11 @@ class Chris():
           '*pukes* o-oh jeez.. oh god.. why',
           'MMMMMMMMMMMMM ANAL! you gross fuck..',
           'Definitely swam in a septic tank..',
+          'YOU TASTE LIKE ROTTEN DICK! EW EW!',
+          'OH JESUS, DID YOU HAVE A HOOKER GIVE YOU A CLEVELAND STEAMER?!',
+          'You taste like a baby after its been FUCKED! (godkillmenowwhydoidothethingsido)'
       ]
-      await self.bot.say("*licks " + target.mention + "* .." + random.choice(possible_responses))
+      await self.bot.say("*licks " + target.mention + "*    .." + random.choice(possible_responses))
 
 #################
 # Informational #
