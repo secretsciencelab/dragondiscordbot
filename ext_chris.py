@@ -154,7 +154,7 @@ class Chris():
         return
 
       cmdrunnermoneykey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
-      targetmoneykey = target.name + "_" + target.descriminator + "_money"
+      targetmoneykey = target.name + "_" + target.discriminator + "_money"
 
       cmdrunnermoney = botdb.get(cmdrunnermoneykey, "currency")
       targetmoney = botdb.get(targetmoneykey, "currency")
