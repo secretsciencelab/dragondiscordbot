@@ -11,7 +11,6 @@ Everyone that's a part of the DragonScript Coding Club can modify this bot- and 
    sync def rawr():
        await bot.say("RAWR!!! :dragon_face:")
     ```
-     
    This automatically creates a new command *!rawr*  
    
    E.g. if you add something like:
