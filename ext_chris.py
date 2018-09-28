@@ -145,10 +145,10 @@ class Chris():
         return   
 
       if lastuserstolenfrom == None:
-        botdb.set(laststolenfromkey, {'lastuserstolen': 'none'}, "stealing")
+        botdb.set(laststolenfromkey, context.message.author.name, "stealing")
         lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
 
-      if target.name == lastuserstolenfrom['lastuserstolen'] and lastuserstolenfrom != None:
+      if target.name == lastuserstolenfrom['laststolenfrom'].__str__() and lastuserstolenfrom != None:
         eremb=discord.Embed(title="Stealing [ERROR]", description="This user has already been stolen from last. try someone else.", color=0xFF0000)
         await self.bot.say(context.message.author.mention, embed=eremb)
         return
