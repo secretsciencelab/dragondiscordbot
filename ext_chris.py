@@ -58,23 +58,27 @@ class Chris():
 # Currency #
 ############
   @commands.command(pass_context=True)
-  async def bal(self, context):
+  async def bal(self, context, target : discord.User = None):
     name=""
     desc=""
-    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
+
+    if target == None:
+      target = context.message.author
+
+    key = target.name + "_" + target.discriminator + "_money"
     doc = botdb.get(key, "currency")
     if doc:
-      name=context.message.author.name + "'s Currency card"
-      desc="Card No/ID: **" + context.message.author.id + "**\nYou have **$%s**" % doc['bal']
+      name=target.name + "'s Currency card"
+      desc="Card No/ID: **" + target.id + "**\nYou have **$%s**" % doc['bal']
     else:
       name="Error"
       desc="Account not found. Adding it. (type !bal again)"
       botdb.set(key, {'bal': 1000}, "currency")
 
     embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-    embed.set_thumbnail(url=context.message.author.avatar_url)
+    embed.set_thumbnail(url=target.avatar_url)
     embed.add_field(name=name, value=desc)
-    await self.bot.say(context.message.author.mention, embed=embed)
+    await self.bot.say(target.mention, embed=embed)
 
 #  @commands.command(pass_context=True)
 #  async def testaddbal(self, context):
