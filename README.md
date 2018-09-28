@@ -1,4 +1,4 @@
-# dragondiscordbot
+# dragonbot
 Discord bot for/by DragonScript Coding Club
 
 Everyone that's a part of the DragonScript Coding Club can modify this bot- and add whatever they please!
