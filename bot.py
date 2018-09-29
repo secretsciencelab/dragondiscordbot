@@ -287,10 +287,9 @@ async def on_member_remove(member):
 ###################
 # CMD Error Event #
 ###################
-
 @bot.event
 async def on_command_error(error, ctx):
-    if isinstance(error, discord.commands.CommandOnCooldown):
+    if isinstance(error, discord.ext.commands.CommandOnCooldown):
         erembed=discord.Embed(title="Error", description=':exclaimation: This command is on cooldown, please try again in %.2fs' % error.retry_after, color=0x1abc9c)
         await bot.send_message(ctx.message.channel, embed=erembed)
     raise error
