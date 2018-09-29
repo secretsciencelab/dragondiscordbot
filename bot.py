@@ -128,7 +128,7 @@ async def kami():
 
 @bot.command()
 async def cade():
-  await bot.say("An Hopeless Love is Found In this Boio :DDDDDDDD")
+  await bot.say("I'm Mentally Stable :D")
 
 @bot.command()
 async def logan():
