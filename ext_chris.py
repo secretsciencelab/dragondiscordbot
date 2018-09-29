@@ -503,6 +503,7 @@ class Chris():
       rouletteemb.add_field(name="Reward", value="You got.. **$"+reward.__str__()+"**!")
       money['bal'] += reward
       botdb.set(key, money, "currency")
+      await self.bot.say(context.message.author.mention, embed=rouletteemb)
     else:
         erembed=discord.Embed(title="Error", description="You don't have enough to play this.", color=0xFF0000)
         await self.bot.say("", embed=erembed)
