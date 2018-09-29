@@ -449,31 +449,22 @@ class Chris():
 # Roulette - Roullette machine command
   @commands.command(pass_context=True)
   @commands.cooldown(4, 20, commands.BucketType.user)
-  async def roulette(self, context, bet : int = 20, num : int = -1, col : str = ""):
+  async def roulette(self, context, bet : int = 0, num : int = -1, col : str = ""):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     doc = botdb.get(key, "currency")
 
-    if bet < 20 and num < 0 and col == "":
+    if bet < 10 and num == -1 and col == "":
         erembed=discord.Embed(title="Error", description="Please place a bet, and what number you'd like to bet on, and what color. (ex: !roulette 20 5 green/black/red)", color=0x1abc9c)
         await self.bot.say("", embed=erembed)
         return
-    
-    if bet > 30:
-        erembed=discord.Embed(title="Error", description="You cannot bet any more than **$30**", color=0x1abc9c)
-        await self.bot.say("", embed=erembed)
-        return
-    if bet < 10:
-        erembed=discord.Embed(title="Error", description="You cannot bet any less than **$10**", color=0x1abc9c)
-        await self.bot.say("", embed=erembed)
-        return
 
-    if num > 10:
-        erembed=discord.Embed(title="Error", description="You cannot bet on a number higher than **10**", color=0x1abc9c)
+    if bet < 10 or bet > 20:
+        erembed=discord.Embed(title="Error", description="Bet must be between **$10**-**$20**", color=0x1abc9c)
         await self.bot.say("", embed=erembed)
-        return
+        return     
 
-    if num < 0:
-        erembed=discord.Embed(title="Error", description="You cannot bet on a number less than **0**", color=0x1abc9c)
+    if num < 0 or num > 10:
+        erembed=discord.Embed(title="Error", description="Number you're betting on must be between 0-10.", color=0x1abc9c)
         await self.bot.say("", embed=erembed)
         return
 
@@ -488,7 +479,6 @@ class Chris():
       botdb.set(key, money, "currency")
 
       generatednum=-1
-
       reward=0
       rouletteemb=discord.Embed(title="Roulette", description="Can you get lucky?\n**How it works:**\nIf the game generates a number that matches the one you bet on, your reward is 10 times your initial bet\nIf the generated number matches your color, your reward is 2 times your initial bet.")
       rouletteemb.set_image(url="https://www.101computing.net/wp/wp-content/uploads/roulette.png")
@@ -516,7 +506,9 @@ class Chris():
         reward=bet*2
       elif col == "black" and generatednum == 10: # Even
         reward=bet*2
-      
+      else:
+        reward=0
+
       if generatednum == num:
         reward=bet*10
 
