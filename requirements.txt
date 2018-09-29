@@ -1,6 +1,8 @@
 Flask
 discord.py
 firebase-admin
+geopy
 pytz
 requests
+tzwhere
 us
