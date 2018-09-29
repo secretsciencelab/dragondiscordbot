@@ -6,25 +6,32 @@ from random import randint
 from discord import Game
 from discord.ext import commands
 
+# Class
 class Chris():
+  # Initialization
   def __init__(self, bot):
     self.bot = bot
 
 ##################
 # Random/Testing #
 ##################
+
+# Summon the master - Random command
   @commands.command()
   async def summonmaster(self):
      await self.bot.say('mmmm~ you summoned the dungeon master~ heheheh... <@214472130627239946>')
 
+# Ping - Random test command
   @commands.command()
   async def ping(self):
      await self.bot.say('PONG BITCH!')
 
+# Craziness - Random command
   @commands.command()
   async def crazy(self):
     await self.bot.say('oh no~ theres nothing you can throw at me.. *you cant win against my kind of crazy~*')
 
+# Snap - Random command
   @commands.command()
   async def snap(self):
     possible_responses = [
@@ -36,6 +43,7 @@ class Chris():
     ]
     await self.bot.say('hmm.. who shall I be today? >:D *snaps fingers* oh.. now im ' + random.choice(possible_responses))
 
+# Lick - Random command
   @commands.command()
   async def lick(self, target : discord.User):
       possible_responses = [
@@ -53,6 +61,8 @@ class Chris():
 #################
 # Informational #
 #################
+
+# Help - Information command
   @commands.command()
   async def chrishelp(self):
     embed=discord.Embed(title="Chris Module Help (CMD Prefix: '!' or '$')", description="Available commands in this Personality Module", color=0x3e0913)
@@ -67,11 +77,15 @@ class Chris():
                       **daily** - Get a daily reward
                       **slots** - If you wish to play slots
                       **steal** - Wanna be a cunt? go ahead""")
+    embed.add_field(name="Admin CMDs", value="""
+                    **abal** - Manage any users balance""")
     await self.bot.say("", embed=embed)
 
 ############
 # Currency #
 ############
+
+# Balance - Check any users balance command
   @commands.command(pass_context=True)
   async def bal(self, context, target : discord.User = None):
     name=""
@@ -105,11 +119,7 @@ class Chris():
     embed.add_field(name=name, value=desc)
     await self.bot.say(context.message.author.mention, embed=embed)
 
-  @commands.command(pass_context=True)
-  async def resetbal(self, context):
-    moneykey = context.message.author.name + "_" + context.message.author.discriminator + "_money"
-    botdb.set(moneykey, {'bal': 1000}, "currency")
-
+# Daily - Get your daily reward command
   @commands.command(pass_context=True)
   async def daily(self, context):
     dailykey = context.message.author.name + "_" + context.message.author.discriminator + "_dailyuse"
@@ -147,6 +157,7 @@ class Chris():
       await self.bot.say(context.message.author.mention, embed=eremb)
       return
 
+# Steal - Steal from any user command
   @commands.command(pass_context=True)
   async def steal(self, context, target : discord.User = None):
     laststolenfromkey = "laststolenfrom_key"
@@ -221,22 +232,66 @@ class Chris():
           eremb=discord.Embed(title="Stealing [FAILED!]", description="Failed to steal from " + target.name + "! " + lost, color=0xFF0000)
           await self.bot.say(context.message.author.mention, embed=eremb)
 
-#  @commands.command(pass_context=True)
-#  async def testaddbal(self, context):
-#    key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
-#    money = botdb.get(key, "currency")
-#    money['bal'] += 150
-#    botdb.set(key, money, "currency")
-#    embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-#    embed.set_thumbnail(url=context.message.author.avatar_url)
-#    embed.add_field(name=context.message.author.name + "'s Currency card", value="Card No/ID: **" + context.message.author.id + "**\nAdding **$150** to your account.")
-#    await self.bot.say(context.message.author.mention, embed=embed)
+##################
+# Currency Admin #
+##################
 
-# Slots emotes; :spades: :clubs: :hearts: :diamonds: :dragon: 
+# Admin Balance - Add to, Take from, Set, or Reset a User balance (!abal ARG USER AMOUNT)
+  @commands.command(pass_context=True)
+  async def abal(self, context, arg : str = "add", target : discord.User = None, am : int = 150):
+    if "494721265383374879" in [role.id for role in context.message.author.roles]:
+      if target == None:
+        embed=discord.Embed(title="Error", description="Please specify a user, an argument, and an amount to add/take/set. (ex: !abal add @Steel_Dev#3344 150)", color=0x1abc9c)
+        await self.bot.say("", embed=embed)
+        return
+
+      if arg == "add":
+        key = target.name + "_" + target.discriminator + "_money"
+        money = botdb.get(key, "currency")
+        money['bal'] += am
+        botdb.set(key, money, "currency")
+        embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+        embed.set_thumbnail(url=target.avatar_url)
+        embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nAdding **$" + am.__str__() + "** to " + target.name + "'s account.")
+        await self.bot.say(target.mention, embed=embed)
+      elif arg == "rem" or arg == "take":
+        key = target.name + "_" + target.discriminator + "_money"
+        money = botdb.get(key, "currency")
+        money['bal'] -= am
+        botdb.set(key, money, "currency")
+        embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+        embed.set_thumbnail(url=target.avatar_url)
+        embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nTaking **$" + am.__str__() + "** from " + target.name + "'s account.")
+        await self.bot.say(target.mention, embed=embed)
+      elif arg == "set":
+        key = target.name + "_" + target.discriminator + "_money"
+        money = botdb.get(key, "currency")
+        money['bal'] = am
+        botdb.set(key, money, "currency")
+        embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+        embed.set_thumbnail(url=target.avatar_url)
+        embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nSet " + target.name + "'s Account Balance to **$" + am.__str__() + "**.")
+        await self.bot.say(target.mention, embed=embed)  
+      elif arg == "reset":
+        moneykey = target.name + "_" + target.discriminator + "_money"
+        botdb.set(moneykey, {'bal': 1000}, "currency")     
+        embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+        embed.set_thumbnail(url=target.avatar_url)
+        embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nReset " + target.name + "'s Account Balance to the default **$1000**.")  
+      else:
+        embed=discord.Embed(title="Error", description="Invalid Argument.", color=0x1abc9c)
+        await self.bot.say("", embed=embed)
+        return       
+    else:
+       embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
+       await self.bot.say("", embed=embed)
+       return
+
 ############
 # Gambling #
 ############
-# Work on chances- make it a little easier to win
+
+# Slots - Slot machine command
   @commands.command(pass_context=True)
   async def slots(self, context, am : int = 0):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
@@ -272,6 +327,8 @@ class Chris():
     possible_slots = [
       ':spades:',
       ':clubs:',
+      ':spades:',
+      ':clubs:',
       ':hearts:',
       ':diamonds:',
       ':dragon:',
@@ -299,6 +356,8 @@ class Chris():
       ':dragon:',
       ':spades:',
       ':diamonds:',
+      ':spades:',
+      ':diamonds:',
       ':clubs:',
       ':hearts:',
       ':diamonds:',
@@ -308,6 +367,8 @@ class Chris():
       ':spades:',
       ':hearts:',
       ':dragon:',
+      ':hearts:',
+      ':diamonds:',
     ]
 
     slot1=random.choice(possible_slots)
@@ -364,5 +425,6 @@ class Chris():
     slotsemb.add_field(name="And..", value=result, inline=False)
     await self.bot.say(context.message.author.mention, embed=slotsemb)
 
+# Bot setup
 def setup(bot):
   bot.add_cog(Chris(bot))
