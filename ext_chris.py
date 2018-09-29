@@ -494,29 +494,30 @@ class Chris():
       rouletteemb.set_image(url="https://www.101computing.net/wp/wp-content/uploads/roulette.png")
       generatednum=randint(0,10)
 
-      if col == "green" and generatednum == 0 and generatednum != num: # 0
+      if col == "green" and generatednum == 0: # 0
         reward=bet*2
-      elif col == "red" and generatednum == 1 and generatednum != num: # Odd
+      elif col == "red" and generatednum == 1: # Odd
         reward=bet*2
-      elif col == "red" and generatednum == 3 and generatednum != num: # Odd
+      elif col == "red" and generatednum == 3: # Odd
         reward=bet*2
-      elif col == "red" and generatednum == 5 and generatednum != num: # Odd
+      elif col == "red" and generatednum == 5: # Odd
         reward=bet*2  
-      elif col == "red" and generatednum == 7 and generatednum != num: # Odd
+      elif col == "red" and generatednum == 7: # Odd
         reward=bet*2
-      elif col == "red" and generatednum == 9 and generatednum != num: # Odd
+      elif col == "red" and generatednum == 9: # Odd
         reward=bet*2
-      elif col == "black" and generatednum == 2 and generatednum != num: # Even
+      elif col == "black" and generatednum == 2: # Even
         reward=bet*2
-      elif col == "black" and generatednum == 4 and generatednum != num: # Even
+      elif col == "black" and generatednum == 4: # Even
         reward=bet*2
-      elif col == "black" and generatednum == 6 and generatednum != num: # Even
+      elif col == "black" and generatednum == 6: # Even
         reward=bet*2
-      elif col == "black" and generatednum == 8 and generatednum != num: # Even
+      elif col == "black" and generatednum == 8: # Even
         reward=bet*2
-      elif col == "black" and generatednum == 10 and generatednum != num: # Even
+      elif col == "black" and generatednum == 10: # Even
         reward=bet*2
-      elif generatednum == num:
+      
+      if generatednum == num:
         reward=bet*10
 
         rouletteemb.add_field(name="Result", value="You bet **$"+bet.__str__()+"**, you bet on the number **"+num.__str__()+"** and you bet on the color **"+col.__str__()+"**\nThe generated number is: **"+generatednum.__str__()+"**")
