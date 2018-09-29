@@ -509,7 +509,7 @@ class Chris():
       if generatednum == num:
         reward=bet*10
 
-      rouletteemb=discord.Embed(title="Roulette", description="Can you get lucky?\n**How it works:**\nIf the game generates a number that matches the one you bet on, your reward is 10 times your initial bet\nIf the generated number matches your color, your reward is 2 times your initial bet.", color=0x1abc9c)
+      rouletteemb=discord.Embed(title="Roulette", description="Can you get lucky?\n**How it works:**\nIf the game generates a number that matches the one you bet on, your reward is 10 times your initial bet\nIf the generated number matches your color, your reward is 2(green-0)/3(red-odd)/4(black-even) times your initial bet.", color=0x1abc9c)
       rouletteemb.set_image(url="https://www.101computing.net/wp/wp-content/uploads/roulette.png")
       rouletteemb.add_field(name="Result", value="You bet **$"+bet.__str__()+"**, you bet on the number **"+num.__str__()+"** and you bet on the color **"+col.__str__()+"**\nThe generated number is: **"+generatednum.__str__()+"**")
       rouletteemb.add_field(name="Reward", value="You got.. **$"+reward.__str__()+"**!")
