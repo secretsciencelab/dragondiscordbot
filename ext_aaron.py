@@ -46,7 +46,7 @@ class Aaron():
     url = 'https://icanhazdadjoke.com/'
     async with aiohttp.ClientSession() as session:  # Async HTTP request
       raw_response = await session.get(url)
-      response = await raw_response.text()
+      response = await raw_response.json()
       response = json.loads(response)
       embed=discord.Embed(\
         title="Dad says..", 
