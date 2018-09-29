@@ -33,7 +33,10 @@ class Aaron():
       raw_response = await session.get(url)
       response = await raw_response.text()
       response = json.loads(response)
-      embed=discord.Embed(title="Chuck Norris Fact", description=response['value'])
+      randomNum = random.randint(1,1000)
+      embed=discord.Embed(\
+        title="Chuck Norris Fact #%d" % randomNum, 
+        description=response['value'])
       #embed.set_thumbnail(url=response['icon_url'])
       embed.set_thumbnail(url="https://files.sharenator.com/chuck_100_Chuck_Norris_Facts-s390x300-11888.jpg")
       await self.bot.say("", embed=embed)
