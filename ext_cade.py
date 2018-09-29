@@ -21,8 +21,9 @@ class Cade():
       await self.bot.say("%s" % doc['value'])
     else:
       await self.bot.say("Not found")
-      
-      foo = input("Enter a Number: ")
+  @commands.command()
+  async def Foo(self):
+     await foo = input("Enter a Number: ")
       
       print(foo)
       
