@@ -459,12 +459,12 @@ class Chris():
         return
 
     if bet < 10 or bet > 20:
-        erembed=discord.Embed(title="Error", description="Bet must be between **$10**-**$20**", color=0x1abc9c)
+        erembed=discord.Embed(title="Error", description="Bet must be between **$10-$20**", color=0x1abc9c)
         await self.bot.say("", embed=erembed)
         return     
 
     if num < 0 or num > 10:
-        erembed=discord.Embed(title="Error", description="Number you're betting on must be between 0-10.", color=0x1abc9c)
+        erembed=discord.Embed(title="Error", description="Number you're betting on must be between **0-10**.", color=0x1abc9c)
         await self.bot.say("", embed=erembed)
         return
 
