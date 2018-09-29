@@ -23,7 +23,7 @@ class Cade():
       await self.bot.say("Not found")
       
   @commands.command(pass_context=True)
-      async def ignorante(ctx, user):
+   async def ignorante(ctx, user):
     """This function send a meme to an user.
     Args:
         ctx: Bot Context
