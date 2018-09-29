@@ -8,6 +8,7 @@ from discord.ext import commands
 
 # Class
 class Chris():
+
   # Initialization
   def __init__(self, bot):
     self.bot = bot
@@ -159,6 +160,7 @@ class Chris():
 
 # Steal - Steal from any user command
   @commands.command(pass_context=True)
+  @commands.cooldown(1, 60, commands.BucketType.user)
   async def steal(self, context, target : discord.User = None):
     laststolenfromkey = "laststolenfrom_key"
     lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
@@ -311,6 +313,7 @@ class Chris():
 
 # Slots - Slot machine command
   @commands.command(pass_context=True)
+  @commands.cooldown(1, 30, commands.BucketType.user)
   async def slots(self, context, am : int = 0):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     doc = botdb.get(key, "currency")
