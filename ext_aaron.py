@@ -29,7 +29,7 @@ class Aaron():
   @commands.command()
   async def chuck(self):
     url = 'https://api.chucknorris.io/jokes/random'
-    async with aiohttp.ClientSession() as session:  # Async HTTP request
+    async with aiohttp.ClientSession() as session:
       raw_response = await session.get(url)
       response = await raw_response.text()
       response = json.loads(response)
@@ -44,7 +44,8 @@ class Aaron():
   @commands.command()
   async def dadjoke(self):
     url = 'https://icanhazdadjoke.com/'
-    async with aiohttp.ClientSession() as session:  # Async HTTP request
+    headers={"Accept": "application/json"}
+    async with aiohttp.ClientSession(headers=headers) as session:
       raw_response = await session.get(url)
       response = await raw_response.json()
       embed=discord.Embed(\
