@@ -519,7 +519,7 @@ class Chris():
       elif generatednum == num:
         reward=bet*10
 
-        rouletteemb.add_field(name="Result", value="You bet **$"+bet.__str__()+"**, you bet on the number **"+num.__str__()+"** and you bet on the color **"+col.__str__()+"**\nThe generated number is: **"+generatednum.__setattr__()+"**")
+        rouletteemb.add_field(name="Result", value="You bet **$"+bet.__str__()+"**, you bet on the number **"+num.__str__()+"** and you bet on the color **"+col.__str__()+"**\nThe generated number is: **"+generatednum.__str__()+"**")
         rouletteemb.add_field(name="Reward", value="You got.. **$"+reward.__str__()+"**!")
         money['bal'] += reward
         botdb.set(key, money, "currency")
