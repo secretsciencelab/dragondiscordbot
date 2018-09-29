@@ -64,7 +64,9 @@ class Chris():
   async def lyrics(self, context):
     lyric_list=[
       'We set the fires to take us higher, we set the fires to watch them fucking ***BURN.. BURN, BURN, BURN BURN BURN!***',
-      'Im haunted by my wildest dreams, im haunted by the darkness inside me'
+      'Im haunted by my wildest dreams, im haunted by the darkness inside me',
+      'Emptiness is filling me, to the point of agony, growing darkness taking dawn.. I was me *but now hes gone*',
+      'Take a look, to the sky, just before you die, *its the last time you will!*'
     ]
     chosenlyric=random.choice(lyric_list)
     await self.bot.say(context.message.author.mention + "   " + chosenlyric)
