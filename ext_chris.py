@@ -481,35 +481,23 @@ class Chris():
       reward=0
       generatednum=randint(0,10)
       
-      if col == "green" and generatednum == 0: # 0
+      if col == "green" and generatednum == 0:
+        # 0 = double
         reward=bet*2
-      elif col == "red" and generatednum == 1: # Odd
-        reward=bet*2
-      elif col == "red" and generatednum == 3: # Odd
-        reward=bet*2
-      elif col == "red" and generatednum == 5: # Odd
-        reward=bet*2  
-      elif col == "red" and generatednum == 7: # Odd
-        reward=bet*2
-      elif col == "red" and generatednum == 9: # Odd
-        reward=bet*2
-      elif col == "black" and generatednum == 2: # Even
-        reward=bet*2
-      elif col == "black" and generatednum == 4: # Even
-        reward=bet*2
-      elif col == "black" and generatednum == 6: # Even
-        reward=bet*2
-      elif col == "black" and generatednum == 8: # Even
-        reward=bet*2
-      elif col == "black" and generatednum == 10: # Even
-        reward=bet*2
+      elif col == "red" and generatednum == 1 or col == "red" and generatednum == 3 or col == "red" and generatednum == 5 or col == "red" and generatednum == 7 or col == "red":
+        # odd = triple
+        reward=bet*3
+      elif col == "black" and generatednum == 2 or col == "black" and generatednum == 4 or col == "black" and generatednum == 6 or col == "black" and generatednum == 8 or col == "black" and generatednum == 10:
+        # even = quad
+        reward=bet*4
       else:
+        # none = nothing
         reward=0
 
       if generatednum == num:
         reward=bet*10
 
-      rouletteemb=discord.Embed(title="Roulette", description="Can you get lucky?\n**How it works:**\nIf the game generates a number that matches the one you bet on, your reward is 10 times your initial bet\nIf the generated number matches your color, your reward is 2 times your initial bet.", color=0x1abc9c)
+      rouletteemb=discord.Embed(title="Roulette", description="Can you get lucky?\n**How it works:**\nIf the game generates a number that matches the one you bet on, your reward is 10 times your initial bet\nIf the generated number matches your color, your reward is 2/3/4 times your initial bet.", color=0x1abc9c)
       rouletteemb.set_image(url="https://www.101computing.net/wp/wp-content/uploads/roulette.png")
       rouletteemb.add_field(name="Result", value="You bet **$"+bet.__str__()+"**, you bet on the number **"+num.__str__()+"** and you bet on the color **"+col.__str__()+"**\nThe generated number is: **"+generatednum.__str__()+"**")
       rouletteemb.add_field(name="Reward", value="You got.. **$"+reward.__str__()+"**!")
