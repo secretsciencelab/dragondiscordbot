@@ -68,15 +68,18 @@ async def h():
                    **botteam** - Learn some about the bots main team""", inline=False)   
     await bot.say("", embed=embed)
 
+async def _geocodeTimezoneName(place):
+    geolocator = Nominatim(user_agent="dragonbot")
+    location = geolocator.geocode(place)
+    w = tzwhere.tzwhere()
+    return w.tzNameAt(location.latitude, location.longitude)
+    
 @bot.command(name="time",
              pass_context=True)
 async def dstime(ctx, place):
   origPlace = place
   if place not in pytz.all_timezones:
-    geolocator = Nominatim(user_agent="dragonbot")
-    location = await geolocator.geocode(place)
-    w = tzwhere.tzwhere()
-    place = await w.tzNameAt(location.latitude, location.longitude)
+    place = await _geocodeTimezoneName(place)
   
   if not place:
     await bot.say("Sorry, I don't know where %s is" % origPlace)
