@@ -75,7 +75,7 @@ async def dstime(ctx, place):
     geolocator = Nominatim(user_agent="dragonbot")
     location = geolocator.geocode(place)
     w = tzwhere.tzwhere()
-    place = w.tzNameAt(location)
+    place = w.tzNameAt(location.latitude, location.longitude)
   
   if not place:
     await bot.say("Sorry, I don't know where that is")
