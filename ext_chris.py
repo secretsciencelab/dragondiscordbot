@@ -77,6 +77,7 @@ class Chris():
                       **bal** - Check your balance
                       **daily** - Get a daily reward
                       **slots** - If you wish to play slots
+                      **roulette** - Are you lucky enough?
                       **steal** - Wanna be a cunt? go ahead""")
     embed.add_field(name="Admin CMDs", value="""
                     **abal** - Manage any users balance""")
@@ -453,12 +454,12 @@ class Chris():
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     doc = botdb.get(key, "currency")
 
-    if bet < 20 and num == -1 and col == "":
+    if bet < 30 and num == -1 and col == "":
         erembed=discord.Embed(title="Error", description="Please place a bet, and what number you'd like to bet on, and what color. (ex: !roulette 20 5 green/black/red)", color=0xFF0000)
         await self.bot.say("", embed=erembed)
         return
 
-    if bet < 20 or bet > 30:
+    if bet < 30 or bet > 50:
         erembed=discord.Embed(title="Error", description="Bet must be between **$10-$20**", color=0xFF0000)
         await self.bot.say("", embed=erembed)
         return     
@@ -509,7 +510,7 @@ class Chris():
       if generatednum == num:
         reward=bet*10
 
-      rouletteemb=discord.Embed(title="Roulette", description="Can you get lucky?\n**How it works:**\nIf the game generates a number that matches the one you bet on, your reward is 10 times your initial bet\nIf the generated number matches your color\nGreen/0 is 2x initial bet\nRed/Odd Numbers are 3x you initial bet\nBlack/Even Numbers are 4x your initial bet", color=0x1abc9c)
+      rouletteemb=discord.Embed(title="Roulette", description="Can you get lucky?\n**How it works:**\nIf the game generates a number that matches the one you bet on, your reward is 10 times your initial bet\nIf the generated number matches your color\nGreen/0 is 2x initial bet\nRed/Odd Numbers are 3x your initial bet\nBlack/Even Numbers are 4x your initial bet", color=0x1abc9c)
       rouletteemb.set_image(url="https://www.101computing.net/wp/wp-content/uploads/roulette.png")
       rouletteemb.add_field(name="Result", value="You bet **$"+bet.__str__()+"**, you bet on the number **"+num.__str__()+"** and you bet on the color **"+col.__str__()+"**\nThe generated number is: **"+generatednum.__str__()+"**")
       rouletteemb.add_field(name="Reward", value="You got.. **$"+reward.__str__()+"**!")
