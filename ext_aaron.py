@@ -33,9 +33,9 @@ class Aaron():
       raw_response = await session.get(url)
       response = await raw_response.text()
       response = json.loads(response)
-      embed=discord.Embed(title="Chuck Norris Fact", description="Chuck Norris Fact")
+      embed=discord.Embed(title="Chuck Norris Fact", description="")
       embed.set_thumbnail(url=response['icon_url'])
-      embed.add_field(name="Fact", value=response['value'])
+      embed.add_field(name="", value=response['value'])
       await self.bot.say("", embed=embed)
 
 def setup(bot):
