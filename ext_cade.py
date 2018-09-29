@@ -22,7 +22,7 @@ class Cade():
     else:
       await self.bot.say("Not found")
       
-   @commands.command(pass_context=True)
+  @commands.command(pass_context=True)
       async def ignorante(ctx, user):
     """This function send a meme to an user.
     Args:
