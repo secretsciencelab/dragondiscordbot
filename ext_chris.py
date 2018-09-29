@@ -448,7 +448,7 @@ class Chris():
 
 # Roulette - Roullette machine command
   @commands.command(pass_context=True)
-  @commands.cooldown(4, 20, commands.BucketType.user)
+  @commands.cooldown(2, 20, commands.BucketType.user)
   async def roulette(self, context, bet : int = 0, num : int = -1, col : str = ""):
     key = context.message.author.name + "_" + context.message.author.discriminator + "_money"
     doc = botdb.get(key, "currency")
