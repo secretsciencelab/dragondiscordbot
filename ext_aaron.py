@@ -1,5 +1,9 @@
+import aiohttp
+import asyncio
 import botdb
 import discord
+import json
+import random
 from discord.ext import commands
 
 class Aaron():
@@ -21,6 +25,18 @@ class Aaron():
       await self.bot.say("%s" % doc['value'])
     else:
       await self.bot.say("Not found")
+
+  @commands.command()
+  async def chuck(self, key):
+    url = 'https://api.chucknorris.io/jokes/random'
+    async with aiohttp.ClientSession() as session:  # Async HTTP request
+    raw_response = await session.get(url)
+    response = await raw_response.text()
+    response = json.loads(response)
+    embed=discord.Embed(title="Chuck Norris Fact", description="Chuck Norris Fact")
+    embed.set_thumbnail(url=response['icon_url'])
+    embed.add_field(name="Fact", value=reponse['value'])
+    await self.bot.say("", embed=embed)
 
 def setup(bot):
   bot.add_cog(Aaron(bot))
