@@ -71,20 +71,21 @@ async def h():
 @bot.command(name="time",
              pass_context=True)
 async def dstime(ctx, place):
+  origPlace = place
   if place not in pytz.all_timezones:
     geolocator = Nominatim(user_agent="dragonbot")
-    location = geolocator.geocode(place)
+    location = await geolocator.geocode(place)
     w = tzwhere.tzwhere()
-    place = w.tzNameAt(location.latitude, location.longitude)
+    place = await w.tzNameAt(location.latitude, location.longitude)
   
   if not place:
-    await bot.say("Sorry, I don't know where that is")
+    await bot.say("Sorry, I don't know where %s is" % origPlace)
     await bot.say("Please try one of the following timezones: https://en.m.wikipedia.org/wiki/List_of_tz_database_time_zones")
     return
     
   locTz = pytz.timezone(place)
   locTime = datetime.now(locTz)
-  await bot.say(locTime.strftime('%a %d %b %Y %H:%M:%S'))
+  await bot.say("The time in %s is %s" % (origPlace, locTime.strftime('%a %d %b %Y %H:%M:%S')))
 
 @bot.command()
 async def aboutds():
