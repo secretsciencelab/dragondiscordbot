@@ -59,6 +59,16 @@ class Chris():
       ]
       await self.bot.say("*licks " + target.mention + "*    .." + random.choice(possible_responses))
 
+# Lyrics - Random command
+  @commands.command(pass_context=True)
+  async def lyrics(self, context):
+    lyric_list=[
+      'We set the fires to take us higher, we set the fires to watch them fucking ***BURN.. BURN, BURN, BURN BURN BURN!***',
+      'Im haunted by my wildest dreams, im haunted by the darkness inside me'
+    ]
+    chosenlyric=random.choice(lyric_list)
+    await self.bot.say(context.message.author.mention + "   " + chosenlyric)
+
 #################
 # Informational #
 #################
