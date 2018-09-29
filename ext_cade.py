@@ -23,11 +23,12 @@ class Cade():
       await self.bot.say("Not found")
       
       class Games:
+	
 	"""
 	Games cog for Red Discord Bot
 	Copyright (c) 2017 Hizkia Felix
 	"""
-
+	
 	def __init__(self, bot):
 		self.bot = bot
 		self.ttt_games = {}
