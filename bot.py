@@ -282,3 +282,15 @@ async def on_member_remove(member):
     leaveemb.set_thumbnail(url=member.avatar_url)
     await bot.send_message(discord.Object(id='476647778148286476'), member.mention, embed=leaveemb)
     #await bot.channels.get("476647778148286476").send(member.mention, embed=joinemb)   
+
+
+###################
+# CMD Error Event #
+###################
+
+@bot.event
+async def on_command_error(error, ctx):
+    if isinstance(error, discord.commands.CommandOnCooldown):
+        erembed=discord.Embed(title="Error", description=':exclaimation: This command is on cooldown, please try again in %.2fs' % error.retry_after, color=0x1abc9c)
+        await bot.send_message(ctx.message.channel, embed=erembed)
+    raise error

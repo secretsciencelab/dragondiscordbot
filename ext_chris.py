@@ -446,13 +446,6 @@ class Chris():
     slotsemb.add_field(name="And..", value=result, inline=False)
     await self.bot.say(context.message.author.mention, embed=slotsemb)
 
-  @on_command_error()
-  async def on_command_error(self, error, ctx):
-    if isinstance(error, commands.CommandOnCooldown):
-        erembed=discord.Embed(title="Error", description=':exclaimation: This command is on cooldown, please try again in {:.2f}s'.format(error.retry_after), color=0x1abc9c)
-        await self.bot.say("", embed=erembed)
-        return
-
 # Bot setup
 def setup(bot):
   bot.add_cog(Chris(bot))
