@@ -241,66 +241,68 @@ class Chris():
   async def abal(self, context, arg : str = "add", target : discord.User = None, am : int = 150):
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
       if target == None:
-        embed=discord.Embed(title="Error", description="Please specify a user, an argument, and an amount to add/take/set. (ex: !abal add @Steel_Dev#3344 150 - Set 0 to reset)", color=0x1abc9c)
-        await self.bot.say("", embed=embed)
+        erembed=discord.Embed(title="Error", description="Please specify a user, an argument, and an amount to add/take/set. (ex: !abal add @Steel_Dev#3344 150 - Set 0 to reset)", color=0x1abc9c)
+        await self.bot.say("", embed=erembed)
         return
 
       if arg == "add":
         if am < 0:
-          embed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0x1abc9c)
-          await self.bot.say("", embed=embed)
+          erembed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0x1abc9c)
+          await self.bot.say("", embed=erembed)
           return   
 
         key = target.name + "_" + target.discriminator + "_money"
         money = botdb.get(key, "currency")
         money['bal'] += am
         botdb.set(key, money, "currency")
-        embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-        embed.set_thumbnail(url=target.avatar_url)
-        embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nAdding **$" + am.__str__() + "** to " + target.name + "'s account.")
-        await self.bot.say(target.mention, embed=embed)
+        adembed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+        adembed.set_thumbnail(url=target.avatar_url)
+        adembed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nAdding **$" + am.__str__() + "** to " + target.name + "'s account.")
+        await self.bot.say(target.mention, embed=adembed)
       elif arg == "rem" or arg == "take":
         if am <= 0:
-          embed=discord.Embed(title="Error", description="Amount cannot be below or equal to $0.", color=0x1abc9c)
-          await self.bot.say("", embed=embed)
+          erembed=discord.Embed(title="Error", description="Amount cannot be below or equal to $0.", color=0x1abc9c)
+          await self.bot.say("", embed=erembed)
           return   
 
         key = target.name + "_" + target.discriminator + "_money"
         money = botdb.get(key, "currency")
         money['bal'] -= am
         botdb.set(key, money, "currency")
-        embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-        embed.set_thumbnail(url=target.avatar_url)
-        embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nTaking **$" + am.__str__() + "** from " + target.name + "'s account.")
-        await self.bot.say(target.mention, embed=embed)
+        seembed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+        seembed.set_thumbnail(url=target.avatar_url)
+        seembed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nTaking **$" + am.__str__() + "** from " + target.name + "'s account.")
+        await self.bot.say(target.mention, embed=seembed)
       elif arg == "set":
         if am < 0:
-          embed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0x1abc9c)
-          await self.bot.say("", embed=embed)
+          erembed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0x1abc9c)
+          await self.bot.say("", embed=erembed)
           return
         
         if am == 0:
           moneykey = target.name + "_" + target.discriminator + "_money"
           botdb.set(moneykey, {'bal': 1000}, "currency")     
-          embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-          embed.set_thumbnail(url=target.avatar_url)
-          embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nReset " + target.name + "'s Account Balance to the default **$1000**.")
+          resembed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+          resembed.set_thumbnail(url=target.avatar_url)
+          resembed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nReset " + target.name + "'s Account Balance to the default **$1000**.")
+          await self.bot.say(target.mention, embed=resembed)  
+          return
 
         key = target.name + "_" + target.discriminator + "_money"
         money = botdb.get(key, "currency")
         money['bal'] = am
         botdb.set(key, money, "currency")
-        embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-        embed.set_thumbnail(url=target.avatar_url)
-        embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nSet " + target.name + "'s Account Balance to **$" + am.__str__() + "**.")
-        await self.bot.say(target.mention, embed=embed)   
+        seembed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+        seembed.set_thumbnail(url=target.avatar_url)
+        seembed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nSet " + target.name + "'s Account Balance to **$" + am.__str__() + "**.")
+        await self.bot.say(target.mention, embed=seembed)   
       else:
-        embed=discord.Embed(title="Error", description="Invalid Argument.", color=0x1abc9c)
-        await self.bot.say("", embed=embed)
+        erembed=discord.Embed(title="Error", description="Invalid Argument.", color=0x1abc9c)
+        await self.bot.say("", embed=erembed)
         return       
     else:
-       embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
-       await self.bot.say("", embed=embed)
+       erembed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
+       await self.bot.say("", embed=erembed)
        return
 
 ############
