@@ -49,7 +49,7 @@ class Aaron():
       raw_response = await session.get(url)
       response = await raw_response.json()
       embed=discord.Embed(\
-        title="Dad says..", 
+        title="Dad says...", 
         description=response['joke'])
       embed.set_thumbnail(url="https://media1.fdncms.com/orlando/imager/via/u/slideshow/2332140/mr-rogersjpg")
       await self.bot.say("", embed=embed)
