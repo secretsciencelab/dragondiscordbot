@@ -2,10 +2,11 @@ import discord
 import os, random
 from datetime import datetime
 import botdb
-import pytz, tzwhere, us
+import pytz, us
 from discord import Game
 from discord.ext.commands import Bot
 from geopy.geocoders import Nominatim
+from tzwhere import tzwhere
 
 DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
 
@@ -73,7 +74,7 @@ async def dstime(ctx, place):
   if place not in pytz.all_timezones:
     geolocator = Nominatim(user_agent="dragonbot")
     location = geolocator.geocode(place)
-    w = tzwhere()
+    w = tzwhere.tzwhere()
     place = w.tzNameAt(location)
   
   if not place:
