@@ -34,7 +34,8 @@ class Aaron():
       response = await raw_response.text()
       response = json.loads(response)
       embed=discord.Embed(title="Chuck Norris Fact", description="")
-      embed.set_thumbnail(url=response['icon_url'])
+      #embed.set_thumbnail(url=response['icon_url'])
+      embed.set_thumbnail(url="https://images02.military.com/sites/default/files/styles/full/public/media/veteran-jobs/content-images/2016/03/chucknorris.jpg?itok=_J3M4O-S")
       embed.add_field(name="", value=response['value'])
       await self.bot.say("", embed=embed)
 
