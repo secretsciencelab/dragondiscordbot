@@ -243,13 +243,13 @@ class Chris():
   async def abal(self, context, arg : str = "add", target : discord.User = None, am : int = 150):
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
       if target == None:
-        erembed=discord.Embed(title="Error", description="Please specify a user, an argument, and an amount to add/take/set. (ex: !abal add @Steel_Dev#3344 150 - Set 0 to reset)", color=0x1abc9c)
+        erembed=discord.Embed(title="Error", description="Please specify a user, an argument, and an amount to add/take/set. (ex: !abal add @Steel_Dev#3344 150 - Set 0 to reset)", color=0xFF0000)
         await self.bot.say("", embed=erembed)
         return
 
       if arg == "add":
         if am < 0:
-          erembed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0x1abc9c)
+          erembed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0xFF0000)
           await self.bot.say("", embed=erembed)
           return   
 
@@ -263,7 +263,7 @@ class Chris():
         await self.bot.say(target.mention, embed=adembed)
       elif arg == "rem" or arg == "take":
         if am <= 0:
-          erembed=discord.Embed(title="Error", description="Amount cannot be below or equal to $0.", color=0x1abc9c)
+          erembed=discord.Embed(title="Error", description="Amount cannot be below or equal to $0.", color=0xFF0000)
           await self.bot.say("", embed=erembed)
           return   
 
@@ -277,7 +277,7 @@ class Chris():
         await self.bot.say(target.mention, embed=seembed)
       elif arg == "set":
         if am < 0:
-          erembed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0x1abc9c)
+          erembed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0xFF0000)
           await self.bot.say("", embed=erembed)
           return
         
@@ -299,11 +299,11 @@ class Chris():
         seembed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nSet " + target.name + "'s Account Balance to **$" + am.__str__() + "**.")
         await self.bot.say(target.mention, embed=seembed)   
       else:
-        erembed=discord.Embed(title="Error", description="Invalid Argument.", color=0x1abc9c)
+        erembed=discord.Embed(title="Error", description="Invalid Argument.", color=0xFF0000)
         await self.bot.say("", embed=erembed)
         return       
     else:
-       erembed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
+       erembed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0xFF0000)
        await self.bot.say("", embed=erembed)
        return
 
@@ -454,22 +454,22 @@ class Chris():
     doc = botdb.get(key, "currency")
 
     if bet < 10 and num == -1 and col == "":
-        erembed=discord.Embed(title="Error", description="Please place a bet, and what number you'd like to bet on, and what color. (ex: !roulette 20 5 green/black/red)", color=0x1abc9c)
+        erembed=discord.Embed(title="Error", description="Please place a bet, and what number you'd like to bet on, and what color. (ex: !roulette 20 5 green/black/red)", color=0xFF0000)
         await self.bot.say("", embed=erembed)
         return
 
     if bet < 10 or bet > 20:
-        erembed=discord.Embed(title="Error", description="Bet must be between **$10-$20**", color=0x1abc9c)
+        erembed=discord.Embed(title="Error", description="Bet must be between **$10-$20**", color=0xFF0000)
         await self.bot.say("", embed=erembed)
         return     
 
     if num < 0 or num > 10:
-        erembed=discord.Embed(title="Error", description="Number you're betting on must be between **0-10**.", color=0x1abc9c)
+        erembed=discord.Embed(title="Error", description="Number you're betting on must be between **0-10**.", color=0xFF0000)
         await self.bot.say("", embed=erembed)
         return
 
     if col != "green" and col != "red" and col != "black":
-        erembed=discord.Embed(title="Error", description="You can only bet on Green(number 0), Red(odd numbers), Black(even numbers)", color=0x1abc9c)
+        erembed=discord.Embed(title="Error", description="You can only bet on Green(number 0), Red(odd numbers), Black(even numbers)", color=0xFF0000)
         await self.bot.say("", embed=erembed)
         return
 
@@ -478,12 +478,9 @@ class Chris():
       money['bal'] -= bet
       botdb.set(key, money, "currency")
 
-      generatednum=-1
       reward=0
-      rouletteemb=discord.Embed(title="Roulette", description="Can you get lucky?\n**How it works:**\nIf the game generates a number that matches the one you bet on, your reward is 10 times your initial bet\nIf the generated number matches your color, your reward is 2 times your initial bet.")
-      rouletteemb.set_image(url="https://www.101computing.net/wp/wp-content/uploads/roulette.png")
       generatednum=randint(0,10)
-
+      
       if col == "green" and generatednum == 0: # 0
         reward=bet*2
       elif col == "red" and generatednum == 1: # Odd
@@ -512,12 +509,14 @@ class Chris():
       if generatednum == num:
         reward=bet*10
 
-        rouletteemb.add_field(name="Result", value="You bet **$"+bet.__str__()+"**, you bet on the number **"+num.__str__()+"** and you bet on the color **"+col.__str__()+"**\nThe generated number is: **"+generatednum.__str__()+"**")
-        rouletteemb.add_field(name="Reward", value="You got.. **$"+reward.__str__()+"**!")
-        money['bal'] += reward
-        botdb.set(key, money, "currency")
+      rouletteemb=discord.Embed(title="Roulette", description="Can you get lucky?\n**How it works:**\nIf the game generates a number that matches the one you bet on, your reward is 10 times your initial bet\nIf the generated number matches your color, your reward is 2 times your initial bet.", color=0x1abc9c)
+      rouletteemb.set_image(url="https://www.101computing.net/wp/wp-content/uploads/roulette.png")
+      rouletteemb.add_field(name="Result", value="You bet **$"+bet.__str__()+"**, you bet on the number **"+num.__str__()+"** and you bet on the color **"+col.__str__()+"**\nThe generated number is: **"+generatednum.__str__()+"**")
+      rouletteemb.add_field(name="Reward", value="You got.. **$"+reward.__str__()+"**!")
+      money['bal'] += reward
+      botdb.set(key, money, "currency")
     else:
-        erembed=discord.Embed(title="Error", description="You don't have enough to play this.", color=0x1abc9c)
+        erembed=discord.Embed(title="Error", description="You don't have enough to play this.", color=0xFF0000)
         await self.bot.say("", embed=erembed)
         return     
 
