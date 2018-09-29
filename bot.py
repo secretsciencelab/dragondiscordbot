@@ -88,7 +88,7 @@ async def dstime(ctx, place):
     
   locTz = pytz.timezone(place)
   locTime = datetime.now(locTz)
-  await bot.say("The time in %s is %s" % (origPlace, locTime.strftime('%a %d %b %Y %H:%M:%S')))
+  await bot.say("The time in %s is %s" % (origPlace, locTime.strftime('%H:%M:%S, %a %d %b %Y')))
 
 @bot.command()
 async def aboutds():
