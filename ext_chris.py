@@ -241,11 +241,16 @@ class Chris():
   async def abal(self, context, arg : str = "add", target : discord.User = None, am : int = 150):
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
       if target == None:
-        embed=discord.Embed(title="Error", description="Please specify a user, an argument, and an amount to add/take/set. (ex: !abal add @Steel_Dev#3344 150)", color=0x1abc9c)
+        embed=discord.Embed(title="Error", description="Please specify a user, an argument, and an amount to add/take/set. (ex: !abal add @Steel_Dev#3344 150 - Set 0 to reset)", color=0x1abc9c)
         await self.bot.say("", embed=embed)
         return
 
       if arg == "add":
+        if am < 0:
+          embed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0x1abc9c)
+          await self.bot.say("", embed=embed)
+          return   
+
         key = target.name + "_" + target.discriminator + "_money"
         money = botdb.get(key, "currency")
         money['bal'] += am
@@ -255,6 +260,11 @@ class Chris():
         embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nAdding **$" + am.__str__() + "** to " + target.name + "'s account.")
         await self.bot.say(target.mention, embed=embed)
       elif arg == "rem" or arg == "take":
+        if am <= 0:
+          embed=discord.Embed(title="Error", description="Amount cannot be below or equal to $0.", color=0x1abc9c)
+          await self.bot.say("", embed=embed)
+          return   
+
         key = target.name + "_" + target.discriminator + "_money"
         money = botdb.get(key, "currency")
         money['bal'] -= am
@@ -264,6 +274,18 @@ class Chris():
         embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nTaking **$" + am.__str__() + "** from " + target.name + "'s account.")
         await self.bot.say(target.mention, embed=embed)
       elif arg == "set":
+        if am < 0:
+          embed=discord.Embed(title="Error", description="Amount cannot be below $0.", color=0x1abc9c)
+          await self.bot.say("", embed=embed)
+          return
+        
+        if am == 0:
+          moneykey = target.name + "_" + target.discriminator + "_money"
+          botdb.set(moneykey, {'bal': 1000}, "currency")     
+          embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
+          embed.set_thumbnail(url=target.avatar_url)
+          embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nReset " + target.name + "'s Account Balance to the default **$1000**.")
+
         key = target.name + "_" + target.discriminator + "_money"
         money = botdb.get(key, "currency")
         money['bal'] = am
@@ -271,13 +293,7 @@ class Chris():
         embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
         embed.set_thumbnail(url=target.avatar_url)
         embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nSet " + target.name + "'s Account Balance to **$" + am.__str__() + "**.")
-        await self.bot.say(target.mention, embed=embed)  
-      elif arg == "reset":
-        moneykey = target.name + "_" + target.discriminator + "_money"
-        botdb.set(moneykey, {'bal': 1000}, "currency")     
-        embed=discord.Embed(title="DragonScript Bank", description="User Balance Info", color=0x1abc9c)
-        embed.set_thumbnail(url=target.avatar_url)
-        embed.add_field(name=target.name + "'s Currency card", value="Card No/ID: **" + target.id + "**\nReset " + target.name + "'s Account Balance to the default **$1000**.")  
+        await self.bot.say(target.mention, embed=embed)   
       else:
         embed=discord.Embed(title="Error", description="Invalid Argument.", color=0x1abc9c)
         await self.bot.say("", embed=embed)
