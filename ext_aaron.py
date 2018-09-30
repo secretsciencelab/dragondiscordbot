@@ -15,33 +15,6 @@ class Aaron():
     await self.bot.say('HOLA!')
 
   @commands.command()
-  async def dbset(self, key, value):
-    botdb.set(key, {'value': value}, "aaron")
-
-  @commands.command()
-  async def dbget(self, key):
-    doc = botdb.get(key, "aaron")
-    if doc:
-      await self.bot.say("%s" % doc['value'])
-    else:
-      await self.bot.say("Not found")
-
-  @commands.command()
-  async def chuck(self):
-    url = 'https://api.chucknorris.io/jokes/random'
-    async with aiohttp.ClientSession() as session:
-      raw_response = await session.get(url)
-      response = await raw_response.text()
-      response = json.loads(response)
-      randomNum = random.randint(1,1000)
-      embed=discord.Embed(\
-        title="Chuck Norris Fact #%d" % randomNum, 
-        description=response['value'])
-      #embed.set_thumbnail(url=response['icon_url'])
-      embed.set_thumbnail(url="https://files.sharenator.com/chuck_100_Chuck_Norris_Facts-s390x300-11888.jpg")
-      await self.bot.say("", embed=embed)
-
-  @commands.command()
   async def dadjoke(self):
     url = 'https://icanhazdadjoke.com/'
     headers={"Accept": "application/json"}
@@ -55,4 +28,6 @@ class Aaron():
       await self.bot.say("", embed=embed)
 
 def setup(bot):
+  bot.remove_command("hola")
+  bot.remove_command("dadjoke")
   bot.add_cog(Aaron(bot))
