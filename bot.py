@@ -133,6 +133,10 @@ async def kami():
   await bot.say("He's not a god!")
 
 @bot.command()
+async def Steven():
+  await bot.say("Ya Yeet, mofos. BTW LIFE SUCKS ASS")
+
+@bot.command()
 async def cade():
   await bot.say("He's a very happy guy with his man's Alyx c:")
 
