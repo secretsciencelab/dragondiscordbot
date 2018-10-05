@@ -4,7 +4,7 @@ from discord.ext import commands
 
 rps = "rock", "paper", "scissor"
 
-class air():
+class Air():
     def __init__(self, bot):
       self.bot = bot
 
