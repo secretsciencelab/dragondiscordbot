@@ -6,8 +6,7 @@ rps = "rock", "paper", "scissor"
 
 class AIR():
     def __init__(self, bot):
-
-        self.bot = bot
+      self.bot = bot
 
     @commands.command()
     async def rockpaperscissor(self, str):
