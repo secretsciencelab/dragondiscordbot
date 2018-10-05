@@ -9,9 +9,9 @@ class Air():
       self.bot = bot
 
     @commands.command()
-    async def rockpaperscissor(self, choice*str):
+    async def rockpaperscissor(self, *choice: str):
     
-        if choice is "rock" or "Rock" or "ROCK":
+        if choices is "rock" or "Rock" or "ROCK":
 
             if random.choice(rps) is "rock":
                 await self.bot.say("I threw rock. The match is a draw.")
@@ -22,7 +22,7 @@ class Air():
             elif random.choice(rps) is "paper":
                 await self.bot.say("I threw paper. I win")
 
-        elif choice is "paper" or "Paper" or "PAPER":
+        elif choices is "paper" or "Paper" or "PAPER":
 
             if random.choice(rps) is "rock":
                 await self.bot.say("I threw rock. You win.")
@@ -33,7 +33,7 @@ class Air():
             elif random.choice(rps) is "paper":
                 await self.bot.say("I threw paper. The match is a draw.")
 
-        elif choice is "scissor" or "Scissor" or "SCISSOR":
+        elif choices is "scissor" or "Scissor" or "SCISSOR":
     
             if random.choice(rps) is "rock":
                 await self.bot.say("I threw rock. I win.")
