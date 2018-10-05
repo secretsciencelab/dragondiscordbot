@@ -9,44 +9,39 @@ class Air():
       self.bot = bot
 
     @commands.command()
-    async def rockpaperscissor(self, *choice: str):
+    async def rock(self):
+        
+        if random.choice(rps) is "rock":
+            await self.bot.say("I threw rock. The match is a draw.")
     
-        if choices is "rock" or "Rock" or "ROCK":
+        elif random.choice(rps) is "scissor":
+            await self.bot.say("I threw scissor. You win.")
 
-            if random.choice(rps) is "rock":
-                await self.bot.say("I threw rock. The match is a draw.")
+        elif random.choice(rps) is "paper":
+            await self.bot.say("I threw paper. I win")
+
+    @commands.command()
+    async def paper(self):
+        if random.choice(rps) is "rock":
+            await self.bot.say("I threw rock. You win.")
     
-            elif random.choice(rps) is "scissor":
-                await self.bot.say("I threw scissor. You win.")
+        elif random.choice(rps) is "scissor":
+            await self.bot.say("I threw scissor. I win.")
 
-            elif random.choice(rps) is "paper":
-                await self.bot.say("I threw paper. I win")
+        elif random.choice(rps) is "paper":
+            await self.bot.say("I threw paper. The match is a draw.")
 
-        elif choices is "paper" or "Paper" or "PAPER":
-
-            if random.choice(rps) is "rock":
-                await self.bot.say("I threw rock. You win.")
+    @commands.command()
+    async def scissors(self):
     
-            elif random.choice(rps) is "scissor":
-                await self.bot.say("I threw scissor. I win.")
-
-            elif random.choice(rps) is "paper":
-                await self.bot.say("I threw paper. The match is a draw.")
-
-        elif choices is "scissor" or "Scissor" or "SCISSOR":
+         if random.choice(rps) is "rock":
+            await self.bot.say("I threw rock. I win.")
     
-            if random.choice(rps) is "rock":
-                await self.bot.say("I threw rock. I win.")
-    
-            if random.choice(rps) is "scissor":
-                await self.bot.say("I threw scissor. The match is a draw.")
+         if random.choice(rps) is "scissor":
+            await self.bot.say("I threw scissor. The match is a draw.")
 
-            if random.choice(rps) is "paper":
-                await self.bot.say("I threw paper. You win.")
-
-        else:
-            await self.bot.say("Please write rock paper or scissor")
-
+         if random.choice(rps) is "paper":
+            await self.bot.say("I threw paper. You win.")
 
 def setup(bot):
     bot.add_cog(Air(bot))
