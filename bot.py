@@ -134,7 +134,7 @@ async def kami():
 
 @bot.command()
 async def cade():
-  await bot.say("I'm Mentally Stable :D")
+  await bot.say("He's a understanding and helpful person if you're willing to talk with him, Just know he's with his Non-Binary partner Alyx")
 
 @bot.command()
 async def logan():
