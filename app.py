@@ -4,7 +4,7 @@ from handlers import *
 import os, threading
 
 app = Flask(__name__)
-app.register_blueprint('handlers')
+app.register_blueprint(handlers)
 
 def startFlask():
   port = int(os.environ.get("PORT", 8000))
