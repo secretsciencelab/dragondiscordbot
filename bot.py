@@ -133,12 +133,8 @@ async def kami():
   await bot.say("He's not a god!")
 
 @bot.command()
-async def Steven():
-  await bot.say("Ya Yeet, mofos. BTW LIFE SUCKS ASS")
-
-@bot.command()
 async def cade():
-  await bot.say("He's a very happy guy with his man's Alyx c:")
+  await bot.say("He's a understanding and helpful person if you're willing to talk with him, Just know he's with his Non-Binary partner Alyx")
 
 @bot.command()
 async def logan():
