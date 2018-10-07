@@ -34,9 +34,7 @@ def index():
     version = os.environ.get("HEROKU_RELEASE_VERSION")
     logs = "\n".join(fetchLogs())
 
-    return """
-    <h1>Dragon's Blessings!</h1>
-    <p>I am alive at {time}.</p>
-    <p>{version}</p>
-    <p><pre>{logs}</pre></p>
-    """.format(time=the_time, version=version, logs=logs)
+    return render_template('index.html', 
+        time=the_time, 
+        version=version, 
+        logs=logs)
