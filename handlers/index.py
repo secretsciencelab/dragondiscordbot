@@ -34,7 +34,7 @@ def index():
     version = os.environ.get("HEROKU_RELEASE_VERSION")
     logs = "\n".join(fetchLogs())
 
-    return render_template('index.html', 
+    return render_template('templates/index.html', 
         time=the_time, 
         version=version, 
         logs=logs)
