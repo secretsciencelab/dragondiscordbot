@@ -1,10 +1,10 @@
 from flask import Flask
-from bot import *
-from handlers import *
+import bot
+import handlers
 import os, threading
 
 app = Flask(__name__)
-app.register_blueprint(handlers)
+app.register_blueprint(handlers.handlers)
 
 def startFlask():
   port = int(os.environ.get("PORT", 8000))
@@ -15,4 +15,4 @@ if __name__ == '__main__':
     flaskThread = threading.Thread(target=startFlask)
     flaskThread.start()
 
-    startDiscord()
+    bot.startDiscord()
