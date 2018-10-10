@@ -56,6 +56,7 @@ async def h():
                     **kami** - What is he, really?
                     **cade** - Info about the nice gent :)
                     **logan** - The best soldier
+                    **ivanovic** - A strategist.
                     **rawr** - It's a dragon.. what do you expect?
                     **8ball** - Ask the virtual spirits from beyond.. anything..
                     **godhimself** - Bow to your new god!
