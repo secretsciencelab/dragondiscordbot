@@ -144,6 +144,10 @@ async def logan():
 async def rawr():
     await bot.say("RAWR!!! :dragon_face:")
 
+@bot.command()
+async def ivanovic():
+    await bot.say("Ivan Gomez at your service, if you need talk or help with the Spanish just said.")
+    
 @bot.command(name='8ball',
              description="Answers a yes/no question.",
              brief="Answers from the beyond.",
