@@ -107,6 +107,7 @@ async def botteam():
                    **Chris** - A C# Programmer trying to do the do on python to help with this bot..
                    **Cade** - A wonderful dude also trying his best to help with the bot
                    **Logan** - Yet another wonderful human being helping out
+                   **Ivanovic** - Just one more boy... but can speak Spanish
                    **Kami** - A pretty smart and cool dude- also trying their very best""", inline=False)
     await bot.say("", embed=embed)
 
