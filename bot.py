@@ -56,6 +56,7 @@ async def h():
                     **kami** - What is he, really?
                     **cade** - Info about the nice gent :)
                     **logan** - The best soldier
+                    **ivanovic** - A strategist.
                     **rawr** - It's a dragon.. what do you expect?
                     **8ball** - Ask the virtual spirits from beyond.. anything..
                     **godhimself** - Bow to your new god!
@@ -106,6 +107,7 @@ async def botteam():
                    **Chris** - A C# Programmer trying to do the do on python to help with this bot..
                    **Cade** - A wonderful dude also trying his best to help with the bot
                    **Logan** - Yet another wonderful human being helping out
+                   **Ivanovic** - Just one more boy... but can speak Spanish
                    **Kami** - A pretty smart and cool dude- also trying their very best""", inline=False)
     await bot.say("", embed=embed)
 
@@ -144,6 +146,10 @@ async def logan():
 async def rawr():
     await bot.say("RAWR!!! :dragon_face:")
 
+@bot.command()
+async def ivanovic():
+    await bot.say("Ivan Gomez at your service, if you need talk or help with the Spanish just said.")
+    
 @bot.command(name='8ball',
              description="Answers a yes/no question.",
              brief="Answers from the beyond.",
