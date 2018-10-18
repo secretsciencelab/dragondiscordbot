@@ -33,10 +33,11 @@ def fetchLogs():
 def index(path):
     the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
     version = os.environ.get("HEROKU_RELEASE_VERSION")
-    logs = "\n".join(fetchLogs())
+    logs = None
 
     if path == "":
       path = "index.html"
+      logs = "\n".join(fetchLogs())
 
     return render_template(path, 
         time=the_time, 
