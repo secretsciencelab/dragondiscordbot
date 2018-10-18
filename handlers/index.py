@@ -28,13 +28,17 @@ def fetchLogs():
 
   return messages
 
-@handlers.route('/')
-def index():
+@handlers.route('/', defaults={'path': ''})
+@handlers.route('/<path:path>')
+def index(path):
     the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
     version = os.environ.get("HEROKU_RELEASE_VERSION")
     logs = "\n".join(fetchLogs())
 
-    return render_template('index.html', 
+    if path == "":
+      path = "index.html"
+
+    return render_template(path, 
         time=the_time, 
         version=version, 
         logs=logs)
