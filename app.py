@@ -6,6 +6,9 @@ import os, threading
 app = Flask(__name__)
 app.register_blueprint(handlers.handlers)
 
+app.add_url_rule('/favicon.ico',
+                 redirect_to=url_for('static', filename='favicon.ico'))
+
 def startFlask():
   port = int(os.environ.get("PORT", 8000))
   print(port)
