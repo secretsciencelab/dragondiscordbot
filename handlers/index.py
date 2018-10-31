@@ -2,7 +2,7 @@ from datetime import datetime
 import urllib.request as urllib
 import json
 import os
-from flask import render_template
+from flask import abort, render_template
 from . import handlers
 
 # https://stackoverflow.com/questions/15231359/split-python-flask-app-into-multiple-files
@@ -39,7 +39,10 @@ def index(path):
       path = "index.html"
       logs = "\n".join(fetchLogs())
 
-    return render_template(path, 
-        time=the_time, 
-        version=version, 
-        logs=logs)
+    try: 
+      return render_template(path, 
+          time=the_time, 
+          version=version, 
+          logs=logs)
+    except Exception as error:
+      abort(404)
