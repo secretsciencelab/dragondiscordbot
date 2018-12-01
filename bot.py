@@ -45,7 +45,7 @@ def startDiscord():
   loop = asyncio.get_event_loop()
   while True:
     try:
-        loop.run_until_complete(bot.start())
+        loop.run_until_complete(bot.start(DISCORD_TOKEN))
     except Exception as e:
         logging.info("Discord error", e)
     logging.info("Discord restarting in 1 min...")
