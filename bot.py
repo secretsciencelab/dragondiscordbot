@@ -1,12 +1,13 @@
 import asyncio
+import botdb
 import discord
 import logging
 import os
-import random
-from datetime import datetime
-import botdb
 import pytz
+import random
+import time
 import us
+from datetime import datetime
 from discord import Game
 from discord.ext.commands import Bot
 from geopy.geocoders import Nominatim

@@ -1,7 +1,7 @@
 from flask import Flask, url_for
 import bot
-import logging
 import handlers
+import logging
 import os, threading
 
 logging.basicConfig(level=logging.INFO)
