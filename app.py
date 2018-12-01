@@ -1,7 +1,10 @@
 from flask import Flask, url_for
 import bot
+import logging
 import handlers
 import os, threading
+
+logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 app.register_blueprint(handlers.handlers)

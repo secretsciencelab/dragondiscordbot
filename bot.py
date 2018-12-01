@@ -1,12 +1,19 @@
+import asyncio
 import discord
-import os, random
+import logging
+import os
+import random
 from datetime import datetime
 import botdb
-import pytz, us
+import pytz
+import us
 from discord import Game
 from discord.ext.commands import Bot
 from geopy.geocoders import Nominatim
 from tzwhere import tzwhere
+
+# References
+# logging: https://discordpy.readthedocs.io/en/latest/logging.html
 
 DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
 
@@ -31,14 +38,24 @@ async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use !help"))
 
 def startDiscord():
-  bot.run(DISCORD_TOKEN)
+  # not calling bot.run() since there is no handling of bot disconnects
+  # bot.run(DISCORD_TOKEN)
+
+  loop = asyncio.get_event_loop()
+  while True:
+    try:
+        loop.run_until_complete(bot.start(*args, **kwargs))
+    except Exception as e:
+        logging.info("Discord error", e)
+    logging.info("Discord restarting in 1 min...")
+    time.sleep(60)
 
 ####################
 # VV CMDs Below VV #
 ####################
 
-# Please try to keep the code organized- 
-# Informational commands under the 'Informational CMDs' comment- 
+# Please try to keep the code organized-
+# Informational commands under the 'Informational CMDs' comment-
 # and random things under the 'Random CMDs' comment ~ Chris
 
 ######################
