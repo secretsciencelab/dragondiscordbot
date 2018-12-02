@@ -28,6 +28,9 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
+    logging.info("DragonBot received:\n%s\n%s" \
+        % (str(message), str(message.channel)))
+
     await bot.process_commands(message)
 
 @bot.event
@@ -47,8 +50,8 @@ def startDiscord():
     try:
         loop.run_until_complete(bot.start(DISCORD_TOKEN))
     except Exception as e:
-        logging.info("Discord error", e)
-    logging.info("Discord restarting in 1 min...")
+        logging.info("DragonBot error", e)
+    logging.info("DragonBot restarting in 1 min...")
     time.sleep(60)
 
 ####################
