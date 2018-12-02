@@ -29,7 +29,7 @@ async def on_message(message):
         return
 
     logging.info("DragonBot received:\n%s\n%s" \
-        % (str(message), str(message.channel)))
+        % (str(message.content), str(message.channel)))
 
     await bot.process_commands(message)
 
