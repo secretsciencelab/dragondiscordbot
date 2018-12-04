@@ -28,8 +28,8 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    logging.info("DragonBot received:\n%s\n%s" \
-        % (str(message.content), str(message.channel)))
+    #logging.info("DragonBot received:\n%s\n%s" \
+    #    % (str(message.content), str(message.channel)))
 
     await bot.process_commands(message)
 
