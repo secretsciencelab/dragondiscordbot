@@ -18,7 +18,7 @@ from tzwhere import tzwhere
 
 DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
 
-BOT_PREFIX = ("$", "!")
+BOT_PREFIX = ("!")
 bot = Bot(command_prefix=BOT_PREFIX)
 bot.remove_command('help')
 
