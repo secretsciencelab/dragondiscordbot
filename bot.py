@@ -158,7 +158,7 @@ async def kami():
 
 @bot.command()
 async def cade():
-  await bot.say("Cade Rinker the Therapist ready for work, recently celebrating his recent solution to his sexuality with his significant other Alyx and being happily in love c:")
+  await bot.say("Cade, An hardworking gent getting his future together. Future Auto Technician, I'm a great Counselor if you need some advice about life or anything!")
 
 @bot.command()
 async def logan():
