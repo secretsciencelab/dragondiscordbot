@@ -74,7 +74,7 @@ async def h():
                     **goodnight** - Happy Dragonscripting! :D
                     **lucas** - Sniffing ;)
                     **chris** - More about the amazing Chrissyboi :3
-                    **doomguy chiquito** - What is he, really?
+                    **doomguy_chiquito** - What is he, really?
                     **Dragondrawer** - Learn about the dragon artist :)
                     **Cade** - Some basic information about me! :)
                     **logan** - The best soldier
@@ -153,7 +153,7 @@ async def chris():
   await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
 
 @bot.command()
-async def doomguy chiquito():
+async def doomguy_chiquito():
   await bot.say("He's not a god!")
 
 @bot.command()
