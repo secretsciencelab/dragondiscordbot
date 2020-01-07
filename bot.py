@@ -75,6 +75,7 @@ async def h():
                     **lucas** - Sniffing ;)
                     **chris** - More about the amazing Chrissyboi :3
                     **kami** - What is he, really?
+                    **Dragondrawer** - Learn about the dragon artist :)
                     **cade** - Info about the nice gent :)
                     **logan** - The best soldier
                     **ivanovic** - A strategist.
@@ -167,6 +168,10 @@ async def logan():
 async def rawr():
     await bot.say("RAWR!!! :dragon_face:")
 
+@bot.command()
+async def Dragondrawer():
+    await bot.say("He obviously draws dragons... :pencil2:")
+    
 @bot.command()
 async def ivanovic():
     await bot.say("Ivan Gomez at your service, if you need talk or help with the Spanish just said.")
