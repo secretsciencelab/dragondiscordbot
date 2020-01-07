@@ -130,7 +130,7 @@ async def botteam():
                    **Cade** - A wonderful dude also trying his best to help with the bot
                    **Logan** - Yet another wonderful human being helping out
                    **Ivanovic** - Just one more boy... but can speak Spanish
-                   **Doomguy chiquito** - A pretty smart and cool dude- also trying their very best""", inline=False)
+                   **Doomguy_chiquito** - A pretty smart and cool dude- also trying their very best""", inline=False)
     await bot.say("", embed=embed)
 
 ###############
