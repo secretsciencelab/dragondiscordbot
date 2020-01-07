@@ -157,7 +157,7 @@ async def kami():
   await bot.say("He's not a god!")
 
 @bot.command()
-async def cade():
+async def Cade():
   await bot.say("Cade, An hardworking gent getting his future together. Future Auto Technician, I'm a great Counselor if you need some advice about life or anything!")
 
 @bot.command()
