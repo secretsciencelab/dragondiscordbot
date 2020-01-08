@@ -167,6 +167,14 @@ async def logan():
 
 @bot.command()
 async def rawr():
+    await bot.say("Secrets: nas!s, d!da")
+    
+@bot.command()
+async def rawr():
+    await bot.say("canser...")
+
+@bot.command()
+async def rawr():
     await bot.say("RAWR!!! :dragon_face:")
     
 @bot.command()
