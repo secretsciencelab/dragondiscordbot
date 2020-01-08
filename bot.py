@@ -166,11 +166,11 @@ async def logan():
   await bot.say("Logan has entered the battle!")
 
 @bot.command()
-async def rawr():
+async def sec():
     await bot.say("Secrets: nas!s, d!da")
     
 @bot.command()
-async def rawr():
+async def dad():
     await bot.say("canser...")
 
 @bot.command()
