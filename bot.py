@@ -75,7 +75,7 @@ async def h():
                     **lucas** - Sniffing ;)
                     **chris** - More about the amazing Chrissyboi :3
                     **doomguy_chiquito** - What is he, really?
-                    **Dragondrawer** - Learn about the dragon artist :)
+                    **Dragondrawer** - Learn about the dragon artist :D
                     **Cade** - Some basic information about me! :)
                     **logan** - The best soldier
                     **ivanovic** - A strategist.
