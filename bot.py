@@ -168,6 +168,10 @@ async def logan():
 @bot.command()
 async def rawr():
     await bot.say("RAWR!!! :dragon_face:")
+    
+@bot.command()
+async def sans():
+    await bot.say("Undertale? :skull: :skeleton:")
 
 @bot.command()
 async def Dragondrawer():
