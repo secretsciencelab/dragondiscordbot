@@ -6,12 +6,12 @@ class kami():
     self.bot = bot
 
   @commands.command()
-  async def owo(self):
-    await self.bot.say('What's this?')
+  async def owo():
+    await self.bot.say("What's this?")
 
   @commands.command()
-  asyn def joker(self):
-    await self.bot.say('Looking cool Joker!')
+  asyn def joker():
+    await self.bot.say("Looking cool Joker!")
 
 def setup(bot):
-  bot.add_cog(kami(bot))
+  bot.add_cog(Kami(bot))
