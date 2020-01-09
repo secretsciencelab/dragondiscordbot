@@ -7,11 +7,11 @@ class kami():
 
   @commands.command()
   async def owo(self):
-    await self.bot.say("What's this?")
+    await self.bot.say('What's this?')
 
   @commands.command()
   asyn def joker(self):
-    await self.bot.say("Looking cool Joker!")
+    await self.bot.say('Looking cool Joker!')
 
 def setup(bot):
-  bot.add_cog(Kami(bot))
+  bot.add_cog(kami(bot))
