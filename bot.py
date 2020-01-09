@@ -173,6 +173,10 @@ async def sec():
 @bot.command()
 async def dad():
     await bot.say("to get the reward, tell Aaron 5016")
+    
+@bot.command()
+async def dooom():
+    await bot.say("doomguy chiquito the gallant. the end")
 
 @bot.command()
 async def rawr():
