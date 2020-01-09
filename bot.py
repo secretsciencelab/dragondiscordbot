@@ -78,6 +78,7 @@ async def h():
                     **Dragondrawer** - Learn about the dragon artist :D
                     **Cade** - Some basic information about me! :)
                     **logan** - The best soldier
+                    **sec** - ???
                     **ivanovic** - A strategist.
                     **rawr** - It's a dragon.. what do you expect?
                     **8ball** - Ask the virtual spirits from beyond.. anything..
@@ -171,7 +172,7 @@ async def sec():
     
 @bot.command()
 async def dad():
-    await bot.say("canser...")
+    await bot.say("to get the reward, tell Aaron 5016")
 
 @bot.command()
 async def rawr():
