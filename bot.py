@@ -172,7 +172,7 @@ async def sec():
     
 @bot.command()
 async def dad():
-    await bot.say("to get the reward, tell Aaron 5016")
+    await bot.say("!dooom")
     
 @bot.command()
 async def dooom():
