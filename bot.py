@@ -209,18 +209,18 @@ async def eight_ball(context):
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
-    @bot.command(name='picknum1-5',
+    @bot.command(name='picknum5',
              description="Answers a yes/no question.",
              brief="Answers from the beyond.",
-             aliases=['eight_ball', 'eightball', '8-ball'],
+             aliases=['picknum_5', 'picknum5', 'picknum-5'],
              pass_context=True)
-async def eight_ball(context):
+async def picknum_5(context):
     possible_responses = [
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
+        'one',
+        'two',
+        'three',
+        'four',
+        'five',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
 
