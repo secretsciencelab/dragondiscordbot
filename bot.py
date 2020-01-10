@@ -212,7 +212,7 @@ async def eight_ball(context):
     @bot.command(name='picknum5',
              description="Answers a yes/no question.",
              brief="Answers from the beyond.",
-             aliases=['picknum_5', 'picknum5', 'picknum-5'],
+             aliases=['picknum_5', 'picknum5', 'picknum5'],
              pass_context=True)
 async def picknum_5(context):
     possible_responses = [
