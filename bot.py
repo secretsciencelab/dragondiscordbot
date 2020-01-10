@@ -208,6 +208,21 @@ async def eight_ball(context):
         'Definitely',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
+    
+    @bot.command(name='picknum1-5',
+             description="Answers a yes/no question.",
+             brief="Answers from the beyond.",
+             aliases=['eight_ball', 'eightball', '8-ball'],
+             pass_context=True)
+async def eight_ball(context):
+    possible_responses = [
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+    ]
+    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
 
 @bot.command()
 async def godhimself():
