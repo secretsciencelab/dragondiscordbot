@@ -10,9 +10,5 @@ class Dragondrawer():
   async def Drawadragon(self):
     await self.bot.say("https://i.ytimg.com/vi/Iqr_yP25wug/maxresdefault.jpg")
 
-  @commands.command()
-  async def rawr(self):
-    await self.bot.say("A baby dragon. What did you expect?")
-
 def setup(bot):
   bot.add_cog(Dragondrawer(bot))
