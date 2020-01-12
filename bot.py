@@ -187,10 +187,6 @@ async def sans():
     await bot.say("Undertale? :skull: :skeleton:")
     
 @bot.command()
-async def boat():
-    await bot.say("wake up @Aaron|secretsciencelab!")
-
-@bot.command()
 async def Dragondrawer():
     await bot.say("He obviously draws dragons... :pencil2:")
     
