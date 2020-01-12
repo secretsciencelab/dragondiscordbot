@@ -183,8 +183,8 @@ async def rawr():
     await bot.say("RAWR!!! :dragon_face:")
     
 @bot.command()
-async def sans():
-    await bot.say("Undertale? :skull: :skeleton:")
+async def boat():
+    await bot.say("Mr. Nguyen")
     
 @bot.command()
 async def Dragondrawer():
