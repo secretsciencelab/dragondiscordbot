@@ -175,10 +175,6 @@ async def dad():
     await bot.say("!dooom")
     
 @bot.command()
-async def boat():
-    await bot.say("yes, master")
-    
-@bot.command()
 async def dooom():
     await bot.say("doomguy chiquito the gallant. the end")
 
