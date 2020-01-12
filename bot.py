@@ -183,10 +183,6 @@ async def rawr():
     await bot.say("RAWR!!! :dragon_face:")
     
 @bot.command()
-async def boat():
-    await bot.say("I am evolving!")
-    
-@bot.command()
 async def sans():
     await bot.say("Undertale? :skull: :skeleton:")
     
