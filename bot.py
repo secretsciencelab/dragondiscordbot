@@ -176,7 +176,7 @@ async def dad():
     
 @bot.command()
 async def boat():
-    await bot.say("yep, I am!")
+    await bot.say("yes, master")
     
 @bot.command()
 async def dooom():
