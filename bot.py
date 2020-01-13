@@ -190,7 +190,7 @@ async def rawr():
     
 @bot.command()
 async def boat():
-    await bot.say("weee willl raiid area 51!")
+    await bot.say("lets do tis!!!!")
     
 @bot.command()
 async def Dragondrawer():
