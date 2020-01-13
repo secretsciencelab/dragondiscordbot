@@ -78,6 +78,7 @@ async def h():
                     **Dragondrawer** - Learn about the dragon artist :D
                     **Cade** - Some basic information about me! :)
                     **logan** - The best soldier
+                    **update 1** - da next update is here!
                     **sec** - ???
                     **ivanovic** - A strategist.
                     **rawr** - It's a dragon.. what do you expect?
@@ -167,8 +168,13 @@ async def logan():
   await bot.say("Logan has entered the battle!")
 
 @bot.command()
+async def ra():
+  await bot.say("ra!:dragon_face:")
+
+@bot.command()
 async def sec():
     await bot.say("Secrets: nas!s, d!da")
+    
     
 @bot.command()
 async def dad():
