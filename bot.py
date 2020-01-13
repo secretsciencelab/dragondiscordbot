@@ -68,7 +68,7 @@ def startDiscord():
 @bot.command(aliases=['help'])
 async def h():
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
-    embed.add_field(name="Available commands (CMD Prefix: '!' or '$')", value="For now we got:", inline=False) 
+    embed.add_field(name="Available commands (CMD Prefix: '!')", value="For now we got:", inline=False) 
     embed.add_field(name="Random CMDs", 
                     value="""**hello** - Hello :D
                     **goodnight** - Happy Dragonscripting! :D
