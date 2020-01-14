@@ -189,10 +189,6 @@ async def rawr():
     await bot.say("RAWR!!! :dragon_face:")
     
 @bot.command()
-async def boat():
-    await bot.say("again, hi?")
-    
-@bot.command()
 async def Dragondrawer():
     await bot.say("He obviously draws dragons... :pencil2:")
     
