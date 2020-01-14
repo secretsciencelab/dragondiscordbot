@@ -175,6 +175,9 @@ async def ra():
 async def sec():
     await bot.say("Secrets: nas!s, d!da")
     
+@bot.command()
+async def ded():
+    await bot.say("|x x|")    
     
 @bot.command()
 async def dad():
