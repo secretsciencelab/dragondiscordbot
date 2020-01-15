@@ -185,7 +185,7 @@ async def dad():
     
 @bot.command()
 async def th():
-    await bot.say("hai yall!")
+    await bot.say("welome back master!")
     
 @bot.command()
 async def dooom():
