@@ -177,7 +177,7 @@ async def sec():
     
 @bot.command()
 async def ded():
-    await bot.say("|x x|")    
+    await bot.say("|x.x|")    
     
 @bot.command()
 async def dad():
@@ -211,6 +211,7 @@ async def eight_ball(context):
         'Too hard to tell',
         'It is quite possible',
         'Definitely',
+        'this is 1/6',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
