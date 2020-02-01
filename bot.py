@@ -198,37 +198,7 @@ async def Accio():
 @bot.command()
 async def Aguamenti():
     await bot.say("now your wand is a water canon!")
-    
-  @commands.command(pass_context=True)
-  @commands.cooldown(1, 35, commands.BucketType.user)
-  async def Alohomora(self, context, target : discord.User = None):
-    lastopenedfromkey = "laststolenfrom_key"
-    lastuseropenedfrom = botdb.get(lastopenedfromkey, "Opening")
-
-    if target == self.bot.user:
-      eremb=discord.Embed(title="pokus", description="Bots dont have diaries.", color=0xFF0000)
-      await self.bot.say(context.message.author.mention, embed=eremb)
-      return      
-
-    if target == None:
-      eremb=discord.Embed(title="pokus", description="Please specify a user! (ex: !Alohomora @DragonDrawer1234)", color=0xFF0000)
-      await self.bot.say(context.message.author.mention, embed=eremb)
-      return
-    else:
-      if target == context.message.author:
-        eremb=discord.Embed(title="pokus", description="You cannot open yourself. Ya idjit", color=0xFF0000)
-        await self.bot.say(context.message.author.mention, embed=eremb)
-        return   
-
-      if lastuseropenedfrom == None:
-        botdb.set(lastopenedfromkey, {'laststolenfrom': context.message.author.name}, "Opening")
-        lastuseropenedfrom = botdb.get(lastopenedfromkey, "Opening")
-
-      if target.name == lastuseropenedfrom['laststolenfrom'].__str__() and lastuseropenedfrom != None:
-        eremb=discord.Embed(title="pokus", description="You have already seen their diary.", color=0xFF0000)
-        await self.bot.say(context.message.author.mention, embed=eremb)
-        return
-    
+      
 @bot.command()
 async def spells():
     await bot.say("https://img.yumpu.com/58642360/1/500x640/harry-potter-spells.jpg")
