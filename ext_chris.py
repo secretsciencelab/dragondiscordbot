@@ -216,7 +216,7 @@ class Chris():
         botdb.set(targetmoneykey, {'bal': 1000}, "currency")
         targetmoney = botdb.get(targetmoneykey, "currency")
 
-      amountstealing = 1000
+      amountstealing = 150
 
       if cmdrunnermoney['bal'] <= 100:
         amountstealing = 75
