@@ -176,10 +176,6 @@ async def sec():
     await bot.say("Secrets: nas!s, d!da")
     
 @bot.command()
-async def locomoto_mortis():
-    await bot.say("You have locked @Secret Science Lab#2406's left leg")  
-    
-@bot.command()
 async def ded():
     await bot.say("|x.x|")    
     
@@ -194,6 +190,10 @@ async def dooom():
 @bot.command()
 async def Accio():
     await bot.say("summoned rice")
+    
+@bot.command()
+async def Stupefy():
+    await bot.say("@SecretScience lab got knocked out!")
     
 @bot.command()
 async def locomotomortis():
