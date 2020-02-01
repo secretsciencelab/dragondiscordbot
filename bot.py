@@ -177,7 +177,7 @@ async def sec():
     
 @bot.command()
 async def locomoto_mortis():
-    await bot.say("You have locked @Secret Science Lab#2406")  
+    await bot.say("You have locked @Secret Science Lab#2406's left leg")  
     
 @bot.command()
 async def ded():
