@@ -196,7 +196,7 @@ async def Accio():
     await bot.say("summoned rice")
     
 @bot.command()
-async def locomoto_mortis():
+async def locomotomortis():
     await bot.say("you locked @SecretScience lab's legs")      
     
 @bot.command()
