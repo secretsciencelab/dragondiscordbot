@@ -196,6 +196,10 @@ async def Accio():
     await bot.say("summoned rice")
     
 @bot.command()
+async def locomoto_mortis():
+    await bot.say("you locked @SecretScience lab's legs")      
+    
+@bot.command()
 async def Aguamenti():
     await bot.say("now your wand is a water canon!")
       
