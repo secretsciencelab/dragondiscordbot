@@ -186,6 +186,48 @@ async def dad():
 @bot.command()
 async def dooom():
     await bot.say("doomguy chiquito the gallant. the end")
+    
+@bot.command()
+async def Accio():
+    await bot.say("summoned rice")
+    
+@bot.command()
+async def Aguamenti():
+    await bot.say("now your wand is a water canon!")
+    
+  @commands.command(pass_context=True)
+  @commands.cooldown(1, 35, commands.BucketType.user)
+  async def Alohomora(self, context, target : discord.User = None):
+    laststolenfromkey = "laststolenfrom_key"
+    lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
+
+    if target == self.bot.user:
+      eremb=discord.Embed(title="pokus", description="Bots dont have diaries.", color=0xFF0000)
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return      
+
+    if target == None:
+      eremb=discord.Embed(title="pokus", description="Please specify a user! (ex: !Alohomora @DragonDrawer1234)", color=0xFF0000)
+      await self.bot.say(context.message.author.mention, embed=eremb)
+      return
+    else:
+      if target == context.message.author:
+        eremb=discord.Embed(title="pokus", description="You cannot open yourself. Ya idjit", color=0xFF0000)
+        await self.bot.say(context.message.author.mention, embed=eremb)
+        return   
+
+      if lastuserstolenfrom == None:
+        botdb.set(laststolenfromkey, {'laststolenfrom': context.message.author.name}, "stealing")
+        lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
+
+      if target.name == lastuserstolenfrom['laststolenfrom'].__str__() and lastuserstolenfrom != None:
+        eremb=discord.Embed(title="pokus", description="You have already seen their diary.", color=0xFF0000)
+        await self.bot.say(context.message.author.mention, embed=eremb)
+        return
+    
+@bot.command()
+async def spells():
+    await bot.say("https://img.yumpu.com/58642360/1/500x640/harry-potter-spells.jpg")
 
 @bot.command()
 async def rawr():
