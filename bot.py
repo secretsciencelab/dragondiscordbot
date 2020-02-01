@@ -180,8 +180,8 @@ async def ded():
     await bot.say("|x.x|")    
     
 @bot.command()
-async def dad():
-    await bot.say("!dooom")
+async def nu():
+    await bot.say("ok, @Secret Science Lab#2406 :(")
     
 @bot.command()
 async def dooom():
