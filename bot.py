@@ -198,8 +198,8 @@ async def Aguamenti():
   @commands.command(pass_context=True)
   @commands.cooldown(1, 35, commands.BucketType.user)
   async def Alohomora(self, context, target : discord.User = None):
-    laststolenfromkey = "laststolenfrom_key"
-    lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
+    lastopenedfromkey = "laststolenfrom_key"
+    lastuseropenedfrom = botdb.get(lastopenedfromkey, "Opening")
 
     if target == self.bot.user:
       eremb=discord.Embed(title="pokus", description="Bots dont have diaries.", color=0xFF0000)
@@ -216,11 +216,11 @@ async def Aguamenti():
         await self.bot.say(context.message.author.mention, embed=eremb)
         return   
 
-      if lastuserstolenfrom == None:
-        botdb.set(laststolenfromkey, {'laststolenfrom': context.message.author.name}, "stealing")
-        lastuserstolenfrom = botdb.get(laststolenfromkey, "stealing")
+      if lastuseropenedfrom == None:
+        botdb.set(lastopenedfromkey, {'laststolenfrom': context.message.author.name}, "Opening")
+        lastuseropenedfrom = botdb.get(lastopenedfromkey, "Opening")
 
-      if target.name == lastuserstolenfrom['laststolenfrom'].__str__() and lastuserstolenfrom != None:
+      if target.name == lastuseropenedfrom['laststolenfrom'].__str__() and lastuseropenedfrom != None:
         eremb=discord.Embed(title="pokus", description="You have already seen their diary.", color=0xFF0000)
         await self.bot.say(context.message.author.mention, embed=eremb)
         return
