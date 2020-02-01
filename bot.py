@@ -176,6 +176,10 @@ async def sec():
     await bot.say("Secrets: nas!s, d!da")
     
 @bot.command()
+async def locomoto_mortis():
+    await bot.say("coming soon!")  
+    
+@bot.command()
 async def ded():
     await bot.say("|x.x|")    
     
