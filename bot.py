@@ -243,7 +243,7 @@ async def eight_ball(context):
         'Too hard to tell',
         'It is quite possible',
         'Definitely',
-        'this is 1/6',
+        'this is 16',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
