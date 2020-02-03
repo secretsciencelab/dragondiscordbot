@@ -178,11 +178,7 @@ async def sec():
 @bot.command()
 async def ded():
     await bot.say("|x.x|")    
-    
-@bot.command()
-async def Wingardium_Leviosa():
-    await bot.say("lifted @kami64")
-   
+      
 @bot.command(name='Wingardium_Leviosa',
              description="Answers a yes/no question.",
              brief="lift",
