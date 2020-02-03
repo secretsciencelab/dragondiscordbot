@@ -180,8 +180,24 @@ async def ded():
     await bot.say("|x.x|")    
     
 @bot.command()
-async def nu():
-    await bot.say("ok, @Secret Science Lab#2406 :(")
+async def Wingardium_Leviosa():
+    await bot.say("lifted @kami64")
+   
+@bot.command(name='Wingardium_Leviosa',
+             description="Answers a yes/no question.",
+             brief="lift",
+             aliases=['Wingardium_Leviosa', 'WingardiumLeviosa', 'Wingardium-Leviosa'],
+             pass_context=True)
+async def Wingardium_Leviosa(context):
+    possible_responses = [
+        'lifted @kami64',
+        'lifted @DoctorPenguin (Cade) ',
+        'lifted @Aaron | DragonScriptArena',
+        'lifted @Steel (Chris)',
+        'lifted @Succosis',
+        'lifted @DragonDrawer',
+    ]
+    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
 @bot.command()
 async def dooom():
