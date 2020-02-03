@@ -190,12 +190,12 @@ async def Wingardium_Leviosa():
              pass_context=True)
 async def Wingardium_Leviosa(context):
     possible_responses = [
-        'lifted @kami64',
-        'lifted @DoctorPenguin (Cade) ',
-        'lifted @Aaron | DragonScriptArena',
-        'lifted @Steel (Chris)',
-        'lifted @Succosis',
-        'lifted @DragonDrawer',
+        'lifted @kami64#7102',
+        'lifted @DragonDrawer#2486',
+        'lifted @Secret Science Lab#2406 ',
+        'lifted @Steel_Dev#2305',
+        'lifted @Succosis#4926',
+        'lifted @DoctorPenguin#4487 ',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
