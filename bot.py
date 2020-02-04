@@ -182,7 +182,7 @@ async def ded():
 @bot.command(name='Wingardium_Leviosa',
              description="Answers a yes/no question.",
              brief="lift",
-             aliases=['Wingardium_Leviosa', 'WingardiumLeviosa', 'Wingardium-Leviosa'],
+             false=['Wingardium_Leviosa', 'WingardiumLeviosa', 'Wingardium-Leviosa'],
              pass_context=True)
 async def Wingardium_Leviosa(context):
     possible_responses = [
