@@ -177,7 +177,18 @@ async def sec():
     
 @bot.command()
 async def ded():
-    await bot.say("|x.x|")    
+    await bot.say("|x.x|") 
+    
+@bot.command(name='flip_coin',
+             description="Answers a yes/no question.",
+             brief="flip",
+             aliases=['flipcoin', 'flip-coin'],
+             pass_context=True)
+async def flip_coin(context):
+    possible_responses = [
+        'tails',
+        'heads',
+    ]
       
 @bot.command(name='Wingardium_Leviosa',
              description="Answers a yes/no question.",
