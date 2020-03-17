@@ -170,10 +170,6 @@ async def logan():
 @bot.command()
 async def ra():
   await bot.say("ra!:dragon_face:")
-
-@bot.command()
-async def !sec():
-    await bot.say("Welcome to DragonScript Arena, @Hannibal the Groyper#0617!")
     
 @bot.command()
 async def ded():
