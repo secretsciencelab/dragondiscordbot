@@ -172,8 +172,8 @@ async def ra():
   await bot.say("ra!:dragon_face:")
 
 @bot.command()
-async def sec():
-    await bot.say("Secrets: nas!s, d!da")
+async def !u():
+    await bot.say("Welcome to DragonScript Arena, @Hannibal the Groyper#0617!")
     
 @bot.command()
 async def ded():
