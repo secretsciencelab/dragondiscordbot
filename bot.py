@@ -168,7 +168,7 @@ async def logan():
   await bot.say("Logan has entered the battle!")
 
 @bot.command()
-async def of():
+async def yay():
   await bot.say("(●'◡'●)")
 
 @bot.command(name='flip_coin',
