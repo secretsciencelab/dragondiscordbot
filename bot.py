@@ -74,7 +74,7 @@ async def h():
                     **goodnight** - Happy Dragonscripting! :D
                     **lucas** - Sniffing ;)
                     **chris** - More about the amazing Chrissyboi :3
-                    **doomguy_chiquito** - What is he, really?
+                    **kami64** - What is he, really?
                     **Dragondrawer** - Learn about the dragon artist :D
                     **Cade** - Some basic information about me! :)
                     **logan** - The best soldier
@@ -133,7 +133,7 @@ async def botteam():
                    **Logan** - Yet another wonderful human being helping out
                    **Ivanovic** - Just one more boy... but can speak Spanish
                    **Dragondrawer** - A person who trys but trying, wait what? 
-                   **Doomguy_chiquito** - A pretty smart and cool dude- also trying their very best""", inline=False)
+                   **kami64** - A pretty smart and cool dude- also trying their very best""", inline=False)
     await bot.say("", embed=embed)
 
 ###############
@@ -156,7 +156,7 @@ async def chris():
   await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
 
 @bot.command()
-async def doomguy_chiquito():
+async def kami64():
   await bot.say("He's not a god!")
 
 @bot.command()
@@ -168,13 +168,9 @@ async def logan():
   await bot.say("Logan has entered the battle!")
 
 @bot.command()
-async def ra():
-  await bot.say("ra!:dragon_face:")
-    
-@bot.command()
-async def ded():
-    await bot.say("|x.x|") 
-    
+async def of():
+  await bot.say("(●'◡'●)")
+
 @bot.command(name='flip_coin',
              description="Answers a yes/no question.",
              brief="flip",
@@ -187,7 +183,7 @@ async def flip_coin(context):
     ]
       
 @bot.command(name='Wingardium_Leviosa',
-             description="Answers a yes/no question.",
+             description="Answers a life question.",
              brief="lift",
              aliases=['WingardiumLeviosa', 'Wingardium-Leviosa'],
              pass_context=True)
