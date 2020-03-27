@@ -154,8 +154,8 @@ async def lucas(ctx):
 async def chris(ctx):
   await ctx.send("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
 
-@bot.command(ctx)
-async def doomguy_chiquito():
+@bot.command()
+async def doomguy_chiquito(ctx):
   await ctx.send("He's not a god!")
 
 @bot.command()
