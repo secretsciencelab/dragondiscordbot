@@ -198,19 +198,7 @@ async def wingardium_leviosa(context):
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
-    @bot.command(name='Whois_thebest',
-             description="Answers a life question.",
-             brief="lift",
-             aliases=['Whoisthebest', 'Whois-thebest'],
-             pass_context=True)
-async def whois_thebest(context):
-    possible_responses = [
-        '@kami64#7102 he is a god...',
-        '@DragonDrawer#2486 is the normie',
-        '@Secret Science Lab#2406 is the most talented',
-        '@Steel_Dev#2305 is the gud boi',
-        '@Succosis#4926 , best soilder',
-        '@DoctorPenguin#4487 , Future Auto Technician',
+uture Auto Technician',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
