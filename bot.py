@@ -66,7 +66,7 @@ def startDiscord():
 # Informational CMDs #
 ######################
 @bot.command(aliases=['help'])
-async def h():
+async def h(ctx):
     embed=discord.Embed(title="About DragonBot", description="Im DragonBot, the one and only bot for DragonScript Arena Discord!", color=0x1abc9c)
     embed.add_field(name="Available commands (CMD Prefix: '!')", value="For now we got:", inline=False) 
     embed.add_field(name="Random CMDs", 
@@ -91,7 +91,7 @@ async def h():
                    **aboutds** - Learn a little 'bout DragonScript Arena!
                    **time** - Wanna know what time it is somewhere in the word?
                    **botteam** - Learn some about the bots main team""", inline=False)   
-    await bot.say("", embed=embed)
+    await ctx.send("", embed=embed)
 
 async def _geocodeTimezoneName(place):
     geolocator = Nominatim(user_agent="dragonbot")
@@ -106,25 +106,25 @@ async def dstime(ctx, place):
     place = await _geocodeTimezoneName(place)
   
   if not place:
-    await bot.say("Sorry, I don't know where %s is" % origPlace)
-    await bot.say("Please try one of the following timezones: https://en.m.wikipedia.org/wiki/List_of_tz_database_time_zones")
+    await ctx.send("Sorry, I don't know where %s is" % origPlace)
+    await ctx.send("Please try one of the following timezones: https://en.m.wikipedia.org/wiki/List_of_tz_database_time_zones")
     return
     
   locTz = pytz.timezone(place)
   locTime = datetime.now(locTz)
-  await bot.say("The time in %s is %s" % (origPlace, locTime.strftime('%-I:%M %p, %a %d %b %Y')))
+  await ctx.send("The time in %s is %s" % (origPlace, locTime.strftime('%-I:%M %p, %a %d %b %Y')))
 
 @bot.command()
-async def aboutds():
+async def aboutds(ctx):
   embed=discord.Embed(title="About Dragonscript Arena", description="Dragonscript arena is a game designed to help it's players learn JavaScript while controlling/programming an AI for their dragons to go into battle!", color=0x1abc9c)
   embed.set_thumbnail(url="https://i.imgur.com/6QgGoAq.png")
   embed.add_field(name="Developer", value="The wonderful game was developed by the one and only- Aaron! He's quite talented, and did really well on the game.", inline=False)
   embed.add_field(name="Play now", value="You can play the game free over at: https://dragonscriptarena.com", inline=False)
-  await bot.say("", embed=embed)
+  await ctx.send("", embed=embed)
 
 # UPDATE THIS WHENEVER WE ADD A NEW MEMBER TO THE TEAM - AKA SOMEONE ELSE GETS INVITED TO THE REPO TO HELP OUT!
 @bot.command()
-async def botteam():
+async def botteam(ctx):
     embed=discord.Embed(title="DragonBot Team", description="The wonderful team of people working on this bot together", color=0x1abc9c)
     embed.add_field(name="Team", value="""**Aaron** - The leader.. don't mess with him! He'll sick his DragonAI on you!
                    **Chris** - A C# Programmer trying to do the do on python to help with this bot..
@@ -133,46 +133,46 @@ async def botteam():
                    **Ivanovic** - Just one more boy... but can speak Spanish
                    **Dragondrawer** - A person who trys but trying, wait what? 
                    **Doomguy_chiquito** - A pretty smart and cool dude- also trying their very best""", inline=False)
-    await bot.say("", embed=embed)
+    await ctx.send("", embed=embed)
 
 ###############
 # Random CMDs #
 ###############
 @bot.command()
-async def hello(context):
-  await bot.say("Hello, " + context.message.author.mention + "!")
+async def hello(ctx):
+  await ctx.send("Hello, " + ctx.message.author.mention + "!")
 
 @bot.command()
-async def goodnight(context):
-  await bot.say("Goodnight, " + context.message.author.mention + "! Happy DragonScripting!")
+async def goodnight(ctx):
+  await ctx.send("Goodnight, " + ctx.message.author.mention + "! Happy DragonScripting!")
 
 @bot.command()
-async def lucas(context):
-  await bot.say("***SNIFFING INTENSIFIES***   You smell guud " + context.message.author.mention + " ^-^")
+async def lucas(ctx):
+  await ctx.send("***SNIFFING INTENSIFIES***   You smell guud " + ctx.message.author.mention + " ^-^")
 
 @bot.command()
-async def chris():
-  await bot.say("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
+async def chris(ctx):
+  await ctx.send("Walls. He's the insane Dungeon Master, Though he can be a pretty nice dude most the time :D")
 
-@bot.command()
+@bot.command(ctx)
 async def doomguy_chiquito():
-  await bot.say("He's not a god!")
+  await ctx.send("He's not a god!")
 
 @bot.command()
-async def Cade():
-  await bot.say("Cade, An hardworking gent getting his future together. Future Auto Technician, I'm a great Counselor if you need some advice about life or anything!")
+async def Cade(ctx):
+  await ctx.send("Cade, An hardworking gent getting his future together. Future Auto Technician, I'm a great Counselor if you need some advice about life or anything!")
 
 @bot.command()
-async def logan():
-  await bot.say("Logan has entered the battle!")
+async def logan(ctx):
+  await ctx.send("Logan has entered the battle!")
 
 @bot.command()
-async def ra():
-  await bot.say("ra!:dragon_face:")
+async def ra(ctx):
+  await ctx.send("ra!:dragon_face:")
     
 @bot.command()
-async def ded():
-    await bot.say("|x.x|") 
+async def ded(ctx):
+    await ctx.send("|x.x|") 
     
 @bot.command(name='flip_coin',
              description="Answers a yes/no question.",
@@ -188,7 +188,7 @@ async def flip_coin(context):
              description="Answers a yes/no question.",
              brief="lift",
              aliases=['WingardiumLeviosa', 'Wingardium-Leviosa'])
-async def wingardium_leviosa(context):
+async def wingardium_leviosa(ctx):
     possible_responses = [
         'lifted @kami64#7102',
         'lifted @DragonDrawer#2486',
@@ -197,49 +197,49 @@ async def wingardium_leviosa(context):
         'lifted @Succosis#4926',
         'lifted @DoctorPenguin#4487 ',
     ]
-    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
+    await ctx.send(random.choice(possible_responses) + ", " + ctx.message.author.mention)
     
 @bot.command()
-async def dooom():
-    await bot.say("doomguy chiquito the gallant. the end")
+async def dooom(ctx):
+    await ctx.send("doomguy chiquito the gallant. the end")
     
 @bot.command()
-async def Accio():
-    await bot.say("summoned rice")
+async def Accio(ctx):
+    await ctx.send("summoned rice")
     
 @bot.command()
-async def Stupefy():
-    await bot.say("@SecretScience lab got knocked out!")
+async def Stupefy(ctx):
+    await ctx.send("@SecretScience lab got knocked out!")
     
 @bot.command()
-async def locomotomortis():
-    await bot.say("you locked @SecretScience lab's legs")      
+async def locomotomortis(ctx):
+    await ctx.send("you locked @SecretScience lab's legs")      
     
 @bot.command()
-async def Aguamenti():
-    await bot.say("now your wand is a water canon!")
+async def Aguamenti(ctx):
+    await ctx.send("now your wand is a water canon!")
       
 @bot.command()
-async def spells():
-    await bot.say("https://img.yumpu.com/58642360/1/500x640/harry-potter-spells.jpg")
+async def spells(ctx):
+    await ctx.send("https://img.yumpu.com/58642360/1/500x640/harry-potter-spells.jpg")
 
 @bot.command()
-async def rawr():
-    await bot.say("RAWR!!! :dragon_face:")
+async def rawr(ctx):
+    await ctx.send("RAWR!!! :dragon_face:")
     
 @bot.command()
-async def Dragondrawer():
-    await bot.say("He obviously draws dragons... :pencil2:")
+async def Dragondrawer(ctx):
+    await ctx.send("He obviously draws dragons... :pencil2:")
     
 @bot.command()
-async def ivanovic():
-    await bot.say("Ivan Gomez at your service, if you need talk or help with the Spanish just said.")
+async def ivanovic(ctx):
+    await ctx.send("Ivan Gomez at your service, if you need talk or help with the Spanish just said.")
     
 @bot.command(name='8ball',
              description="Answers a yes/no question.",
              brief="Answers from the beyond.",
              aliases=['eight_ball', 'eightball', '8-ball'])
-async def eight_ball(context):
+async def eight_ball(ctx):
     possible_responses = [
         'That is a resounding no',
         'It is not looking likely',
@@ -248,85 +248,85 @@ async def eight_ball(context):
         'Definitely',
         'this is 16',
     ]
-    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
+    await ctx.send(random.choice(possible_responses) + ", " + context.message.author.mention)
     
 @bot.command()
-async def godhimself():
+async def godhimself(ctx):
     embed=discord.Embed(title="God himself", description="***BOW DOWN TO YOUR NEW GOD!***")
     embed.set_image(url="https://cdn.discordapp.com/attachments/259844248772411393/494527371454447677/god_himself.jpg")
-    await bot.say("", embed=embed)
+    await ctx.send("", embed=embed)
     
 @bot.command()
-async def obama():
+async def obama(ctx):
     embed=discord.Embed(title="Obunga Obama", description="Let the fear spread")
     embed.set_image(url="https://i.kym-cdn.com/entries/icons/original/000/026/438/obamammaa.jpg")
-    await bot.say("", embed=embed)
+    await ctx.send("", embed=embed)
     
 @bot.command()
-async def gender():
-    await bot.say("My gender? Code... :dragon_face:")
+async def gender(ctx):
+    await ctx.send("My gender? Code... :dragon_face:")
 
 
 ###############
 #  Misc CMDs  #
 ###############
 @bot.command()
-async def load(extension_name : str):
+async def load(ctx, extension_name : str):
     """Loads an extension."""
     prefix = "ext_"
     try:
         bot.load_extension(prefix + extension_name)
     except (AttributeError, ImportError) as e:
-        await bot.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
+        await ctx.send("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
         return
-    await bot.say("Personality module **{}** loaded.".format(extension_name))
+    await ctx.send("Personality module **{}** loaded.".format(extension_name))
 
 @bot.command()
-async def unload(extension_name : str):
+async def unload(ctx, extension_name : str):
     """Unloads an extension."""
     prefix = "ext_"
     bot.unload_extension(prefix + extension_name)
-    await bot.say("Personality module **{}** unloaded.".format(extension_name))
+    await ctx.send("Personality module **{}** unloaded.".format(extension_name))
 
 @bot.command()
-async def setgame(context, gamename : str):
-    if "494721265383374879" in [role.id for role in context.message.author.roles]:
+async def setgame(ctx, gamename : str):
+    if "494721265383374879" in [role.id for role in ctx.message.author.roles]:
        await bot.change_presence(game=discord.Game(name=gamename))
        embed=discord.Embed(title="Playing message updated", description="Playing message updated to '" + gamename + "'", color=0x1abc9c)
-       await bot.say("", embed=embed)
+       await ctx.send("", embed=embed)
     else:
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
-       await bot.say("", embed=embed)
+       await ctx.send("", embed=embed)
 
 @bot.command()
-async def setjoinmessage(context, msg : str = ""):
-    if "494721265383374879" in [role.id for role in context.message.author.roles]:
+async def setjoinmessage(ctx, msg : str = ""):
+    if "494721265383374879" in [role.id for role in ctx.message.author.roles]:
         if msg == "":
             erremb=discord.Embed(title="Error", description="Message cannot be blank.", color=0xFF0000)
-            await bot.say(context.message.author.mention, embed=erremb)  
+            await ctx.send(context.message.author.mention, embed=erremb)  
             return
         else:
             botdb.set("dragonscriptserver_joinmessage", {'serverjoinmsg': msg}, "server")
             erremb=discord.Embed(title="New Member Join Message", description="Join Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0x32e00f)
-            await bot.say(context.message.author.mention, embed=erremb) 
+            await ctx.send(context.message.author.mention, embed=erremb) 
     else:
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
-       await bot.say("", embed=embed)
+       await ctx.send("", embed=embed)
 
 @bot.command()
-async def setleavemessage(context, msg : str = ""):
-    if "494721265383374879" in [role.id for role in context.message.author.roles]:
+async def setleavemessage(ctx, msg : str = ""):
+    if "494721265383374879" in [role.id for role in ctx.message.author.roles]:
         if msg == "":
             erremb=discord.Embed(title="Error", description="Message cannot be blank.", color=0xFF0000)
-            await bot.say(context.message.author.mention, embed=erremb)  
+            await ctx.send(context.message.author.mention, embed=erremb)  
             return
         else:
             botdb.set("dragonscriptserver_leavemessage", {'serverleavemsg': msg}, "server")
             erremb=discord.Embed(title="Member Leave Message", description="Leave Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0x32e00f)
-            await bot.say(context.message.author.mention, embed=erremb) 
+            await ctx.send(context.message.author.mention, embed=erremb) 
     else:
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
-       await bot.say("", embed=embed)        
+       await ctx.send("", embed=embed)        
 
 
 ############################
