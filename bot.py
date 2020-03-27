@@ -39,7 +39,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    await bot.change_presence(game=discord.Game(name="Use !help"))
+    await bot.change_presence(activity=discord.Game(name="Use !help"))
 
 def startDiscord():
   # not calling bot.run() since there is no handling of bot disconnects
