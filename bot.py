@@ -209,7 +209,7 @@ async def whois_thebest(context):
         '@DragonDrawer#2486 is the normie',
         '@Secret Science Lab#2406 is the most talented',
         '@Steel_Dev#2305 is the gud boi',
-        '@Succosis#4926 ,the best soilder',
+        '@Succosis#4926 , best soilder',
         '@DoctorPenguin#4487 , Future Auto Technician',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
