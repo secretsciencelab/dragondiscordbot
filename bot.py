@@ -393,3 +393,4 @@ async def on_command_error(error, ctx):
         erembed=discord.Embed(title="Error", description=':exclamation: Unknown command.', color=0xFF0000)
         await bot.send_message(ctx.message.channel, embed=erembed)
     raise error
+# --dev chat: good job everyone!
