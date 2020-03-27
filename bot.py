@@ -198,10 +198,6 @@ async def wingardium_leviosa(context):
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
     
-uture Auto Technician',
-    ]
-    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
-    
 @bot.command()
 async def dooom():
     await bot.say("doomguy chiquito the gallant. the end")
