@@ -178,12 +178,13 @@ async def ded(ctx):
              description="Answers a yes/no question.",
              brief="flip",
              aliases=['flipcoin', 'flip-coin'])
-async def flip_coin(context):
+async def flip_coin(ctx):
     possible_responses = [
         'tails',
         'heads',
     ]
-      
+    await ctx.send(random.choice(possible_responses) + ", " + ctx.message.author.mention)
+    
 @bot.command(name='Wingardium_Leviosa',
              description="Answers a yes/no question.",
              brief="lift",
@@ -248,7 +249,7 @@ async def eight_ball(ctx):
         'Definitely',
         'this is 16',
     ]
-    await ctx.send(random.choice(possible_responses) + ", " + context.message.author.mention)
+    await ctx.send(random.choice(possible_responses) + ", " + ctx.message.author.mention)
     
 @bot.command()
 async def godhimself(ctx):
@@ -303,12 +304,12 @@ async def setjoinmessage(ctx, msg : str = ""):
     if "494721265383374879" in [role.id for role in ctx.message.author.roles]:
         if msg == "":
             erremb=discord.Embed(title="Error", description="Message cannot be blank.", color=0xFF0000)
-            await ctx.send(context.message.author.mention, embed=erremb)  
+            await ctx.send(ctx.message.author.mention, embed=erremb)  
             return
         else:
             botdb.set("dragonscriptserver_joinmessage", {'serverjoinmsg': msg}, "server")
             erremb=discord.Embed(title="New Member Join Message", description="Join Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0x32e00f)
-            await ctx.send(context.message.author.mention, embed=erremb) 
+            await ctx.send(ctx.message.author.mention, embed=erremb) 
     else:
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
        await ctx.send("", embed=embed)
@@ -318,12 +319,12 @@ async def setleavemessage(ctx, msg : str = ""):
     if "494721265383374879" in [role.id for role in ctx.message.author.roles]:
         if msg == "":
             erremb=discord.Embed(title="Error", description="Message cannot be blank.", color=0xFF0000)
-            await ctx.send(context.message.author.mention, embed=erremb)  
+            await ctx.send(ctx.message.author.mention, embed=erremb)  
             return
         else:
             botdb.set("dragonscriptserver_leavemessage", {'serverleavemsg': msg}, "server")
             erremb=discord.Embed(title="Member Leave Message", description="Leave Message updated to **'" + msg.__str__() + "'**\n([USER] will be replaced with the new members name, and [SERVER] will be replaced with the servers name)", color=0x32e00f)
-            await ctx.send(context.message.author.mention, embed=erremb) 
+            await ctx.send(ctx.message.author.mention, embed=erremb) 
     else:
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
        await ctx.send("", embed=embed)        
