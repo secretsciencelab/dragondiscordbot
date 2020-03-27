@@ -99,8 +99,7 @@ async def _geocodeTimezoneName(place):
     w = tzwhere.tzwhere()
     return w.tzNameAt(location.latitude, location.longitude)
     
-@bot.command(name="time",
-             pass_context=True)
+@bot.command(name="time")
 async def dstime(ctx, place):
   origPlace = place
   if place not in pytz.all_timezones:
@@ -139,15 +138,15 @@ async def botteam():
 ###############
 # Random CMDs #
 ###############
-@bot.command(pass_context=True)
+@bot.command()
 async def hello(context):
   await bot.say("Hello, " + context.message.author.mention + "!")
 
-@bot.command(pass_context=True)
+@bot.command()
 async def goodnight(context):
   await bot.say("Goodnight, " + context.message.author.mention + "! Happy DragonScripting!")
 
-@bot.command(pass_context=True)
+@bot.command()
 async def lucas(context):
   await bot.say("***SNIFFING INTENSIFIES***   You smell guud " + context.message.author.mention + " ^-^")
 
@@ -178,8 +177,7 @@ async def ded():
 @bot.command(name='flip_coin',
              description="Answers a yes/no question.",
              brief="flip",
-             aliases=['flipcoin', 'flip-coin'],
-             pass_context=True)
+             aliases=['flipcoin', 'flip-coin'])
 async def flip_coin(context):
     possible_responses = [
         'tails',
@@ -189,8 +187,7 @@ async def flip_coin(context):
 @bot.command(name='Wingardium_Leviosa',
              description="Answers a yes/no question.",
              brief="lift",
-             aliases=['WingardiumLeviosa', 'Wingardium-Leviosa'],
-             pass_context=True)
+             aliases=['WingardiumLeviosa', 'Wingardium-Leviosa'])
 async def wingardium_leviosa(context):
     possible_responses = [
         'lifted @kami64#7102',
@@ -241,8 +238,7 @@ async def ivanovic():
 @bot.command(name='8ball',
              description="Answers a yes/no question.",
              brief="Answers from the beyond.",
-             aliases=['eight_ball', 'eightball', '8-ball'],
-             pass_context=True)
+             aliases=['eight_ball', 'eightball', '8-ball'])
 async def eight_ball(context):
     possible_responses = [
         'That is a resounding no',
@@ -292,7 +288,7 @@ async def unload(extension_name : str):
     bot.unload_extension(prefix + extension_name)
     await bot.say("Personality module **{}** unloaded.".format(extension_name))
 
-@bot.command(pass_context=True)
+@bot.command()
 async def setgame(context, gamename : str):
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
        await bot.change_presence(game=discord.Game(name=gamename))
@@ -302,7 +298,7 @@ async def setgame(context, gamename : str):
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
        await bot.say("", embed=embed)
 
-@bot.command(pass_context=True)
+@bot.command()
 async def setjoinmessage(context, msg : str = ""):
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
         if msg == "":
@@ -317,7 +313,7 @@ async def setjoinmessage(context, msg : str = ""):
        embed=discord.Embed(title="Error", description="You dont have permission to run this command.", color=0x1abc9c)
        await bot.say("", embed=embed)
 
-@bot.command(pass_context=True)
+@bot.command()
 async def setleavemessage(context, msg : str = ""):
     if "494721265383374879" in [role.id for role in context.message.author.roles]:
         if msg == "":
@@ -389,7 +385,7 @@ async def on_member_remove(member):
 # CMD Error Event #
 ###################
 @bot.event
-async def on_command_error(error, ctx):
+async def on_command_error(ctx, error):
     if isinstance(error, discord.ext.commands.CommandOnCooldown):
         erembed=discord.Embed(title="Error", description=':exclamation: This command is on cooldown, please try again in %.2fs' % error.retry_after, color=0xFF0000)
         await bot.send_message(ctx.message.channel, embed=erembed)
