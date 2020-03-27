@@ -203,7 +203,7 @@ async def wingardium_leviosa(context):
              brief="lift",
              aliases=['Whoisthebest', 'Whois-thebest'],
              pass_context=True)
-async def whois_thebest?(context):
+async def whois_thebest(context):
     possible_responses = [
         '@kami64#7102 he is a god...',
         '@DragonDrawer#2486 is the normie',
