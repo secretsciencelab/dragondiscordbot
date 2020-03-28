@@ -6,7 +6,7 @@ import json
 import random
 from discord.ext import commands
 
-class Aaron():
+class Aaron(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
