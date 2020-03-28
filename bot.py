@@ -389,8 +389,8 @@ async def on_member_remove(member):
 async def on_command_error(ctx, error):
     if isinstance(error, discord.ext.commands.CommandOnCooldown):
         erembed=discord.Embed(title="Error", description=':exclamation: This command is on cooldown, please try again in %.2fs' % error.retry_after, color=0xFF0000)
-        await bot.send_message(ctx.message.channel, embed=erembed)
+        await ctx.message.channel.send(embed=erembed)
     elif isinstance(error, discord.ext.commands.CommandNotFound):
         erembed=discord.Embed(title="Error", description=':exclamation: Unknown command.', color=0xFF0000)
-        await bot.send_message(ctx.message.channel, embed=erembed)
+        await ctx.message.channel.send(embed=erembed)
     raise error
