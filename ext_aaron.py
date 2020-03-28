@@ -15,7 +15,7 @@ class Aaron(commands.Cog):
     await self.bot.say('HOLA!')
 
   @commands.command()
-  async def dadjoke(self):
+  async def dadjoke(self, ctx):
     url = 'https://icanhazdadjoke.com/'
     headers={"Accept": "application/json"}
     async with aiohttp.ClientSession(headers=headers) as session:
@@ -25,7 +25,7 @@ class Aaron(commands.Cog):
         title="Dad says...", 
         description=response['joke'])
       embed.set_thumbnail(url="https://media1.fdncms.com/orlando/imager/via/u/slideshow/2332140/mr-rogersjpg")
-      await self.bot.say("", embed=embed)
+      await ctx.send("", embed=embed)
 
 def setup(bot):
   bot.remove_command("hola")
