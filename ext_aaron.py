@@ -11,8 +11,8 @@ class Aaron(commands.Cog):
     self.bot = bot
 
   @commands.command()
-  async def hola(self):
-    await self.bot.say('HOLA!')
+  async def hola(self, ctx):
+    await ctx.send('HOLA!')
 
   @commands.command()
   async def dadjoke(self, ctx):
