@@ -8,8 +8,8 @@ Everyone that's a part of the DragonScript Coding Club can modify this bot- and 
 
     ```python
    @bot.command()
-   sync def rawr():
-       await bot.say("RAWR!!! :dragon_face:")
+   sync def rawr(ctx):
+       await ctx.send("RAWR!!! :dragon_face:")
     ```
    This automatically creates a new command *!rawr*  
    
@@ -17,8 +17,8 @@ Everyone that's a part of the DragonScript Coding Club can modify this bot- and 
    
    ```python
    @bot.command()
-   async def hello_world():
-    await bot.say("hello_world")
+   async def hello_world(ctx):
+    await ctx.send("hello_world")
    ```
 
    ... that will automatically create a new command *!hello_world*. Of course I'm sure you can be more creative than that.
