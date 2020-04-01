@@ -6,7 +6,7 @@ import json
 import random
 from discord.ext import commands
 
-class Dragondrawer():
+class Dragondrawer(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
