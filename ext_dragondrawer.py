@@ -22,6 +22,9 @@ class Dragondrawer(commands.Cog):
   async def pKIRBY(self, ctx):
     await ctx.send("Desc: kirby is 8 inches tall 28 yrs old https://cdn.discordapp.com/attachments/691091650797240360/694733357551976488/sshot-049.png")
 
+  @commands.command()
+  async def pkami64(self, ctx):
+    await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/471445210904264757/693657259049222240/sshot-044.png")
 def setup(bot):
   bot.remove_command("drawadragon")
   bot.remove_command("babyyoda")
