@@ -37,3 +37,5 @@ def setup(bot):
   bot.remove_command("pSuccosis")
   bot.remove_command("pSteel")
   bot.add_cog(Dragondrawer(bot))
+
+  
