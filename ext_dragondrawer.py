@@ -26,4 +26,4 @@ def setup(bot):
   bot.remove_command("drawadragon")
   bot.remove_command("babyyoda")
   bot.remove_command("pKIRBY")
-  bot.add_cog(dragondrawer(bot))
+  bot.add_cog(Dragondrawer(bot))
