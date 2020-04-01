@@ -25,10 +25,14 @@ class Dragondrawer(commands.Cog):
   @commands.command()
   async def pSuccosis(self, ctx):
     await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/471445210904264757/693657259049222240/sshot-044.png")
-    
+        
   @commands.command()
   async def pSteel(self, ctx):
     await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/471445210904264757/693667947964661830/sshot-046.pngg")
+    
+  @commands.command()
+  async def pkami64(self, ctx):
+    await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/691091650797240360/695058854190514276/sshot-052.png")
     
 def setup(bot):
   bot.remove_command("drawadragon")
@@ -36,6 +40,7 @@ def setup(bot):
   bot.remove_command("pKIRBY")
   bot.remove_command("pSuccosis")
   bot.remove_command("pSteel")
+  bot.remove_command("pkami64")
   bot.add_cog(Dragondrawer(bot))
 
   
