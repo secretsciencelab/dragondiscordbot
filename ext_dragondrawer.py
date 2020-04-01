@@ -20,7 +20,7 @@ class Dragondrawer():
     
   @commands.command()
   async def pKIRBY(self):
-    await self.ctx.send("Desc: https://cdn.discordapp.com/attachments/691091650797240360/694733357551976488/sshot-049.png")
+    await self.ctx.send("Desc: my character is per say 5 foot 10 and is a Male https://cdn.discordapp.com/attachments/691091650797240360/694733357551976488/sshot-049.png")
 
 def setup(bot):
   bot.remove_command("Drawadragon")
