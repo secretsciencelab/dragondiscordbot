@@ -1,4 +1,8 @@
+import aiohttp
+import asyncio
+import botdb
 import discord
+import json
 import random
 from discord.ext import commands
 
