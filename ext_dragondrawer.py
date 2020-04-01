@@ -23,7 +23,7 @@ class Dragondrawer():
     await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/691091650797240360/694733357551976488/sshot-049.png")
 
 def setup(bot):
-  bot.remove_command("Drawadragon")
+  bot.remove_command("drawadragon")
   bot.remove_command("babyyoda")
   bot.remove_command("pKIRBY")
   bot.add_cog(dragondrawer(bot))
