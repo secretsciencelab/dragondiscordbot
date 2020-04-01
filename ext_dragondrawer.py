@@ -25,6 +25,11 @@ class Dragondrawer(commands.Cog):
   @commands.command()
   async def pSuccosis(self, ctx):
     await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/471445210904264757/693657259049222240/sshot-044.png")
+    
+  @commands.command()
+  async def pSteel(self, ctx):
+    await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/471445210904264757/693667947964661830/sshot-046.pngg")
+    
 def setup(bot):
   bot.remove_command("drawadragon")
   bot.remove_command("babyyoda")
