@@ -19,5 +19,6 @@ class Dragondrawer():
     await self.ctx.send("Desc: https://cdn.discordapp.com/attachments/691091650797240360/694733357551976488/sshot-049.png")
 
 def setup(bot):
-  bot.add_cog(Dragondrawer(bot))
-https://cdn.discordapp.com/attachments/691091650797240360/694733357551976488/sshot-049.png
+  bot.remove_command("hola")
+  bot.remove_command("dadjoke")
+  bot.add_cog(Aaron(bot))
