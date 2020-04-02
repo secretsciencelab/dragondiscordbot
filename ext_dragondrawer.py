@@ -20,19 +20,19 @@ class Dragondrawer(commands.Cog):
     
   @commands.command()
   async def pKIRBY(self, ctx):
-    await ctx.send("Desc: kirby is 8 inches tall 28 yrs old https://cdn.discordapp.com/attachments/691091650797240360/694733357551976488/sshot-049.png")
+    await ctx.send("Desc: kirby is 8 inches tall 28 yrs old roles: NONE https://cdn.discordapp.com/attachments/691091650797240360/694733357551976488/sshot-049.png")
 
   @commands.command()
   async def pSuccosis(self, ctx):
-    await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/471445210904264757/693657259049222240/sshot-044.png")
+    await ctx.send("Desc: NONE roles: Dragonbot developer, DragonScripter https://cdn.discordapp.com/attachments/471445210904264757/693657259049222240/sshot-044.png")
         
   @commands.command()
   async def pSteel(self, ctx):
-    await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/471445210904264757/693667947964661830/sshot-046.pngg")
+    await ctx.send("Desc: NONE roles: Dragonbot Developer, DragonScripter, team, DragonScript Champion, $ https://cdn.discordapp.com/attachments/471445210904264757/693667947964661830/sshot-046.pngg")
     
   @commands.command()
   async def pkami64(self, ctx):
-    await ctx.send("Desc: NONE https://cdn.discordapp.com/attachments/691091650797240360/695058854190514276/sshot-052.png")
+    await ctx.send("Desc: NONE roles: Dragonbot Developer, $ https://cdn.discordapp.com/attachments/691091650797240360/695058854190514276/sshot-052.png")
     
 def setup(bot):
   bot.remove_command("drawadragon")
