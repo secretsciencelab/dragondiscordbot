@@ -174,6 +174,10 @@ async def ra(ctx):
 async def ded(ctx):
     await ctx.send("|x.x|") 
     
+@bot.command()
+async def AE(ctx):
+    await ctx.send("Welcome to the dragonscriptarena discord @deedoggy!") 
+    
 @bot.command(name='flip_coin',
              description="Answers a yes/no question.",
              brief="flip",
