@@ -143,8 +143,12 @@ async def hello(ctx):
   await ctx.send("Hello, " + ctx.message.author.mention + "!")
 
 @bot.command()
-async def goodnight(ctx):
+async def gn(ctx):
   await ctx.send("Goodnight, " + ctx.message.author.mention + "! Happy DragonScripting!")
+
+@bot.command()
+async def gm(ctx):
+  await ctx.send("Morning! " + ctx.message.author.mention + "!  Have a great day!")
 
 @bot.command()
 async def lucas(ctx):
