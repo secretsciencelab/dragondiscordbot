@@ -176,7 +176,7 @@ async def ra(ctx):
     
 @bot.command()
 async def cringewarn(ctx):
-    await ctx.send(":cursed_flush:") 
+    await ctx.send(":cursedflush:") 
     
 @bot.command()
 async def AE(ctx):
