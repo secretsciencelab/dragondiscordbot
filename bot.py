@@ -175,8 +175,8 @@ async def ra(ctx):
   await ctx.send("ra!:dragon_face:")
     
 @bot.command()
-async def ded(ctx):
-    await ctx.send("|x.x|") 
+async def cringewarn(ctx):
+    await ctx.send(":cursed_flush:") 
     
 @bot.command()
 async def AE(ctx):
